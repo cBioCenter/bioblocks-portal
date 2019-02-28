@@ -1,21 +1,18 @@
-import { fromJS, List } from 'immutable';
 import * as React from 'react';
-import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
-import { bindActionCreators, Dispatch } from 'redux';
 import { Grid, Message } from 'semantic-ui-react';
 
 import {
   AnatomogramContainer,
-  createSpringActions,
-  fetchSpringData,
-  fetchSpringGraphData,
+  EMPTY_FUNCTION,
   ISpringGraphData,
   SPECIES_TYPE,
   SpringContainer,
   TensorTContainer,
-  VizData,
 } from 'bioblocks-viz';
+import { RouterState } from 'connected-react-router';
+import { connect } from 'react-redux';
+import { IVignette, IVisualization } from '~bioblocks-portal~/data';
 
 export interface IDatasetPageProps extends Partial<RouteComponentProps> {
   dispatchSpringFetch(fetchFn: () => Promise<ISpringGraphData>, namespace?: string): void;
@@ -23,11 +20,12 @@ export interface IDatasetPageProps extends Partial<RouteComponentProps> {
 }
 
 export interface IDatasetPageState {
-  visualizations: List<string>;
+  vignette?: IVignette;
+  visualizations: IVisualization[];
   datasetLocation: string;
 }
 
-export class DatasetPageClass extends React.Component<IDatasetPageProps, IDatasetPageState> {
+export class DatasetPage extends React.Component<IDatasetPageProps, IDatasetPageState> {
   public static defaultProps = {
     dispatchSpringFetch: () => {
       return;
@@ -36,34 +34,38 @@ export class DatasetPageClass extends React.Component<IDatasetPageProps, IDatase
       return;
     },
   };
+
   constructor(props: IDatasetPageProps) {
     super(props);
     this.state = {
-      datasetLocation: '',
-      visualizations: List<string>(),
+      datasetLocation: 'hpc_sf2/full',
+      visualizations: [],
     };
   }
 
-  public componentDidMount() {
+  public async componentDidMount() {
     const { location, setSpecies } = this.props;
     const { datasetLocation } = this.state;
     if (location) {
-      this.setupSearchParameters(location.search);
+      await this.setupSearchParameters(location.search);
     }
     setSpecies(datasetLocation.includes('hpc') ? 'homo_sapiens' : 'mus_musculus');
   }
 
-  public componentDidUpdate(prevProps: IDatasetPageProps, prevState: IDatasetPageState) {
+  public async componentDidUpdate(prevProps: IDatasetPageProps, prevState: IDatasetPageState) {
+    console.log(prevProps);
+    console.log(this.props);
     const { location, setSpecies } = this.props;
     const { datasetLocation } = this.state;
     if (location && location !== prevProps.location) {
-      this.setupSearchParameters(location.search);
+      await this.setupSearchParameters(location.search);
     }
     setSpecies(datasetLocation.includes('hpc') ? 'homo_sapiens' : 'mus_musculus');
   }
 
   public render() {
     const { visualizations, datasetLocation } = this.state;
+    console.log(visualizations);
 
     return (
       <div style={{ padding: '20px' }}>
@@ -79,49 +81,56 @@ export class DatasetPageClass extends React.Component<IDatasetPageProps, IDatase
     );
   }
 
-  protected setupSearchParameters(query: string) {
-    const { dispatchSpringFetch } = this.props;
+  protected async setupSearchParameters(query: string) {
     const params = new URLSearchParams(query);
     // tslint:disable-next-line:no-backbone-get-set-outside-model
-    const datasetLocation = params.get('name');
-    const visualizations = fromJS(params.getAll('viz')) as List<string>;
+    const vignetteLocation = params.get('id');
 
-    dispatchSpringFetch(async () => fetchSpringData(`assets/datasets/${datasetLocation ? datasetLocation : ''}`));
+    const fetchResult = await fetch(`http://localhost:8080/vignette/${vignetteLocation}`);
+    if (!fetchResult.ok) {
+      console.log(`Error fetching vignette ${vignetteLocation}`);
+    } else {
+      const vignette = (await fetchResult.json()) as IVignette;
+      const visualizations = await Promise.all(
+        vignette.visualizations.map(async vizId => {
+          const vizResponse = await fetch(`http://localhost:8080/visualization/${vizId}`);
 
-    this.setState({
-      datasetLocation: datasetLocation ? datasetLocation : '',
-      visualizations,
-    });
+          return (await vizResponse.json()) as IVisualization;
+        }),
+      );
+
+      this.setState({
+        vignette,
+        visualizations,
+      });
+    }
   }
 
-  protected renderVisualization(viz: string | undefined, datasetLocation: string) {
-    const isFullPage = this.state.visualizations.size === 1;
-    switch (viz) {
-      case VizData.spring.name.toLocaleLowerCase():
+  protected renderVisualization(viz: IVisualization, datasetLocation: string) {
+    const isFullPage = this.state.visualizations.length === 1;
+    switch (viz.name.toLocaleLowerCase()) {
+      case 'spring':
         return <SpringContainer datasetLocation={datasetLocation} isFullPage={isFullPage} />;
-      case VizData.tfjsTsne.name.toLocaleLowerCase():
-        return <TensorTContainer datasetLocation={datasetLocation} isFullPage={isFullPage} />;
-      case VizData.anatomogram.name.toLocaleLowerCase():
-        return <AnatomogramContainer />;
+      case 'tfjs-tsne':
+        return (
+          <TensorTContainer
+            datasetLocation={datasetLocation}
+            isFullPage={isFullPage}
+            setCurrentCells={EMPTY_FUNCTION}
+          />
+        );
+      case 'anatomogram':
+        return <AnatomogramContainer species={'homo_sapiens'} />;
       default:
         return <Message error={true}>{`Currently unsupported visualization '${viz}'`}</Message>;
     }
   }
 }
 
-export const UnconnectedDatasetPage = (props: IDatasetPageProps) => <DatasetPageClass {...props} />;
+const mapStateToProps = (state: { router: RouterState }) => ({
+  hash: state.router.location.hash,
+  pathname: state.router.location.pathname,
+  search: state.router.location.search,
+});
 
-const mapDispatchToProps = (dispatch: Dispatch) =>
-  bindActionCreators(
-    {
-      dispatchSpringFetch: fetchSpringGraphData,
-      setSpecies: createSpringActions().species.set,
-    },
-    dispatch,
-  );
-
-// tslint:disable-next-line:max-classes-per-file
-export class DatasetPage extends connect(
-  undefined,
-  mapDispatchToProps,
-)(UnconnectedDatasetPage) {}
+export const ConnectedDatasetPage = connect(mapStateToProps)(DatasetPage);

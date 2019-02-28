@@ -1,13 +1,20 @@
+import { IDatasetInfo, IVizSummaryData, userDatasets, VizData } from 'bioblocks-viz';
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
 import { Link } from 'react-router-dom';
 import { Button, Container, Divider, Grid, Header, Segment } from 'semantic-ui-react';
 
-import { IDatasetInfo, IStory, IVizSummaryData, Stories, userDatasets, VizData } from 'bioblocks-viz';
+import { IVignette } from '~bioblocks-portal~/data';
 
-export interface ILandingPageProps extends Partial<RouteComponentProps> {}
+export interface ILandingPageProps extends Partial<RouteComponentProps> {
+  featuredVignettes: IVignette[];
+}
 
 export class LandingPage extends React.Component<ILandingPageProps, any> {
+  public static defaultProps = {
+    featuredVignettes: [],
+  };
+
   constructor(props: ILandingPageProps) {
     super(props);
   }
@@ -17,7 +24,7 @@ export class LandingPage extends React.Component<ILandingPageProps, any> {
       <Container fluid={false}>
         <Segment basic={true} padded={'very'}>
           <Grid centered={true} padded={true} relaxed={true}>
-            {this.renderFeaturedStories()}
+            {this.renderFeaturedVignettes()}
             {this.renderFeaturedVisualizations()}
             {this.renderFeaturedDatasets()}
           </Grid>
@@ -87,21 +94,23 @@ export class LandingPage extends React.Component<ILandingPageProps, any> {
     );
   }
 
-  protected renderFeaturedStories() {
+  protected renderFeaturedVignettes() {
+    const { featuredVignettes } = this.props;
+
     return (
       <>
         <Grid.Row centered={false}>
           <Grid.Column width={12}>
-            <Header floated={'left'}>Featured Stories</Header>
+            <Header floated={'left'}>Featured Vignettes</Header>
             <Divider section={true} />
           </Grid.Column>
         </Grid.Row>
-        {this.renderSingleFeaturedStory(Stories[0])}
-        {this.renderSingleFeaturedStory(Stories[1])}
+        {featuredVignettes[0] && this.renderSingleFeaturedVignette(featuredVignettes[0])}
+        {featuredVignettes[1] && this.renderSingleFeaturedVignette(featuredVignettes[1])}
         <Grid.Row centered={false}>
           <Grid.Column width={12}>
-            <Link style={{ color: 'blue', float: 'right' }} to={'stories'}>
-              more stories...
+            <Link style={{ color: 'blue', float: 'right' }} to={'vignettes'}>
+              more vignettes...
             </Link>
           </Grid.Column>
         </Grid.Row>
@@ -131,27 +140,29 @@ export class LandingPage extends React.Component<ILandingPageProps, any> {
     );
   }
 
-  protected renderSingleFeaturedStory(story: IStory) {
+  protected renderSingleFeaturedVignette(vignette: IVignette) {
     return (
       <Grid.Row columns={3}>
         <Grid.Column width={2}>
-          <img src={story.icon} style={{ height: '90px', width: '90px' }} alt={`story ${story.title} icon`} />
+          <img src={vignette.icon} style={{ height: '90px', width: '90px' }} alt={`vignettes ${vignette.name} icon`} />
         </Grid.Column>
         <Grid.Column textAlign={'left'} width={8}>
-          <Header>{story.title}</Header>
+          <Header>{vignette.name}</Header>
           <p>
             <span style={{ fontWeight: 'bold' }}>Description: </span>
-            {story.description}
+            {vignette.summary}
           </p>
           <p>
             <span style={{ fontWeight: 'bold' }}>Analysis authors: </span>
-            {story.authors.length === 2 ? `${story.authors[0]} and ${story.authors[1]}` : story.authors.join(', ')}
+            {vignette.authors.length === 2
+              ? `${vignette.authors[0]} and ${vignette.authors[1]}`
+              : vignette.authors.join(', ')}
           </p>
           <br />
         </Grid.Column>
         <Grid.Column width={2}>
           <Button basic={true}>
-            <Link to={story.link}>launch</Link>
+            <Link to={vignette.link}>launch</Link>
           </Button>
         </Grid.Column>
       </Grid.Row>
