@@ -134,17 +134,10 @@ module.exports = {
   ],
   resolve: {
     alias: {
-      '~bioblocks-viz~': path.resolve(__dirname, './src'),
-      '~bioblocks-viz~/action': path.resolve(__dirname, './src/action'),
-      '~bioblocks-viz~/component': path.resolve(__dirname, './src/component'),
-      '~bioblocks-viz~/container': path.resolve(__dirname, './src/container'),
-      '~bioblocks-viz~/context': path.resolve(__dirname, './src/context'),
-      '~bioblocks-viz~/data': path.resolve(__dirname, './src/data'),
-      '~bioblocks-viz~/helper': path.resolve(__dirname, './src/helper'),
-      '~bioblocks-viz~/hoc': path.resolve(__dirname, './src/hoc'),
-      '~bioblocks-viz~/reducer': path.resolve(__dirname, './src/reducer'),
+      '~bioblocks-portal~': path.resolve(__dirname, './src'),
+      '~bioblocks-portal~/component': path.resolve(__dirname, './src/component'),
     },
     extensions: ['.js', '.json', '.ts', '.tsx'],
-    modules: [path.join(__dirname, 'src'), path.join(__dirname, 'types'), 'node_modules'],
+    modules: [path.join(__dirname, 'src'), path.join(__dirname, 'types'), path.resolve('node_modules'), 'node_modules'],
   },
 };

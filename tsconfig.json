@@ -12,16 +12,20 @@
     "noUnusedParameters": false,
     "outDir": "./dist/",
     "paths": {
+      "*": ["types/*"],
+      "~bioblocks-portal~": ["./src"],
+      "~bioblocks-portal~/test": ["./test"],
+      "~bioblocks-portal~/*": ["./src/*"],
       "jest": ["node_modules/@types/jest/index.d.ts"]
     },
     "skipLibCheck": true,
     "sourceMap": true,
     "strict": true,
     "target": "es5",
-    "typeRoots": ["./node_modules/@types"]
+    "typeRoots": ["./types", "./node_modules/@types"]
   },
   "exclude": ["node_modules"],
-  "include": ["src/**/*", "configs/**/*", "test/**/*", "./*.tsx"],
+  "include": ["src/**/*", "types", "configs/**/*", "test/**/*", "./*.tsx"],
   "typeAcquisition": {
     "enable": false
   }

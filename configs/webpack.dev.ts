@@ -13,7 +13,15 @@ const devConfig: Config = {
   },
   devtool: 'inline-source-map',
   mode: 'development',
-  plugins: [new webpack.HotModuleReplacementPlugin()],
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.DefinePlugin({
+      'process.env': {
+        API_URL: JSON.stringify('http://localhost:11037'),
+        NODE_ENV: JSON.stringify('development'),
+      },
+    }),
+  ],
 };
 
 module.exports = merge(common, devConfig);

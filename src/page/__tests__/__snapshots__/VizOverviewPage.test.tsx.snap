@@ -1,0 +1,343 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VizOverviewPage Should match existing snapshot when chenging the visualization via routing 1`] = `
+<Container>
+  <Grid
+    centered={true}
+    columns={2}
+  >
+    <GridColumn
+      width={2}
+    >
+      <img
+        alt="icon for "
+        src="undefinedundefined"
+        style={
+          Object {
+            "height": "150px",
+            "padding": "20px",
+          }
+        }
+      />
+    </GridColumn>
+    <GridColumn
+      textAlign="left"
+    >
+      <Header
+        as="h1"
+      >
+        <HeaderSubheader>
+          Eminem
+        </HeaderSubheader>
+      </Header>
+      <p />
+      <List>
+        <ListItem>
+          compatible with: 
+        </ListItem>
+        <ListItem>
+          citation(s):
+           
+        </ListItem>
+        <ListItem>
+          version: 
+           (last updated 
+          03/13/19
+          ),
+          <a
+            href="The Ringer"
+          >
+             github link
+          </a>
+        </ListItem>
+        <ListItem>
+          <GridColumn
+            floated="right"
+          >
+            <Button
+              as="button"
+              basic={true}
+              icon={true}
+              labelPosition="right"
+            >
+              <Link
+                replace={false}
+                to={
+                  Object {
+                    "pathname": "/dataset",
+                    "search": "?viz=",
+                  }
+                }
+              >
+                launch 
+              </Link>
+              <Icon
+                as="i"
+                name="external alternate"
+              />
+            </Button>
+          </GridColumn>
+        </ListItem>
+      </List>
+    </GridColumn>
+  </Grid>
+  <Accordion
+    defaultActiveIndex={0}
+    panels={
+      Array [
+        Object {
+          "content": Object {
+            "content": <React.Fragment>
+              <Divider />
+              <Grid
+                centered={true}
+                columns={1}
+                container={true}
+                divided="vertically"
+                style={
+                  Object {
+                    "padding": "10px 0",
+                  }
+                }
+              >
+                <GridRow
+                  columns={2}
+                >
+                  <React.Fragment>
+                    <GridColumn
+                      width={2}
+                    >
+                      <img
+                        alt=" icon"
+                        src="undefined"
+                        style={
+                          Object {
+                            "height": "75px",
+                            "width": "75px",
+                          }
+                        }
+                      />
+                    </GridColumn>
+                    <GridColumn
+                      textAlign="left"
+                      width={8}
+                    >
+                      <Header>
+                        
+                      </Header>
+                      <p>
+                        Rise Against Viz
+                      </p>
+                    </GridColumn>
+                    <GridColumn
+                      floated="right"
+                    >
+                      <Button
+                        as="button"
+                        basic={true}
+                        icon={true}
+                        labelPosition="right"
+                      >
+                        <Link
+                          replace={false}
+                          to=""
+                        >
+                          launch example
+                        </Link>
+                        <Icon
+                          as="i"
+                          name="external alternate"
+                        />
+                      </Button>
+                    </GridColumn>
+                  </React.Fragment>
+                </GridRow>
+              </Grid>
+            </React.Fragment>,
+          },
+          "key": "examples",
+          "title": "example vignettes",
+        },
+        Object {
+          "content": "coming soon!",
+          "key": "learn",
+          "title": "learn",
+        },
+      ]
+    }
+  />
+</Container>
+`;
+
+exports[`VizOverviewPage Should match existing snapshot when chenging the visualization via routing 2`] = `
+<Container>
+  <Grid
+    centered={true}
+    columns={2}
+  >
+    <GridColumn
+      width={2}
+    >
+      <img
+        alt="icon for "
+        src="undefinedundefined"
+        style={
+          Object {
+            "height": "150px",
+            "padding": "20px",
+          }
+        }
+      />
+    </GridColumn>
+    <GridColumn
+      textAlign="left"
+    >
+      <Header
+        as="h1"
+      >
+        <HeaderSubheader>
+          Franz Ferdinand
+        </HeaderSubheader>
+      </Header>
+      <p />
+      <List>
+        <ListItem>
+          compatible with: 
+        </ListItem>
+        <ListItem>
+          citation(s):
+           
+        </ListItem>
+        <ListItem>
+          version: 
+           (last updated 
+          03/13/19
+          ),
+          <a
+            href="the-dark-of-the-matinée"
+          >
+             github link
+          </a>
+        </ListItem>
+        <ListItem>
+          <GridColumn
+            floated="right"
+          >
+            <Button
+              as="button"
+              basic={true}
+              icon={true}
+              labelPosition="right"
+            >
+              <Link
+                replace={false}
+                to={
+                  Object {
+                    "pathname": "/dataset",
+                    "search": "?viz=",
+                  }
+                }
+              >
+                launch 
+              </Link>
+              <Icon
+                as="i"
+                name="external alternate"
+              />
+            </Button>
+          </GridColumn>
+        </ListItem>
+      </List>
+    </GridColumn>
+  </Grid>
+  <Accordion
+    defaultActiveIndex={0}
+    panels={
+      Array [
+        Object {
+          "content": Object {
+            "content": <React.Fragment>
+              <Divider />
+              <Grid
+                centered={true}
+                columns={1}
+                container={true}
+                divided="vertically"
+                style={
+                  Object {
+                    "padding": "10px 0",
+                  }
+                }
+              >
+                <GridRow
+                  columns={2}
+                >
+                  <React.Fragment>
+                    <GridColumn
+                      width={2}
+                    >
+                      <img
+                        alt=" icon"
+                        src="undefined"
+                        style={
+                          Object {
+                            "height": "75px",
+                            "width": "75px",
+                          }
+                        }
+                      />
+                    </GridColumn>
+                    <GridColumn
+                      textAlign="left"
+                      width={8}
+                    >
+                      <Header>
+                        
+                      </Header>
+                      <p>
+                        Rise Against Viz
+                      </p>
+                    </GridColumn>
+                    <GridColumn
+                      floated="right"
+                    >
+                      <Button
+                        as="button"
+                        basic={true}
+                        icon={true}
+                        labelPosition="right"
+                      >
+                        <Link
+                          replace={false}
+                          to=""
+                        >
+                          launch example
+                        </Link>
+                        <Icon
+                          as="i"
+                          name="external alternate"
+                        />
+                      </Button>
+                    </GridColumn>
+                  </React.Fragment>
+                </GridRow>
+              </Grid>
+            </React.Fragment>,
+          },
+          "key": "examples",
+          "title": "example vignettes",
+        },
+        Object {
+          "content": "coming soon!",
+          "key": "learn",
+          "title": "learn",
+        },
+      ]
+    }
+  />
+</Container>
+`;
+
+exports[`VizOverviewPage Should match existing snapshot when given no vignettes or visualizations. 1`] = `""`;
+
+exports[`VizOverviewPage Should match existing snapshot when given sample vignettes and visualizations. 1`] = `""`;
