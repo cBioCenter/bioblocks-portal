@@ -1,31 +1,27 @@
 import * as React from 'react';
-import { RouteComponentProps } from 'react-router';
 import { Grid, Message } from 'semantic-ui-react';
 
-import {
-  AnatomogramContainer,
-  EMPTY_FUNCTION,
-  ISpringGraphData,
-  SPECIES_TYPE,
-  SpringContainer,
-  TensorTContainer,
-} from 'bioblocks-viz';
-import { RouterState } from 'connected-react-router';
+import { AnatomogramContainer, ISpringGraphData, SPECIES_TYPE, SpringContainer, TensorTContainer } from 'bioblocks-viz';
 import { connect } from 'react-redux';
 import { IVignette, IVisualization } from '~bioblocks-portal~/data';
+import { IPortalReducerState } from '~bioblocks-portal~/reducer';
+import { selectVignettes, selectVisualizations } from '~bioblocks-portal~/selector';
 
-export interface IDatasetPageProps extends Partial<RouteComponentProps> {
+export interface IDatasetPageProps {
+  pathname: string;
+  search: string;
+  vignettes: IVignette[];
+  visualizations: IVisualization[];
   dispatchSpringFetch(fetchFn: () => Promise<ISpringGraphData>, namespace?: string): void;
   setSpecies(species: SPECIES_TYPE): void;
 }
 
 export interface IDatasetPageState {
-  vignette?: IVignette;
-  visualizations: IVisualization[];
+  datasetVisualizations: IVisualization[];
   datasetLocation: string;
 }
 
-export class DatasetPage extends React.Component<IDatasetPageProps, IDatasetPageState> {
+export class UnconnectedDatasetPage extends React.Component<IDatasetPageProps, IDatasetPageState> {
   public static defaultProps = {
     dispatchSpringFetch: () => {
       return;
@@ -39,39 +35,40 @@ export class DatasetPage extends React.Component<IDatasetPageProps, IDatasetPage
     super(props);
     this.state = {
       datasetLocation: 'hpc_sf2/full',
-      visualizations: [],
+      datasetVisualizations: [],
     };
   }
 
   public async componentDidMount() {
-    const { location, setSpecies } = this.props;
+    const { search, setSpecies } = this.props;
     const { datasetLocation } = this.state;
-    if (location) {
-      await this.setupSearchParameters(location.search);
+    if (search) {
+      this.setupSearchParameters(search);
     }
     setSpecies(datasetLocation.includes('hpc') ? 'homo_sapiens' : 'mus_musculus');
   }
 
-  public async componentDidUpdate(prevProps: IDatasetPageProps, prevState: IDatasetPageState) {
-    console.log(prevProps);
-    console.log(this.props);
-    const { location, setSpecies } = this.props;
+  public componentDidUpdate(prevProps: IDatasetPageProps) {
+    const { search, setSpecies, vignettes, visualizations } = this.props;
     const { datasetLocation } = this.state;
-    if (location && location !== prevProps.location) {
-      await this.setupSearchParameters(location.search);
+    if (
+      (search && search !== prevProps.search) ||
+      vignettes !== prevProps.vignettes ||
+      visualizations !== prevProps.visualizations
+    ) {
+      this.setupSearchParameters(search);
     }
     setSpecies(datasetLocation.includes('hpc') ? 'homo_sapiens' : 'mus_musculus');
   }
 
   public render() {
-    const { visualizations, datasetLocation } = this.state;
-    console.log(visualizations);
+    const { datasetVisualizations, datasetLocation } = this.state;
 
     return (
       <div style={{ padding: '20px' }}>
         <Grid centered={true} stackable={true} stretched={false} padded={true} columns={2}>
           {datasetLocation.length >= 1 &&
-            visualizations.map((visualization, index) => (
+            datasetVisualizations.map((visualization, index) => (
               <Grid.Column key={`dataset-visualization-${index}`} style={{ width: 'auto' }}>
                 {this.renderVisualization(visualization, datasetLocation)}
               </Grid.Column>
@@ -81,56 +78,68 @@ export class DatasetPage extends React.Component<IDatasetPageProps, IDatasetPage
     );
   }
 
-  protected async setupSearchParameters(query: string) {
-    const params = new URLSearchParams(query);
-    // tslint:disable-next-line:no-backbone-get-set-outside-model
-    const vignetteLocation = params.get('id');
+  protected setupSearchParameters(query: string) {
+    const { vignettes, visualizations } = this.props;
 
-    const fetchResult = await fetch(`http://localhost:8080/vignette/${vignetteLocation}`);
-    if (!fetchResult.ok) {
-      console.log(`Error fetching vignette ${vignetteLocation}`);
-    } else {
-      const vignette = (await fetchResult.json()) as IVignette;
-      const visualizations = await Promise.all(
-        vignette.visualizations.map(async vizId => {
-          const vizResponse = await fetch(`http://localhost:8080/visualization/${vizId}`);
+    let datasetLocation = this.state.datasetLocation;
+    const datasetVisualizations = new Array<IVisualization>();
+    if (vignettes) {
+      const vignetteParams = new URLSearchParams(query);
+      // tslint:disable-next-line:no-backbone-get-set-outside-model
+      const datasetId = vignetteParams.get('id');
 
-          return (await vizResponse.json()) as IVisualization;
-        }),
-      );
+      datasetLocation = datasetId ? datasetId : datasetLocation;
+      const vizIds = vignetteParams.getAll('viz');
+      vizIds.forEach(vizId => {
+        const viz = visualizations.find(aViz => vizId === aViz._id);
+        if (viz) {
+          datasetVisualizations.push(viz);
+        }
+      });
 
       this.setState({
-        vignette,
-        visualizations,
+        datasetLocation,
+        datasetVisualizations,
       });
     }
   }
 
   protected renderVisualization(viz: IVisualization, datasetLocation: string) {
-    const isFullPage = this.state.visualizations.length === 1;
+    const isFullPage = this.state.datasetVisualizations.length === 1;
+    const iconSrc = `${process.env.API_URL}${viz.icon}`;
+    console.log(datasetLocation);
     switch (viz.name.toLocaleLowerCase()) {
       case 'spring':
-        return <SpringContainer datasetLocation={datasetLocation} isFullPage={isFullPage} />;
+        return (
+          <SpringContainer
+            datasetLocation={datasetLocation}
+            datasetsURI={`${process.env.API_URL}/datasets`}
+            isFullPage={isFullPage}
+            springSrc={`${process.env.API_URL}/${viz.location}`}
+            iconSrc={iconSrc}
+          />
+        );
       case 'tfjs-tsne':
         return (
           <TensorTContainer
-            datasetLocation={datasetLocation}
+            datasetLocation={`${process.env.API_URL}/datasets/${datasetLocation}`}
+            iconSrc={iconSrc}
             isFullPage={isFullPage}
-            setCurrentCells={EMPTY_FUNCTION}
           />
         );
       case 'anatomogram':
-        return <AnatomogramContainer species={'homo_sapiens'} />;
+        return <AnatomogramContainer iconSrc={iconSrc} />;
       default:
         return <Message error={true}>{`Currently unsupported visualization '${viz}'`}</Message>;
     }
   }
 }
 
-const mapStateToProps = (state: { router: RouterState }) => ({
-  hash: state.router.location.hash,
+const mapStateToProps = (state: IPortalReducerState) => ({
   pathname: state.router.location.pathname,
   search: state.router.location.search,
+  vignettes: selectVignettes(state),
+  visualizations: selectVisualizations(state),
 });
 
-export const ConnectedDatasetPage = connect(mapStateToProps)(DatasetPage);
+export const DatasetPage = connect(mapStateToProps)(UnconnectedDatasetPage);

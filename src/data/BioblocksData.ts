@@ -42,8 +42,10 @@ export interface IVisualization {
   authors: string[];
   citations: ICitation[];
   compatibleData: string[];
+  icon?: string;
   isOriginal: boolean;
   labels: string[];
+  location?: string;
   name: string;
   repo: IRepo;
   summary: string;

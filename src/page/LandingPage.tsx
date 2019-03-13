@@ -1,18 +1,19 @@
-import { IDatasetInfo, IVizSummaryData, userDatasets, VizData } from 'bioblocks-viz';
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
 import { Link } from 'react-router-dom';
 import { Button, Container, Divider, Grid, Header, Segment } from 'semantic-ui-react';
 
-import { IVignette } from '~bioblocks-portal~/data';
+import { IVignette, IVisualization } from '~bioblocks-portal~/data';
 
 export interface ILandingPageProps extends Partial<RouteComponentProps> {
   featuredVignettes: IVignette[];
+  featuredVisualizations: IVisualization[];
 }
 
 export class LandingPage extends React.Component<ILandingPageProps, any> {
   public static defaultProps = {
     featuredVignettes: [],
+    featuredVisualizations: [],
   };
 
   constructor(props: ILandingPageProps) {
@@ -33,12 +34,12 @@ export class LandingPage extends React.Component<ILandingPageProps, any> {
     );
   }
 
-  protected renderSingleVisualization(viz: IVizSummaryData) {
+  protected renderSingleVisualization(viz: IVisualization) {
     return (
       <Grid.Row columns={3}>
         <Grid.Column width={2}>
           <img
-            src={`assets/icons/${viz.name.toLocaleLowerCase()}-thumbnail.png`}
+            src={`${process.env.API_URL}${viz.icon}`}
             style={{ height: '90px', width: '90px' }}
             alt={`viz ${viz.name} icon`}
           />
@@ -47,7 +48,7 @@ export class LandingPage extends React.Component<ILandingPageProps, any> {
           <Header>{viz.name}</Header>
           {viz.summary}
           <p>
-            <span style={{ fontWeight: 'bold' }}>{viz.listAsOriginal ? 'Original authors' : 'Authors'}: </span>
+            <span style={{ fontWeight: 'bold' }}>{viz.isOriginal ? 'Original authors' : 'Authors'}: </span>
             {viz.authors.length === 2 ? `${viz.authors[0]} and ${viz.authors[1]}` : viz.authors.join(', ')}
           </p>
           <br />
@@ -119,6 +120,8 @@ export class LandingPage extends React.Component<ILandingPageProps, any> {
   }
 
   protected renderFeaturedVisualizations() {
+    const { featuredVisualizations } = this.props;
+
     return (
       <>
         <Grid.Row centered={false}>
@@ -127,8 +130,8 @@ export class LandingPage extends React.Component<ILandingPageProps, any> {
             <Divider section={true} />
           </Grid.Column>
         </Grid.Row>
-        {this.renderSingleVisualization(VizData.spring)}
-        {this.renderSingleVisualization(VizData.tfjsTsne)}
+        {featuredVisualizations[0] && this.renderSingleVisualization(featuredVisualizations[0])}
+        {featuredVisualizations[1] && this.renderSingleVisualization(featuredVisualizations[1])}
         <Grid.Row centered={false}>
           <Grid.Column width={12}>
             <Link style={{ color: 'blue', float: 'right' }} to={'visualizations'}>
@@ -144,7 +147,11 @@ export class LandingPage extends React.Component<ILandingPageProps, any> {
     return (
       <Grid.Row columns={3}>
         <Grid.Column width={2}>
-          <img src={vignette.icon} style={{ height: '90px', width: '90px' }} alt={`vignettes ${vignette.name} icon`} />
+          <img
+            src={`${process.env.API_URL}${vignette.icon}`}
+            style={{ height: '90px', width: '90px' }}
+            alt={`vignettes ${vignette.name} icon`}
+          />
         </Grid.Column>
         <Grid.Column textAlign={'left'} width={8}>
           <Header>{vignette.name}</Header>
@@ -186,6 +193,7 @@ export class LandingPage extends React.Component<ILandingPageProps, any> {
     );
   }
 
+  /*
   protected renderSingleUserSharedDatasets(dataset: IDatasetInfo) {
     return (
       <Grid.Row columns={2}>
@@ -209,6 +217,7 @@ export class LandingPage extends React.Component<ILandingPageProps, any> {
       </Grid.Row>
     );
   }
+  */
 
   protected renderUserSharedDatasets() {
     return (
@@ -219,8 +228,8 @@ export class LandingPage extends React.Component<ILandingPageProps, any> {
           </Header>
         </Grid.Row>
         <br />
-        <Grid.Row>{this.renderSingleUserSharedDatasets(userDatasets[0])}</Grid.Row>
-        <Grid.Row>{this.renderSingleUserSharedDatasets(userDatasets[1])}</Grid.Row>
+        {/*<Grid.Row>{this.renderSingleUserSharedDatasets(userDatasets[0])}</Grid.Row>
+        <Grid.Row>{this.renderSingleUserSharedDatasets(userDatasets[1])}</Grid.Row>*/}
       </Grid.Column>
     );
   }

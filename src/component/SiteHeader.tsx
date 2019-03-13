@@ -1,5 +1,6 @@
+import { RouterState } from 'connected-react-router';
 import * as React from 'react';
-import { RouteComponentProps } from 'react-router';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import {
   Breadcrumb,
@@ -7,7 +8,6 @@ import {
   Container,
   Divider,
   Dropdown,
-  Grid,
   Header,
   Input,
   List,
@@ -18,16 +18,17 @@ import {
   Table,
 } from 'semantic-ui-react';
 
-import { DatasetData, VizData } from 'bioblocks-viz';
-
-export interface ISiteHeaderProps extends Partial<RouteComponentProps> {}
+export interface ISiteHeaderProps {
+  pathname: string;
+  search: string;
+}
 
 export interface ISiteHeaderState {
   currentPageName: null | string;
   isModalOpen: boolean;
 }
 
-export class SiteHeader extends React.Component<ISiteHeaderProps, ISiteHeaderState> {
+export class UnconnectedSiteHeader extends React.Component<ISiteHeaderProps, ISiteHeaderState> {
   constructor(props: ISiteHeaderProps) {
     super(props);
     this.state = {
@@ -38,14 +39,14 @@ export class SiteHeader extends React.Component<ISiteHeaderProps, ISiteHeaderSta
 
   public componentDidMount() {
     window.addEventListener('click', this.onMouseClick);
-    if (this.props.location) {
-      this.handleQueryParams(this.props.location.search);
+    if (this.props.search) {
+      this.handleQueryParams(this.props.search);
     }
   }
 
   public componentDidUpdate(prevProps: ISiteHeaderProps) {
-    if (this.props.location && this.props.location !== prevProps.location) {
-      this.handleQueryParams(this.props.location.search);
+    if (this.props.pathname && this.props.pathname !== prevProps.pathname) {
+      this.handleQueryParams(this.props.search);
     }
   }
 
@@ -73,52 +74,20 @@ export class SiteHeader extends React.Component<ISiteHeaderProps, ISiteHeaderSta
           </Menu.Item>
         </Menu>
         {this.renderNavBreadcrumb()}
-        {this.renderCurrentData()}
       </Header>
     );
   }
 
-  protected renderCurrentData() {
-    const { location } = this.props;
-    if (location) {
-      const params = new URLSearchParams(location.search);
-      const visualizations = params.getAll('viz');
-      // tslint:disable-next-line:no-backbone-get-set-outside-model
-      const name = params.get('name');
-
-      return (
-        name &&
-        DatasetData[name] && (
-          <Grid centered={true} padded={true} textAlign={'center'}>
-            <Grid.Row textAlign={'left'}>
-              <p>
-                {`Selected visualization(s): `}
-                {
-                  <span style={{ fontWeight: 'normal' }}>
-                    {visualizations.map(viz => VizData[viz].name).join(', ')}
-                  </span>
-                }
-                <br />
-                {name && `Selected dataset: `}
-                <span style={{ fontWeight: 'normal' }}>{`${DatasetData[name].fullName} (${name})`}</span>
-              </p>
-            </Grid.Row>
-          </Grid>
-        )
-      );
-    } else {
-      return null;
-    }
-  }
-
   protected renderNavBreadcrumb() {
+    const { pathname } = this.props;
+
     return (
       <Breadcrumb style={{ padding: '0 0 0 40px' }}>
         <Breadcrumb.Section>
           <Link to={'/'}>home</Link>
         </Breadcrumb.Section>
-        {this.props.location &&
-          this.props.location.pathname
+        {pathname &&
+          pathname
             .split('/')
             .filter(candidatePath => candidatePath.length >= 1)
             .map((path, index) => (
@@ -152,9 +121,9 @@ export class SiteHeader extends React.Component<ISiteHeaderProps, ISiteHeaderSta
             visualizations
           </Link>
         </Menu.Item>
-        <Menu.Item key={'stories'}>
-          <Link to={'/stories'} style={{ color: 'black', fontSize: '18px' }}>
-            stories
+        <Menu.Item key={'vignettes'}>
+          <Link to={'/vignettes'} style={{ color: 'black', fontSize: '18px' }}>
+            vignettes
           </Link>
         </Menu.Item>
       </Menu>
@@ -165,16 +134,16 @@ export class SiteHeader extends React.Component<ISiteHeaderProps, ISiteHeaderSta
     const params = new URLSearchParams(search);
     const visualizations = params.getAll('viz');
     // tslint:disable-next-line:no-backbone-get-set-outside-model
-    const name = params.get('name');
+    const id = params.get('id');
 
     if (visualizations.length >= 1 && !name) {
       this.setState({
-        currentPageName: name,
+        currentPageName: id,
         isModalOpen: true,
       });
     } else {
       this.setState({
-        currentPageName: name,
+        currentPageName: id,
         isModalOpen: false,
       });
     }
@@ -235,8 +204,8 @@ export class SiteHeader extends React.Component<ISiteHeaderProps, ISiteHeaderSta
 
   protected renderDatasetMenu = () => {
     let visualizations: string[] = [];
-    if (this.props.location) {
-      const params = new URLSearchParams(this.props.location.search);
+    if (this.props.search) {
+      const params = new URLSearchParams(this.props.search);
       visualizations = params.getAll('viz').map(viz => `viz=${viz}`);
     }
 
@@ -307,3 +276,10 @@ export class SiteHeader extends React.Component<ISiteHeaderProps, ISiteHeaderSta
     this.setState({ isModalOpen: true });
   };
 }
+
+const mapStateToProps = (state: { router: RouterState }) => ({
+  pathname: state.router.location.pathname,
+  search: state.router.location.search,
+});
+
+export const SiteHeader = connect(mapStateToProps)(UnconnectedSiteHeader);

@@ -135,7 +135,7 @@
     "test:staged": "jest --onlyChanged"
   },
   "dependencies": {
-    "bioblocks-viz": "^0.0.95",
+    "bioblocks-viz": "^0.0.99",
     "canvas": "^2.3.1",
     "connected-react-router": "^6.3.1",
     "history": "^4.7.2",
@@ -149,7 +149,7 @@
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
-    "semantic-ui-react": "^0.83.0"
+    "semantic-ui-react": "^0.85.0"
   },
   "devDependencies": {
     "@types/clean-webpack-plugin": "^0.1.2",
@@ -162,6 +162,7 @@
     "@types/react-dom": "^16.0.5",
     "@types/react-redux": "^7.0.1",
     "@types/react-router-dom": "^4.3.1",
+    "@types/redux-logger": "^3.0.7",
     "@types/wallabyjs": "^0.0.6",
     "@types/webpack-bundle-analyzer": "^2.9.2",
     "@types/webpack-env": "^1.13.6",

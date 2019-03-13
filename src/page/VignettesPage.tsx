@@ -35,7 +35,11 @@ export class VignettesPageClass extends React.Component<IVignettesPageProps, any
     return (
       <Grid.Row columns={3}>
         <Grid.Column>
-          <img src={vignette.icon} style={{ height: '90px', width: '90px' }} alt={`vignette ${vignette.name} icon`} />
+          <img
+            src={`${process.env.API_URL}${vignette.icon}`}
+            style={{ height: '90px', width: '90px' }}
+            alt={`vignette ${vignette.name} icon`}
+          />
         </Grid.Column>
         <Grid.Column textAlign={'left'}>
           <Header>{vignette.name}</Header>
@@ -53,7 +57,7 @@ export class VignettesPageClass extends React.Component<IVignettesPageProps, any
         </Grid.Column>
         <Grid.Column>
           <Button basic={true}>
-            <Link to={`/dataset?id=${vignette._id}`}>launch</Link>
+            <Link to={vignette.link}>launch</Link>
           </Button>
         </Grid.Column>
       </Grid.Row>
@@ -61,6 +65,4 @@ export class VignettesPageClass extends React.Component<IVignettesPageProps, any
   }
 }
 
-export const UnconnectedVignettesPage = (props: IVignettesPageProps) => <VignettesPageClass {...props} />;
-
-export const VignettesPage = connect(undefined)(UnconnectedVignettesPage);
+export const VignettesPage = connect(undefined)(VignettesPageClass);

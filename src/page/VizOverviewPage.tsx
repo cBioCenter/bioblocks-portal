@@ -1,16 +1,27 @@
-import { IVizExample, IVizOverviewData, VizData } from 'bioblocks-viz';
+import { RouterState } from 'connected-react-router';
 import * as React from 'react';
+import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 import { Link } from 'react-router-dom';
 import { Accordion, Button, Container, Divider, Grid, Header, Icon, List } from 'semantic-ui-react';
 
-export interface IVizOverviewPageProps extends Partial<RouteComponentProps> {}
+import { IVignette, IVisualization } from '~bioblocks-portal~/data';
 
-export interface IVizOverviewPageState {
-  currentViz: IVizOverviewData | null;
+export interface IVizOverviewPageProps extends Partial<RouteComponentProps> {
+  vignettes: IVignette[];
+  visualizations: IVisualization[];
 }
 
-export class VizOverviewPage extends React.Component<IVizOverviewPageProps, IVizOverviewPageState> {
+export interface IVizOverviewPageState {
+  currentViz: IVisualization | null;
+}
+
+export class UnconnectedVizOverviewPage extends React.Component<IVizOverviewPageProps, IVizOverviewPageState> {
+  public static defaultProps = {
+    vignettes: [],
+    visualizations: [],
+  };
+
   constructor(props: IVizOverviewPageProps) {
     super(props);
     this.state = {
@@ -18,34 +29,64 @@ export class VizOverviewPage extends React.Component<IVizOverviewPageProps, IViz
     };
   }
 
-  public componentDidMount() {
-    this.setupCurrentViz();
+  public componentWillMount() {
+    const { location, visualizations } = this.props;
+    if (location) {
+      const params = new URLSearchParams(location.search);
+      // tslint:disable-next-line:no-backbone-get-set-outside-model
+      const vizId = params.get('id');
+
+      const currentViz = visualizations.find(viz => viz._id === vizId);
+      this.setState({ currentViz: currentViz ? currentViz : null });
+    }
   }
 
-  public componentDidUpdate(prevProps: IVizOverviewPageProps) {
-    if (this.props.location !== prevProps.location) {
-      this.setupCurrentViz();
+  public componentDidUpdate(prevProps: IVizOverviewPageProps, prevState: IVizOverviewPageState) {
+    const { location, visualizations } = this.props;
+
+    if (location && location !== prevProps.location) {
+      const params = new URLSearchParams(location.search);
+      // tslint:disable-next-line:no-backbone-get-set-outside-model
+      const vizId = params.get('id');
+
+      if (prevState.currentViz === null || prevState.currentViz._id !== vizId) {
+        const currentViz = visualizations.find(viz => viz._id === vizId);
+        this.setState({ currentViz: currentViz ? currentViz : null });
+      }
     }
   }
 
   public render() {
+    const { vignettes, visualizations } = this.props;
+    const { currentViz } = this.state;
+
+    const examples = new Array<IVignette>();
+
+    for (const vignette of vignettes) {
+      for (const vizId of vignette.visualizations) {
+        if (visualizations.find(viz => viz._id === vizId) && !examples.includes(vignette)) {
+          examples.push(vignette);
+        }
+      }
+    }
+
     return (
-      this.state.currentViz && (
+      currentViz && (
         <Container>
-          {this.renderOverview(this.state.currentViz)}
-          {this.renderExamples(this.state.currentViz.examples)}
+          {this.renderOverview(currentViz)}
+          {this.renderExamples(examples)}
         </Container>
       )
     );
   }
 
-  protected renderOverview(viz: IVizOverviewData) {
+  protected renderOverview(viz: IVisualization) {
     return (
       <Grid centered={true} columns={2}>
         <Grid.Column width={2}>
           <img
             alt={`icon for ${viz.name}`}
-            src={`assets/icons/${viz.name.toLocaleLowerCase()}-icon.png`}
+            src={`${process.env.API_URL}${viz.icon}`}
             style={{ height: '150px', padding: '20px' }}
           />
         </Grid.Column>
@@ -55,10 +96,9 @@ export class VizOverviewPage extends React.Component<IVizOverviewPageProps, IViz
             <Header.Subheader>{viz.authors.join(', ')}</Header.Subheader>
           </Header>
           <>
-            <p>{viz.detailedSummary}</p>
+            <p>{viz.summary}</p>
             <List>
-              <List.Item>applicable data: {viz.relevantData}</List.Item>
-              <List.Item>compatible with: {viz.compatibility.join(', ')}</List.Item>
+              <List.Item>compatible with: {viz.compatibleData.join(', ')}</List.Item>
               <List.Item>
                 citation(s):{' '}
                 {viz.citations.map((citation, index) => (
@@ -89,7 +129,7 @@ export class VizOverviewPage extends React.Component<IVizOverviewPageProps, IViz
     );
   }
 
-  protected renderExamples(examples: IVizExample[]) {
+  protected renderExamples(examples: IVignette[]) {
     const panels = [
       {
         content: {
@@ -107,7 +147,7 @@ export class VizOverviewPage extends React.Component<IVizOverviewPageProps, IViz
           ),
         },
         key: 'examples',
-        title: 'example stories',
+        title: 'example vignettes',
       },
       {
         content: 'coming soon!',
@@ -119,11 +159,15 @@ export class VizOverviewPage extends React.Component<IVizOverviewPageProps, IViz
     return <Accordion panels={panels} defaultActiveIndex={0} />;
   }
 
-  protected renderExampleEntry(example: IVizExample) {
+  protected renderExampleEntry(example: IVignette) {
     return (
       <>
         <Grid.Column width={2}>
-          <img src={example.icon} alt={`${example.name} icon`} style={{ height: '75px', width: '75px' }} />
+          <img
+            src={`${process.env.API_URL}${example.icon}`}
+            alt={`${example.name} icon`}
+            style={{ height: '75px', width: '75px' }}
+          />
         </Grid.Column>
         <Grid.Column textAlign={'left'} width={8}>
           <Header>{example.name}</Header>
@@ -131,7 +175,7 @@ export class VizOverviewPage extends React.Component<IVizOverviewPageProps, IViz
         </Grid.Column>
         <Grid.Column floated={'right'}>
           <Button basic={true} icon={true} labelPosition={'right'}>
-            <Link to={example.link}>{'launch example'}</Link>
+            {<Link to={example.link}>{'launch example'}</Link>}
             {/* Power Gap */}
             <Icon name={'external alternate'} />
           </Button>
@@ -139,24 +183,12 @@ export class VizOverviewPage extends React.Component<IVizOverviewPageProps, IViz
       </>
     );
   }
-
-  protected setupCurrentViz() {
-    const params = new URLSearchParams(this.props.location ? this.props.location.search : '');
-    // tslint:disable-next-line:no-backbone-get-set-outside-model
-    const vizName = params.get('name');
-
-    if (vizName === VizData.spring.name.toLocaleLowerCase()) {
-      this.setState({
-        currentViz: VizData.spring,
-      });
-    } else if (vizName === VizData.tfjsTsne.name.toLocaleLowerCase()) {
-      this.setState({
-        currentViz: VizData.tfjsTsne,
-      });
-    } else if (vizName === VizData.anatomogram.name.toLocaleLowerCase()) {
-      this.setState({
-        currentViz: VizData.anatomogram,
-      });
-    }
-  }
 }
+
+const mapStateToProps = (state: { router: RouterState }) => ({
+  hash: state.router.location.hash,
+  pathname: state.router.location.pathname,
+  search: state.router.location.search,
+});
+
+export const VizOverviewPage = connect(mapStateToProps)(UnconnectedVizOverviewPage);

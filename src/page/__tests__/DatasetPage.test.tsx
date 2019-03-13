@@ -14,25 +14,19 @@ describe('DatasetPage', () => {
   it('Should match existing snapshot for initial visualizations.', () => {
     visualizations.forEach(viz => {
       describe(`${viz} when it is fullscreen`, () => {
-        const wrapper = shallow(
-          <DatasetPage location={{ hash: '', pathname: '', search: `?viz=${viz}&name={hpc/sample}`, state: '' }} />,
-        );
+        const wrapper = shallow(<DatasetPage />);
         expect(wrapper).toMatchSnapshot();
       });
 
       describe(`${viz} when it is not fullscreen`, () => {
-        const wrapper = shallow(
-          <DatasetPage
-            location={{ hash: '', pathname: '', search: `?viz=${viz}&viz=empty&name={mouse/sample}`, state: '' }}
-          />,
-        );
+        const wrapper = shallow(<DatasetPage />);
         expect(wrapper).toMatchSnapshot();
       });
     });
   });
 
   it('Should match existing snapshot when changing the visualization.', () => {
-    const wrapper = shallow(<DatasetPage location={{ hash: '', pathname: '', search: '?viz=spring', state: '' }} />);
+    const wrapper = shallow(<DatasetPage />);
     wrapper.setProps({
       location: { hash: '', pathname: '', search: '?viz=anatomogram', state: '' },
     });
