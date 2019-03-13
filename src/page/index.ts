@@ -1,3 +1,4 @@
+export * from './BioblocksPortalPage';
 export * from './VisualizationsPage';
 export * from './DatasetPage';
 export * from './LandingPage';

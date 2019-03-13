@@ -2,21 +2,7 @@ import { RouterState } from 'connected-react-router';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import {
-  Breadcrumb,
-  Checkbox,
-  Container,
-  Divider,
-  Dropdown,
-  Header,
-  Input,
-  List,
-  Menu,
-  MenuItemProps,
-  Search,
-  Tab,
-  Table,
-} from 'semantic-ui-react';
+import { Breadcrumb, Header, Input, Menu } from 'semantic-ui-react';
 
 export interface ISiteHeaderProps {
   pathname: string;
@@ -153,6 +139,7 @@ export class UnconnectedSiteHeader extends React.Component<ISiteHeaderProps, ISi
     return;
   };
 
+  /*
   protected renderVisualizationsMenu = () => {
     return (
       <Container fluid={true}>
@@ -201,7 +188,9 @@ export class UnconnectedSiteHeader extends React.Component<ISiteHeaderProps, ISi
       </Container>
     );
   };
+  */
 
+  /*
   protected renderDatasetMenu = () => {
     let visualizations: string[] = [];
     if (this.props.search) {
@@ -256,7 +245,9 @@ export class UnconnectedSiteHeader extends React.Component<ISiteHeaderProps, ISi
       </Container>
     );
   };
+  */
 
+  /*
   protected renderDatasetLinkItem = (datasetName: string, index: number, visualizations: string[]) => (
     <List.Item key={`dataset-link-${index}`}>
       <Link
@@ -267,14 +258,19 @@ export class UnconnectedSiteHeader extends React.Component<ISiteHeaderProps, ISi
       </Link>
     </List.Item>
   );
+  */
 
+  /*
   protected closeModal = () => {
     this.setState({ isModalOpen: false });
   };
+  */
 
+  /*
   protected openModal = (event: React.MouseEvent<HTMLAnchorElement>, data: MenuItemProps) => {
     this.setState({ isModalOpen: true });
   };
+  */
 }
 
 const mapStateToProps = (state: { router: RouterState }) => ({

@@ -1,45 +1,97 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DatasetPage Should match existing snapshot for initial visualizations. 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
-`;
+exports[`DatasetPage Should match existing snapshot for initial visualizations. 1`] = `null`;
 
-exports[`DatasetPage Should match existing snapshot for initial visualizations. 2`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
-`;
+exports[`DatasetPage Should match existing snapshot for initial visualizations. 2`] = `null`;
 
-exports[`DatasetPage Should match existing snapshot for initial visualizations. 3`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
-`;
+exports[`DatasetPage Should match existing snapshot for initial visualizations. 3`] = `null`;
 
-exports[`DatasetPage Should match existing snapshot for initial visualizations. 4`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
-`;
-
-exports[`DatasetPage Should match existing snapshot for initial visualizations. 5`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
-`;
-
-exports[`DatasetPage Should match existing snapshot for initial visualizations. 6`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
-`;
-
-exports[`DatasetPage Should match existing snapshot when changing the visualization. 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
+exports[`DatasetPage Should match existing snapshot when hooked up to a Redux store. 1`] = `
+<Connect(UnconnectedDatasetPage)
+  vignettes={
+    Array [
+      Object {
+        "_id": "rise-against-vignette-id",
+        "authors": Array [],
+        "icon": "",
+        "link": "",
+        "name": "",
+        "summary": "Rise Against Viz",
+        "visualizations": Array [
+          "franz-ferdinand-viz-id",
+        ],
+      },
+    ]
+  }
+  visualizations={
+    Array [
+      Object {
+        "_id": "franz-ferdinand-viz-id",
+        "authors": Array [
+          "Franz Ferdinand",
+        ],
+        "citations": Array [],
+        "compatibleData": Array [],
+        "isOriginal": true,
+        "labels": Array [],
+        "name": "",
+        "repo": Object {
+          "lastUpdate": "03/13/19",
+          "link": "the-dark-of-the-matinée",
+          "version": "",
+        },
+        "summary": "",
+        "version": "",
+      },
+      Object {
+        "_id": "eminem-viz-id",
+        "authors": Array [
+          "Eminem",
+        ],
+        "citations": Array [],
+        "compatibleData": Array [],
+        "isOriginal": true,
+        "labels": Array [],
+        "name": "",
+        "repo": Object {
+          "lastUpdate": "03/13/19",
+          "link": "The Ringer",
+          "version": "",
+        },
+        "summary": "",
+        "version": "",
+      },
+    ]
+  }
+>
+  <UnconnectedDatasetPage
+    dispatch={[Function]}
+    pathname="/dataset"
+    search="?id=psycho-jukebox-vignette-id"
+    vignettes={Array []}
+    visualizations={Array []}
+  >
+    <div
+      style={
+        Object {
+          "padding": "20px",
+        }
+      }
+    >
+      <Grid
+        centered={true}
+        columns={2}
+        padded={true}
+        stackable={true}
+        stretched={false}
+      >
+        <div
+          className="ui centered stackable padded two column grid"
+        />
+      </Grid>
+    </div>
+  </UnconnectedDatasetPage>
+</Connect(UnconnectedDatasetPage)>
 `;
 
 exports[`DatasetPage Should match existing snapshot when no props are provided. 1`] = `

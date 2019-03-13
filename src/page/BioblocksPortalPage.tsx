@@ -1,4 +1,4 @@
-import { fetchDataset } from 'bioblocks-viz';
+import { EMPTY_FUNCTION, fetchDataset } from 'bioblocks-viz';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { Route, RouteComponentProps, Switch } from 'react-router-dom';
@@ -12,15 +12,22 @@ import { DatasetPage, LandingPage, VignettesPage, VisualizationsPage, VizOvervie
 import { history, IPortalReducerState } from '~bioblocks-portal~/reducer';
 import { selectVignettes, selectVisualizations } from '~bioblocks-portal~/selector';
 
-export interface IBioblocksPortalAppProps {
-  vignettes: IVignette[] | null;
-  visualizations: IVisualization[] | null;
-  dispatchVisualizationsFetch(dataset: string, fetchFn: () => Promise<IVisualization[]>): void;
+export interface IBioblocksPortalPageProps {
+  vignettes: IVignette[];
+  visualizations: IVisualization[];
   dispatchVignettesFetch(dataset: string, fetchFn: () => Promise<IVignette[]>): void;
+  dispatchVisualizationsFetch(dataset: string, fetchFn: () => Promise<IVisualization[]>): void;
 }
 
-export class BioblocksPortalApp extends React.Component<IBioblocksPortalAppProps> {
-  constructor(props: IBioblocksPortalAppProps) {
+export class UnconnectedBioblocksPortalPage extends React.Component<IBioblocksPortalPageProps> {
+  public static defaultProps = {
+    dispatchVignettesFetch: EMPTY_FUNCTION,
+    dispatchVisualizationsFetch: EMPTY_FUNCTION,
+    vignettes: new Array<IVignette>(),
+    visualizations: new Array<IVisualization>(),
+  };
+
+  constructor(props: IBioblocksPortalPageProps) {
     super(props);
   }
 
@@ -53,7 +60,7 @@ export class BioblocksPortalApp extends React.Component<IBioblocksPortalAppProps
   public render() {
     return (
       <ConnectedRouter history={history}>
-        <Container id={'BioblocksVizApp'} fluid={true}>
+        <Container id={'BioblocksPortalPage'} fluid={true}>
           <SiteHeader {...this.props} />
 
           <Switch>
@@ -109,22 +116,19 @@ export class BioblocksPortalApp extends React.Component<IBioblocksPortalAppProps
   protected renderOverviewPage = (props: RouteComponentProps) => {
     const { vignettes, visualizations } = this.props;
 
-    return (
-      vignettes &&
-      visualizations && <VizOverviewPage {...props} vignettes={vignettes} visualizations={visualizations} />
-    );
+    return <VizOverviewPage {...props} vignettes={vignettes} visualizations={visualizations} />;
   };
 
   protected renderVignettesPage = (props: RouteComponentProps) => {
     const { vignettes } = this.props;
 
-    return vignettes && <VignettesPage {...props} vignettes={vignettes} />;
+    return <VignettesPage {...props} vignettes={vignettes} />;
   };
 
   protected renderVisualizationsPage = (props: RouteComponentProps) => {
     const { visualizations } = this.props;
 
-    return visualizations && <VisualizationsPage {...props} visualizations={visualizations} />;
+    return <VisualizationsPage {...props} visualizations={visualizations} />;
   };
 }
 
@@ -142,7 +146,7 @@ const mapDispatchToProps = (dispatch: Dispatch) =>
     dispatch,
   );
 
-export const ConnectedBioblocksPortalApp = connect(
+export const BioblocksPortalPage = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(BioblocksPortalApp);
+)(UnconnectedBioblocksPortalPage);

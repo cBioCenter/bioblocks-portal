@@ -10,7 +10,7 @@ export interface IVignettesPageProps extends Partial<RouteComponentProps> {
   vignettes: IVignette[];
 }
 
-export class VignettesPageClass extends React.Component<IVignettesPageProps, any> {
+export class UnconnectedVignettesPage extends React.Component<IVignettesPageProps, any> {
   public static defaultProps = {
     vignettes: [],
   };
@@ -65,4 +65,4 @@ export class VignettesPageClass extends React.Component<IVignettesPageProps, any
   }
 }
 
-export const VignettesPage = connect(undefined)(VignettesPageClass);
+export const VignettesPage = connect(undefined)(UnconnectedVignettesPage);

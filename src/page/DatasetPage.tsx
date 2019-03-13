@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Grid, Message } from 'semantic-ui-react';
 
-import { AnatomogramContainer, ISpringGraphData, SPECIES_TYPE, SpringContainer, TensorTContainer } from 'bioblocks-viz';
+import { AnatomogramContainer, SpringContainer, TensorTContainer } from 'bioblocks-viz';
 import { connect } from 'react-redux';
 import { IVignette, IVisualization } from '~bioblocks-portal~/data';
 import { IPortalReducerState } from '~bioblocks-portal~/reducer';
@@ -12,8 +12,6 @@ export interface IDatasetPageProps {
   search: string;
   vignettes: IVignette[];
   visualizations: IVisualization[];
-  dispatchSpringFetch(fetchFn: () => Promise<ISpringGraphData>, namespace?: string): void;
-  setSpecies(species: SPECIES_TYPE): void;
 }
 
 export interface IDatasetPageState {
@@ -23,12 +21,10 @@ export interface IDatasetPageState {
 
 export class UnconnectedDatasetPage extends React.Component<IDatasetPageProps, IDatasetPageState> {
   public static defaultProps = {
-    dispatchSpringFetch: () => {
-      return;
-    },
-    setSpecies: () => {
-      return;
-    },
+    pathname: '',
+    search: '',
+    vignettes: new Array<IVignette>(),
+    visualizations: new Array<IVisualization>(),
   };
 
   constructor(props: IDatasetPageProps) {
@@ -40,17 +36,15 @@ export class UnconnectedDatasetPage extends React.Component<IDatasetPageProps, I
   }
 
   public async componentDidMount() {
-    const { search, setSpecies } = this.props;
-    const { datasetLocation } = this.state;
+    const { search } = this.props;
     if (search) {
       this.setupSearchParameters(search);
     }
-    setSpecies(datasetLocation.includes('hpc') ? 'homo_sapiens' : 'mus_musculus');
   }
 
   public componentDidUpdate(prevProps: IDatasetPageProps) {
-    const { search, setSpecies, vignettes, visualizations } = this.props;
-    const { datasetLocation } = this.state;
+    const { search, vignettes, visualizations } = this.props;
+    console.log(visualizations);
     if (
       (search && search !== prevProps.search) ||
       vignettes !== prevProps.vignettes ||
@@ -58,7 +52,6 @@ export class UnconnectedDatasetPage extends React.Component<IDatasetPageProps, I
     ) {
       this.setupSearchParameters(search);
     }
-    setSpecies(datasetLocation.includes('hpc') ? 'homo_sapiens' : 'mus_musculus');
   }
 
   public render() {
@@ -107,7 +100,6 @@ export class UnconnectedDatasetPage extends React.Component<IDatasetPageProps, I
   protected renderVisualization(viz: IVisualization, datasetLocation: string) {
     const isFullPage = this.state.datasetVisualizations.length === 1;
     const iconSrc = `${process.env.API_URL}${viz.icon}`;
-    console.log(datasetLocation);
     switch (viz.name.toLocaleLowerCase()) {
       case 'spring':
         return (

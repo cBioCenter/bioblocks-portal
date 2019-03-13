@@ -1,7 +1,12 @@
-import { shallow } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import * as React from 'react';
 
-import { DatasetPage } from '~bioblocks-portal~/page';
+import { ConnectedRouter } from 'connected-react-router';
+import { createMemoryHistory } from 'history';
+import { Provider } from 'react-redux';
+import { DatasetPage, UnconnectedDatasetPage } from '~bioblocks-portal~/page';
+import { configureStore } from '~bioblocks-portal~/reducer';
+import { originalViz, testVignettes, testVisualizations } from '~bioblocks-portal~/test';
 
 describe('DatasetPage', () => {
   const visualizations = ['anatomogram', 'spring', 'tfjs-tsne'];
@@ -13,23 +18,35 @@ describe('DatasetPage', () => {
 
   it('Should match existing snapshot for initial visualizations.', () => {
     visualizations.forEach(viz => {
-      describe(`${viz} when it is fullscreen`, () => {
-        const wrapper = shallow(<DatasetPage />);
-        expect(wrapper).toMatchSnapshot();
-      });
-
-      describe(`${viz} when it is not fullscreen`, () => {
-        const wrapper = shallow(<DatasetPage />);
-        expect(wrapper).toMatchSnapshot();
+      describe(`${viz}: `, () => {
+        const testVisualization = {
+          ...originalViz,
+          name: viz,
+        };
+        const wrapper = shallow(
+          <UnconnectedDatasetPage
+            search={`/dataset?id=psycho-jukebox-vignette-id&viz=${originalViz._id}`}
+            vignettes={testVignettes}
+            visualizations={[testVisualization]}
+          />,
+        );
+        expect(wrapper.find(DatasetPage)).toMatchSnapshot();
       });
     });
   });
 
-  it('Should match existing snapshot when changing the visualization.', () => {
-    const wrapper = shallow(<DatasetPage />);
-    wrapper.setProps({
-      location: { hash: '', pathname: '', search: '?viz=anatomogram', state: '' },
-    });
-    expect(wrapper).toMatchSnapshot();
+  it('Should match existing snapshot when hooked up to a Redux store.', () => {
+    const store = configureStore();
+    const history = createMemoryHistory();
+    const wrapper = mount(
+      <Provider store={store}>
+        <ConnectedRouter history={history}>
+          <DatasetPage vignettes={testVignettes} visualizations={testVisualizations} />
+        </ConnectedRouter>
+      </Provider>,
+    );
+    history.push('/dataset?id=psycho-jukebox-vignette-id');
+    wrapper.update();
+    expect(wrapper.find(DatasetPage)).toMatchSnapshot();
   });
 });

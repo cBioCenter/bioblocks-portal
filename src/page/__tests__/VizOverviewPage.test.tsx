@@ -1,34 +1,35 @@
 import { shallow } from 'enzyme';
 import * as React from 'react';
 
-import { VizOverviewPage } from '~bioblocks-portal~/page';
+import { UnconnectedVizOverviewPage } from '~bioblocks-portal~/page';
+import { testVignettes, testVisualizations } from '~bioblocks-portal~/test';
 
 describe('VizOverviewPage', () => {
-  const visualizations = ['anatomogram', 'spring', 'tfjs-tsne'];
-
-  it('Should match existing snapshot when no props are provided.', () => {
-    const wrapper = shallow(<VizOverviewPage />);
+  it('Should match existing snapshot when given no vignettes or visualizations.', () => {
+    const wrapper = shallow(<UnconnectedVizOverviewPage />);
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('Should match existing snapshot for initial visualizations.', () => {
-    visualizations.forEach(viz => {
-      describe(viz, () => {
-        const wrapper = shallow(
-          <VizOverviewPage location={{ hash: '', pathname: '', search: `?name=${viz}`, state: '' }} />,
-        );
-        expect(wrapper).toMatchSnapshot();
-      });
-    });
+  it('Should match existing snapshot when given sample vignettes and visualizations.', () => {
+    const wrapper = shallow(
+      <UnconnectedVizOverviewPage vignettes={testVignettes} visualizations={testVisualizations} />,
+    );
+    expect(wrapper).toMatchSnapshot();
   });
 
-  it('Should match existing snapshot when changing the visualization.', () => {
+  it('Should match existing snapshot when chenging the visualization via routing', () => {
     const wrapper = shallow(
-      <VizOverviewPage location={{ hash: '', pathname: '', search: '?name=spring', state: '' }} />,
+      <UnconnectedVizOverviewPage
+        location={{ search: 'id=eminem-viz-id', pathname: '', hash: '', state: '' }}
+        vignettes={testVignettes}
+        visualizations={testVisualizations}
+      />,
     );
+    expect(wrapper).toMatchSnapshot();
     wrapper.setProps({
-      location: { hash: '', pathname: '', search: '?name=anatomogram', state: '' },
+      location: { search: 'id=franz-ferdinand-viz-id', pathname: '', hash: '', state: '' },
     });
+    wrapper.update();
     expect(wrapper).toMatchSnapshot();
   });
 });
