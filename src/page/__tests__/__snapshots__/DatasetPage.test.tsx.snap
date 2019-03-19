@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DatasetPage Should match existing snapshot for initial visualizations. 1`] = `null`;
+
+exports[`DatasetPage Should match existing snapshot for initial visualizations. 2`] = `null`;
+
+exports[`DatasetPage Should match existing snapshot for initial visualizations. 3`] = `null`;
+
+exports[`DatasetPage Should match existing snapshot when hooked up to a Redux store. 1`] = `
+<Connect(UnconnectedDatasetPage)
+  vignettes={
+    Array [
+      Object {
+        "_id": "bbdecade-0000-0000-0001-a1234567890b",
+        "authors": Array [],
+        "dataset": "",
+        "icon": "",
+        "name": "",
+        "summary": "Rise Against Viz",
+        "visualizations": Array [
+          "bbfacade-0000-0000-0001-a1234567890b",
+        ],
+      },
+    ]
+  }
+  visualizations={
+    Array [
+      Object {
+        "_id": "bbfacade-0000-0000-0001-a1234567890b",
+        "authors": Array [
+          "Franz Ferdinand",
+        ],
+        "citations": Array [],
+        "compatibleData": Array [],
+        "exampleDataset": "bbdeeded-0000-0000-0001-a1234567890b",
+        "isOriginal": true,
+        "labels": Array [],
+        "name": "",
+        "repo": Object {
+          "lastUpdate": "03/13/19",
+          "link": "the-dark-of-the-matinée",
+          "version": "",
+        },
+        "summary": "",
+        "version": "",
+      },
+      Object {
+        "_id": "bbfacade-0000-0000-0002-a1234567890b",
+        "authors": Array [
+          "Eminem",
+        ],
+        "citations": Array [],
+        "compatibleData": Array [],
+        "exampleDataset": "bbdeeded-0000-0000-0002-a1234567890b",
+        "isOriginal": true,
+        "labels": Array [],
+        "name": "",
+        "repo": Object {
+          "lastUpdate": "03/13/19",
+          "link": "The Ringer",
+          "version": "",
+        },
+        "summary": "",
+        "version": "",
+      },
+    ]
+  }
+>
+  <UnconnectedDatasetPage
+    dataset={null}
+    dispatchDatasetFetch={[Function]}
+    pathname="/dataset"
+    search="?id=psycho-jukebox-vignette-id"
+    vignettes={Array []}
+    visualizations={Array []}
+  >
+    <div
+      style={
+        Object {
+          "padding": "20px",
+        }
+      }
+    >
+      <Grid
+        centered={true}
+        columns={2}
+        padded={true}
+        stackable={true}
+        stretched={false}
+      >
+        <div
+          className="ui centered stackable padded two column grid"
+        />
+      </Grid>
+    </div>
+  </UnconnectedDatasetPage>
+</Connect(UnconnectedDatasetPage)>
+`;
+
+exports[`DatasetPage Should match existing snapshot when no props are provided. 1`] = `
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
+`;

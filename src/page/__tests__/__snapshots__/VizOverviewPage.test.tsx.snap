@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VizOverviewPage Should match existing snapshot when chenging the visualization via routing 1`] = `""`;
+
+exports[`VizOverviewPage Should match existing snapshot when chenging the visualization via routing 2`] = `""`;
+
+exports[`VizOverviewPage Should match existing snapshot when given no vignettes or visualizations. 1`] = `""`;
+
+exports[`VizOverviewPage Should match existing snapshot when given sample vignettes and visualizations. 1`] = `""`;

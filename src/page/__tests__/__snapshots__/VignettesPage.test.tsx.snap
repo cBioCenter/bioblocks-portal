@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VignettesPage Should match existing snapshot when given no vignettes. 1`] = `
+<Grid
+  centered={true}
+  padded={true}
+  relaxed={true}
+/>
+`;
+
+exports[`VignettesPage Should match existing snapshot when given sample vignettes. 1`] = `
+<Grid
+  centered={true}
+  padded={true}
+  relaxed={true}
+>
+  <GridRow
+    columns={3}
+  >
+    <GridColumn>
+      <img
+        alt="vignette  icon"
+        src="undefined"
+        style={
+          Object {
+            "height": "90px",
+            "width": "90px",
+          }
+        }
+      />
+    </GridColumn>
+    <GridColumn
+      textAlign="left"
+    >
+      <Header />
+      <p>
+        <span
+          style={
+            Object {
+              "fontWeight": "bold",
+            }
+          }
+        >
+          Description: 
+        </span>
+        Rise Against Viz
+      </p>
+      <p>
+        <span
+          style={
+            Object {
+              "fontWeight": "bold",
+            }
+          }
+        >
+          Analysis authors: 
+        </span>
+      </p>
+      <br />
+    </GridColumn>
+    <GridColumn>
+      <Button
+        as="button"
+        basic={true}
+      >
+        <Link
+          replace={false}
+          to="/dataset?id=&viz=bbfacade-0000-0000-0001-a1234567890b"
+        >
+          launch
+        </Link>
+      </Button>
+    </GridColumn>
+  </GridRow>
+</Grid>
+`;
