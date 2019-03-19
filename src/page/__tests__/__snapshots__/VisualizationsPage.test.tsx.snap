@@ -59,7 +59,7 @@ exports[`AppsPage Should match existing snapshot when given sample visualization
               to={
                 Object {
                   "pathname": "/visualizations/",
-                  "search": "?id=franz-ferdinand-viz-id",
+                  "search": "?id=bbfacade-0000-0000-0001-a1234567890b",
                 }
               }
             >
@@ -77,7 +77,7 @@ exports[`AppsPage Should match existing snapshot when given sample visualization
               to={
                 Object {
                   "pathname": "/dataset",
-                  "search": "?viz=",
+                  "search": "?id=bbdeeded-0000-0000-0001-a1234567890b&viz=bbfacade-0000-0000-0001-a1234567890b",
                 }
               }
             >
@@ -137,7 +137,7 @@ exports[`AppsPage Should match existing snapshot when given sample visualization
               to={
                 Object {
                   "pathname": "/visualizations/",
-                  "search": "?id=eminem-viz-id",
+                  "search": "?id=bbfacade-0000-0000-0002-a1234567890b",
                 }
               }
             >
@@ -155,7 +155,7 @@ exports[`AppsPage Should match existing snapshot when given sample visualization
               to={
                 Object {
                   "pathname": "/dataset",
-                  "search": "?viz=",
+                  "search": "?id=bbdeeded-0000-0000-0002-a1234567890b&viz=bbfacade-0000-0000-0002-a1234567890b",
                 }
               }
             >

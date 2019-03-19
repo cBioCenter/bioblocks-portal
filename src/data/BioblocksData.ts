@@ -1,3 +1,5 @@
+import { SPECIES_TYPE } from 'bioblocks-viz';
+
 export interface IEveLink {
   href: string;
   title: string;
@@ -16,11 +18,18 @@ export interface IEveResponse<T> {
   };
 }
 
+export interface IDataset {
+  _id: string;
+  authors: string[];
+  name: string;
+  species?: SPECIES_TYPE;
+}
+
 export interface IVignette {
   _id: string;
   authors: string[];
+  dataset: string;
   icon: string;
-  link: string;
   name: string;
   summary: string;
   visualizations: string[];
@@ -42,6 +51,7 @@ export interface IVisualization {
   authors: string[];
   citations: ICitation[];
   compatibleData: string[];
+  exampleDataset: string;
   icon?: string;
   isOriginal: boolean;
   labels: string[];

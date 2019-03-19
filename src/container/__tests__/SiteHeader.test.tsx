@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme';
 import * as React from 'react';
 
-import { SiteHeader, UnconnectedSiteHeader } from '~bioblocks-portal~/component';
+import { SiteHeader, UnconnectedSiteHeader } from '~bioblocks-portal~/container';
 
 describe('SiteHeader', () => {
   it('Should match existing snapshot.', () => {

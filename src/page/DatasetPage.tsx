@@ -1,17 +1,20 @@
 import * as React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators, Dispatch } from 'redux';
 import { Grid, Message } from 'semantic-ui-react';
 
-import { AnatomogramContainer, SpringContainer, TensorTContainer } from 'bioblocks-viz';
-import { connect } from 'react-redux';
-import { IVignette, IVisualization } from '~bioblocks-portal~/data';
+import { AnatomogramContainer, EMPTY_FUNCTION, fetchDataset, SpringContainer, TensorTContainer } from 'bioblocks-viz';
+import { IDataset, IVignette, IVisualization } from '~bioblocks-portal~/data';
 import { IPortalReducerState } from '~bioblocks-portal~/reducer';
 import { selectVignettes, selectVisualizations } from '~bioblocks-portal~/selector';
 
 export interface IDatasetPageProps {
+  dataset: IDataset | null;
   pathname: string;
   search: string;
   vignettes: IVignette[];
   visualizations: IVisualization[];
+  dispatchDatasetFetch(dataset: string, fetchFn: () => Promise<IDataset | null>): void;
 }
 
 export interface IDatasetPageState {
@@ -21,6 +24,8 @@ export interface IDatasetPageState {
 
 export class UnconnectedDatasetPage extends React.Component<IDatasetPageProps, IDatasetPageState> {
   public static defaultProps = {
+    dataset: null,
+    dispatchDatasetFetch: EMPTY_FUNCTION,
     pathname: '',
     search: '',
     vignettes: new Array<IVignette>(),
@@ -35,7 +40,7 @@ export class UnconnectedDatasetPage extends React.Component<IDatasetPageProps, I
     };
   }
 
-  public async componentDidMount() {
+  public componentDidMount() {
     const { search } = this.props;
     if (search) {
       this.setupSearchParameters(search);
@@ -44,7 +49,6 @@ export class UnconnectedDatasetPage extends React.Component<IDatasetPageProps, I
 
   public componentDidUpdate(prevProps: IDatasetPageProps) {
     const { search, vignettes, visualizations } = this.props;
-    console.log(visualizations);
     if (
       (search && search !== prevProps.search) ||
       vignettes !== prevProps.vignettes ||
@@ -72,7 +76,7 @@ export class UnconnectedDatasetPage extends React.Component<IDatasetPageProps, I
   }
 
   protected setupSearchParameters(query: string) {
-    const { vignettes, visualizations } = this.props;
+    const { dispatchDatasetFetch, vignettes, visualizations } = this.props;
 
     let datasetLocation = this.state.datasetLocation;
     const datasetVisualizations = new Array<IVisualization>();
@@ -89,7 +93,14 @@ export class UnconnectedDatasetPage extends React.Component<IDatasetPageProps, I
           datasetVisualizations.push(viz);
         }
       });
-
+      dispatchDatasetFetch('dataset', async () => {
+        const datasetFetchResult = await fetch(`${process.env.API_URL}/dataset/${datasetId}`);
+        if (!datasetFetchResult.ok) {
+          return null;
+        } else {
+          return (await datasetFetchResult.json()) as IDataset;
+        }
+      });
       this.setState({
         datasetLocation,
         datasetVisualizations,
@@ -113,14 +124,10 @@ export class UnconnectedDatasetPage extends React.Component<IDatasetPageProps, I
         );
       case 'tfjs-tsne':
         return (
-          <TensorTContainer
-            datasetLocation={`${process.env.API_URL}/datasets/${datasetLocation}`}
-            iconSrc={iconSrc}
-            isFullPage={isFullPage}
-          />
+          <TensorTContainer datasetLocation={`${process.env.API_URL}/datasets/${datasetLocation}`} iconSrc={iconSrc} />
         );
       case 'anatomogram':
-        return <AnatomogramContainer iconSrc={iconSrc} />;
+        return <AnatomogramContainer species={'homo_sapiens'} iconSrc={iconSrc} />;
       default:
         return <Message error={true}>{`Currently unsupported visualization '${viz}'`}</Message>;
     }
@@ -128,10 +135,22 @@ export class UnconnectedDatasetPage extends React.Component<IDatasetPageProps, I
 }
 
 const mapStateToProps = (state: IPortalReducerState) => ({
+  dataset: state.dataset,
   pathname: state.router.location.pathname,
   search: state.router.location.search,
   vignettes: selectVignettes(state),
   visualizations: selectVisualizations(state),
 });
 
-export const DatasetPage = connect(mapStateToProps)(UnconnectedDatasetPage);
+const mapDispatchToProps = (dispatch: Dispatch) =>
+  bindActionCreators(
+    {
+      dispatchDatasetFetch: fetchDataset as ((dataset: string, fetchFn: () => Promise<IDataset | null>) => void),
+    },
+    dispatch,
+  );
+
+export const DatasetPage = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(UnconnectedDatasetPage);

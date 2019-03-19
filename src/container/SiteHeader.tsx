@@ -1,12 +1,18 @@
-import { RouterState } from 'connected-react-router';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Breadcrumb, Header, Input, Menu } from 'semantic-ui-react';
 
+import { IDataset, IVignette, IVisualization } from '~bioblocks-portal~/data';
+import { IPortalReducerState } from '~bioblocks-portal~/reducer';
+import { selectDataset, selectVignettes, selectVisualizations } from '~bioblocks-portal~/selector';
+
 export interface ISiteHeaderProps {
+  dataset: IDataset | null;
   pathname: string;
   search: string;
+  vignettes: IVignette[];
+  visualizations: IVisualization[];
 }
 
 export interface ISiteHeaderState {
@@ -15,6 +21,12 @@ export interface ISiteHeaderState {
 }
 
 export class UnconnectedSiteHeader extends React.Component<ISiteHeaderProps, ISiteHeaderState> {
+  public static defaultProps = {
+    dataset: null,
+    vignettes: new Array<IVignette>(),
+    visualizations: new Array<IVisualization>(),
+  };
+
   constructor(props: ISiteHeaderProps) {
     super(props);
     this.state = {
@@ -97,11 +109,13 @@ export class UnconnectedSiteHeader extends React.Component<ISiteHeaderProps, ISi
   protected renderNavMenu = () => {
     return (
       <Menu defaultActiveIndex={-1} secondary={true}>
-        <Menu.Item key={'datasets'}>
-          <Link to={'/dataset'} style={{ color: 'black', fontSize: '18px' }}>
-            datasets
-          </Link>
-        </Menu.Item>
+        {/*
+          <Menu.Item key={'datasets'}>
+            <Link to={'/datasets'} style={{ color: 'black', fontSize: '18px' }}>
+              datasets
+            </Link>
+          </Menu.Item>
+        */}
         <Menu.Item key={'visualizations'}>
           <Link to={'/visualizations'} style={{ color: 'black', fontSize: '18px' }}>
             visualizations
@@ -117,19 +131,27 @@ export class UnconnectedSiteHeader extends React.Component<ISiteHeaderProps, ISi
   };
 
   protected handleQueryParams(search: string) {
+    const { dataset, visualizations, vignettes } = this.props;
     const params = new URLSearchParams(search);
-    const visualizations = params.getAll('viz');
+    const visualizationsInURL = params.getAll('viz');
     // tslint:disable-next-line:no-backbone-get-set-outside-model
-    const id = params.get('id');
+    let currentPageName = params.get('id');
 
-    if (visualizations.length >= 1 && !name) {
+    if (dataset && currentPageName) {
+      currentPageName = dataset.name;
+    } else {
+      const findResult = [...visualizations, ...vignettes].find(foo => foo._id === currentPageName);
+      currentPageName = findResult ? findResult.name : currentPageName;
+    }
+
+    if (visualizationsInURL.length >= 1 && !name) {
       this.setState({
-        currentPageName: id,
+        currentPageName,
         isModalOpen: true,
       });
     } else {
       this.setState({
-        currentPageName: id,
+        currentPageName,
         isModalOpen: false,
       });
     }
@@ -273,9 +295,12 @@ export class UnconnectedSiteHeader extends React.Component<ISiteHeaderProps, ISi
   */
 }
 
-const mapStateToProps = (state: { router: RouterState }) => ({
+const mapStateToProps = (state: IPortalReducerState) => ({
+  dataset: selectDataset(state),
   pathname: state.router.location.pathname,
   search: state.router.location.search,
+  vignettes: selectVignettes(state),
+  visualizations: selectVisualizations(state),
 });
 
 export const SiteHeader = connect(mapStateToProps)(UnconnectedSiteHeader);

@@ -49,22 +49,6 @@ exports[`SiteHeader Should match existing snapshot when chenging the visualizati
       secondary={true}
     >
       <MenuItem
-        key="datasets"
-      >
-        <Link
-          replace={false}
-          style={
-            Object {
-              "color": "black",
-              "fontSize": "18px",
-            }
-          }
-          to="/dataset"
-        >
-          datasets
-        </Link>
-      </MenuItem>
-      <MenuItem
         key="visualizations"
       >
         <Link
@@ -181,22 +165,6 @@ exports[`SiteHeader Should match existing snapshot when chenging the visualizati
       defaultActiveIndex={-1}
       secondary={true}
     >
-      <MenuItem
-        key="datasets"
-      >
-        <Link
-          replace={false}
-          style={
-            Object {
-              "color": "black",
-              "fontSize": "18px",
-            }
-          }
-          to="/dataset"
-        >
-          datasets
-        </Link>
-      </MenuItem>
       <MenuItem
         key="visualizations"
       >
