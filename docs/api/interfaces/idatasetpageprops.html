@@ -79,10 +79,17 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="idatasetpageprops.html#dataset" class="tsd-kind-icon">dataset</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="idatasetpageprops.html#pathname" class="tsd-kind-icon">pathname</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="idatasetpageprops.html#search" class="tsd-kind-icon">search</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="idatasetpageprops.html#vignettes" class="tsd-kind-icon">vignettes</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="idatasetpageprops.html#visualizations" class="tsd-kind-icon">visualizations</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="idatasetpageprops.html#dispatchdatasetfetch" class="tsd-kind-icon">dispatch<wbr>Dataset<wbr>Fetch</a></li>
 							</ul>
 						</section>
 					</div>
@@ -91,12 +98,22 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="dataset" class="tsd-anchor"></a>
+					<h3>dataset</h3>
+					<div class="tsd-signature tsd-kind-icon">dataset<span class="tsd-signature-symbol">:</span> <a href="idataset.html" class="tsd-signature-type">IDataset</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/d5dff98/src/page/DatasetPage.tsx#L12">src/page/DatasetPage.tsx:12</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="pathname" class="tsd-anchor"></a>
 					<h3>pathname</h3>
 					<div class="tsd-signature tsd-kind-icon">pathname<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/0a5b5a3/src/page/DatasetPage.tsx#L11">src/page/DatasetPage.tsx:11</a></li>
+							<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/d5dff98/src/page/DatasetPage.tsx#L13">src/page/DatasetPage.tsx:13</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -106,7 +123,7 @@
 					<div class="tsd-signature tsd-kind-icon">search<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/0a5b5a3/src/page/DatasetPage.tsx#L12">src/page/DatasetPage.tsx:12</a></li>
+							<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/d5dff98/src/page/DatasetPage.tsx#L14">src/page/DatasetPage.tsx:14</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -116,7 +133,7 @@
 					<div class="tsd-signature tsd-kind-icon">vignettes<span class="tsd-signature-symbol">:</span> <a href="ivignette.html" class="tsd-signature-type">IVignette</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/0a5b5a3/src/page/DatasetPage.tsx#L13">src/page/DatasetPage.tsx:13</a></li>
+							<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/d5dff98/src/page/DatasetPage.tsx#L15">src/page/DatasetPage.tsx:15</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -126,9 +143,50 @@
 					<div class="tsd-signature tsd-kind-icon">visualizations<span class="tsd-signature-symbol">:</span> <a href="ivisualization.html" class="tsd-signature-type">IVisualization</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/0a5b5a3/src/page/DatasetPage.tsx#L14">src/page/DatasetPage.tsx:14</a></li>
+							<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/d5dff98/src/page/DatasetPage.tsx#L16">src/page/DatasetPage.tsx:16</a></li>
 						</ul>
 					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="dispatchdatasetfetch" class="tsd-anchor"></a>
+					<h3>dispatch<wbr>Dataset<wbr>Fetch</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">dispatch<wbr>Dataset<wbr>Fetch<span class="tsd-signature-symbol">(</span>dataset<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, fetchFn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/d5dff98/src/page/DatasetPage.tsx#L17">src/page/DatasetPage.tsx:17</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>dataset: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>fetchFn: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="idataset.html" class="tsd-signature-type">IDataset</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">&gt;</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="idataset.html" class="tsd-signature-type">IDataset</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">&gt;</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -169,11 +227,17 @@
 					<li class=" tsd-kind-interface tsd-is-not-exported">
 						<a href="icitation.html" class="tsd-kind-icon">ICitation</a>
 					</li>
+					<li class=" tsd-kind-interface">
+						<a href="idataset.html" class="tsd-kind-icon">IDataset</a>
+					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
 						<a href="idatasetpageprops.html" class="tsd-kind-icon">IDataset<wbr>Page<wbr>Props</a>
 						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="idatasetpageprops.html#dataset" class="tsd-kind-icon">dataset</a>
+							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="idatasetpageprops.html#pathname" class="tsd-kind-icon">pathname</a>
 							</li>
@@ -185,6 +249,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="idatasetpageprops.html#visualizations" class="tsd-kind-icon">visualizations</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="idatasetpageprops.html#dispatchdatasetfetch" class="tsd-kind-icon">dispatch<wbr>Dataset<wbr>Fetch</a>
 							</li>
 						</ul>
 					</li>
@@ -267,6 +334,9 @@
 					</li>
 					<li class=" tsd-kind-function tsd-is-not-exported">
 						<a href="../globals.html#mapstatetoprops" class="tsd-kind-icon">map<wbr>State<wbr>ToProps</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="../globals.html#selectdataset" class="tsd-kind-icon">select<wbr>Dataset</a>
 					</li>
 					<li class=" tsd-kind-function tsd-has-type-parameter">
 						<a href="../globals.html#selectvignettes" class="tsd-kind-icon">select<wbr>Vignettes</a>

@@ -1345,10 +1345,10 @@ binary-extensions@^1.0.0:
   resolved "https://registry.yarnpkg.com/binary-extensions/-/binary-extensions-1.13.0.tgz#9523e001306a32444b907423f1de2164222f6ab1"
   integrity sha512-EgmjVLMn22z7eGGv3kcnHwSnJXmFHjISTY9E/S5lIcTD3Oxw05QTcBLNkJFzcb3cNueUdF/IN4U+d78V0zO8Hw==
 
-bioblocks-viz@^0.0.99:
-  version "0.0.99"
-  resolved "https://registry.yarnpkg.com/bioblocks-viz/-/bioblocks-viz-0.0.99.tgz#ab14f8eccbcfb3593b73db9761896f39146f8b3c"
-  integrity sha512-F0YFE880e220D3KkHVrMQKL+XNKqbqBXBLTIfIT9R12cvaTiLE975HXR9ocWnjIGllIz/Mv3zvV6Z6H/YwnLtg==
+bioblocks-viz@^0.0.101:
+  version "0.0.101"
+  resolved "https://registry.yarnpkg.com/bioblocks-viz/-/bioblocks-viz-0.0.101.tgz#9ce435f67ae78d9b813c6012699db456e36f6af9"
+  integrity sha512-EvVE0QHi4+c2VexEluT0APKcg74meKWXLWnt2R/WNTiCih1KUi+XbsdtvwOZvggmWURvsmlEUiodMsqkFUZqGw==
   dependencies:
     "@tensorflow/tfjs" "^0.13.0"
     "@tensorflow/tfjs-core" "^0.13.0"

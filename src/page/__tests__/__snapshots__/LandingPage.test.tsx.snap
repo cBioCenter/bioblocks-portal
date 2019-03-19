@@ -144,26 +144,16 @@ exports[`LandingPage Should match existing snapshot when no props are provided. 
             </Header>
           </GridRow>
           <br />
-        </GridColumn>
-      </GridRow>
-      <GridRow
-        centered={false}
-      >
-        <GridColumn
-          width={12}
-        >
-          <Link
-            replace={false}
-            style={
-              Object {
-                "color": "blue",
-                "float": "right",
-              }
-            }
-            to="datasets"
+          <GridRow
+            textAlign="center"
           >
-            more datasets...
-          </Link>
+            <Header
+              as="h3"
+              textAlign="center"
+            >
+              Coming soon!
+            </Header>
+          </GridRow>
         </GridColumn>
       </GridRow>
     </Grid>

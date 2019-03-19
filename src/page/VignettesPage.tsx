@@ -57,7 +57,9 @@ export class UnconnectedVignettesPage extends React.Component<IVignettesPageProp
         </Grid.Column>
         <Grid.Column>
           <Button basic={true}>
-            <Link to={vignette.link}>launch</Link>
+            <Link to={`/dataset?id=${vignette.dataset}${vignette.visualizations.map(viz => `&viz=${viz}`).join('')}`}>
+              launch
+            </Link>
           </Button>
         </Grid.Column>
       </Grid.Row>
