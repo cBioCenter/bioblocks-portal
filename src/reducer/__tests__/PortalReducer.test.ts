@@ -5,6 +5,7 @@ describe('PortalReducer', () => {
   it('Should handle an empty state.', () => {
     const history = createHashHistory();
     const expectedState = {
+      dataset: null,
       router: {
         action: 'POP',
         location: {

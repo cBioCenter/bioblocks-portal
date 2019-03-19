@@ -52,7 +52,7 @@ export class VisualizationsPage extends React.Component<IVisualizationsPageProps
           </Grid.Row>
           <Grid.Row>
             <Button basic={true}>
-              <Link to={{ pathname: '/dataset', search: `?viz=${viz.name.toLocaleLowerCase()}` }}>launch</Link>
+              <Link to={{ pathname: '/dataset', search: `?id=${viz.exampleDataset}&viz=${viz._id}` }}>launch</Link>
             </Button>
           </Grid.Row>
         </Grid.Column>

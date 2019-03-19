@@ -114,9 +114,9 @@ export class UnconnectedVizOverviewPage extends React.Component<IVizOverviewPage
               <List.Item>
                 <Grid.Column floated={'right'}>
                   <Button basic={true} icon={true} labelPosition={'right'}>
-                    <Link to={{ pathname: '/dataset', search: `?viz=${viz.name.toLocaleLowerCase()}` }}>
-                      {`launch ${viz.name}`}
-                    </Link>
+                    <Link to={{ pathname: '/dataset', search: `?id=${viz.exampleDataset}&viz=${viz._id}` }}>{`launch ${
+                      viz.name
+                    }`}</Link>
                     {/* Power Gap */}
                     <Icon name={'external alternate'} />
                   </Button>
@@ -150,7 +150,7 @@ export class UnconnectedVizOverviewPage extends React.Component<IVizOverviewPage
         title: 'example vignettes',
       },
       {
-        content: 'coming soon!',
+        content: 'Coming soon!',
         key: 'learn',
         title: 'learn',
       },
@@ -175,7 +175,11 @@ export class UnconnectedVizOverviewPage extends React.Component<IVizOverviewPage
         </Grid.Column>
         <Grid.Column floated={'right'}>
           <Button basic={true} icon={true} labelPosition={'right'}>
-            {<Link to={example.link}>{'launch example'}</Link>}
+            {
+              <Link to={`/dataset?id=${example.dataset}${example.visualizations.map(viz => `&viz=${viz}`).join('')}`}>
+                launch example
+              </Link>
+            }
             {/* Power Gap */}
             <Icon name={'external alternate'} />
           </Button>

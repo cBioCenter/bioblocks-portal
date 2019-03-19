@@ -56,14 +56,12 @@ export class LandingPage extends React.Component<ILandingPageProps, any> {
         <Grid.Column width={2}>
           <Grid.Row>
             <Button basic={true}>
-              <Link to={{ pathname: '/visualizations/', search: `?name=${viz.name.toLocaleLowerCase()}` }}>
-                details
-              </Link>
+              <Link to={{ pathname: '/visualizations/', search: `?id=${viz._id}` }}>details</Link>
             </Button>
           </Grid.Row>
           <Grid.Row>
             <Button basic={true}>
-              <Link to={{ pathname: '/dataset', search: `?viz=${viz.name.toLocaleLowerCase()}` }}>launch</Link>
+              <Link to={{ pathname: '/dataset', search: `?id=${viz.exampleDataset}&viz=${viz._id}` }}>launch</Link>
             </Button>
           </Grid.Row>
         </Grid.Column>
@@ -83,13 +81,6 @@ export class LandingPage extends React.Component<ILandingPageProps, any> {
         <Grid.Row columns={2} divided={true}>
           {this.renderHCADatasets()}
           {this.renderUserSharedDatasets()}
-        </Grid.Row>
-        <Grid.Row centered={false}>
-          <Grid.Column width={12}>
-            <Link style={{ color: 'blue', float: 'right' }} to={'datasets'}>
-              more datasets...
-            </Link>
-          </Grid.Column>
         </Grid.Row>
       </>
     );
@@ -169,7 +160,9 @@ export class LandingPage extends React.Component<ILandingPageProps, any> {
         </Grid.Column>
         <Grid.Column width={2}>
           <Button basic={true}>
-            <Link to={vignette.link}>launch</Link>
+            <Link to={`/dataset?id=${vignette.dataset}${vignette.visualizations.map(viz => `&viz=${viz}`).join('')}`}>
+              launch
+            </Link>
           </Button>
         </Grid.Column>
       </Grid.Row>
@@ -228,8 +221,11 @@ export class LandingPage extends React.Component<ILandingPageProps, any> {
           </Header>
         </Grid.Row>
         <br />
-        {/*<Grid.Row>{this.renderSingleUserSharedDatasets(userDatasets[0])}</Grid.Row>
-        <Grid.Row>{this.renderSingleUserSharedDatasets(userDatasets[1])}</Grid.Row>*/}
+        <Grid.Row textAlign={'center'}>
+          <Header as={'h3'} textAlign={'center'}>
+            Coming soon!
+          </Header>
+        </Grid.Row>
       </Grid.Column>
     );
   }

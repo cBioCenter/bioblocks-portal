@@ -18,14 +18,14 @@ exports[`BioblocksPortalPage Should match existing snapshot when hooked up to a 
     vignettes={
       Array [
         Object {
-          "_id": "rise-against-vignette-id",
+          "_id": "bbdecade-0000-0000-0001-a1234567890b",
           "authors": Array [],
+          "dataset": "",
           "icon": "",
-          "link": "",
           "name": "",
           "summary": "Rise Against Viz",
           "visualizations": Array [
-            "franz-ferdinand-viz-id",
+            "bbfacade-0000-0000-0001-a1234567890b",
           ],
         },
       ]
@@ -33,12 +33,13 @@ exports[`BioblocksPortalPage Should match existing snapshot when hooked up to a 
     visualizations={
       Array [
         Object {
-          "_id": "franz-ferdinand-viz-id",
+          "_id": "bbfacade-0000-0000-0001-a1234567890b",
           "authors": Array [
             "Franz Ferdinand",
           ],
           "citations": Array [],
           "compatibleData": Array [],
+          "exampleDataset": "bbdeeded-0000-0000-0001-a1234567890b",
           "isOriginal": true,
           "labels": Array [],
           "name": "",
@@ -51,12 +52,13 @@ exports[`BioblocksPortalPage Should match existing snapshot when hooked up to a 
           "version": "",
         },
         Object {
-          "_id": "eminem-viz-id",
+          "_id": "bbfacade-0000-0000-0002-a1234567890b",
           "authors": Array [
             "Eminem",
           ],
           "citations": Array [],
           "compatibleData": Array [],
+          "exampleDataset": "bbdeeded-0000-0000-0002-a1234567890b",
           "isOriginal": true,
           "labels": Array [],
           "name": "",
@@ -184,14 +186,14 @@ exports[`BioblocksPortalPage Should match existing snapshot when hooked up to a 
                   vignettes={
                     Array [
                       Object {
-                        "_id": "rise-against-vignette-id",
+                        "_id": "bbdecade-0000-0000-0001-a1234567890b",
                         "authors": Array [],
+                        "dataset": "",
                         "icon": "",
-                        "link": "",
                         "name": "",
                         "summary": "Rise Against Viz",
                         "visualizations": Array [
-                          "franz-ferdinand-viz-id",
+                          "bbfacade-0000-0000-0001-a1234567890b",
                         ],
                       },
                     ]
@@ -199,12 +201,13 @@ exports[`BioblocksPortalPage Should match existing snapshot when hooked up to a 
                   visualizations={
                     Array [
                       Object {
-                        "_id": "franz-ferdinand-viz-id",
+                        "_id": "bbfacade-0000-0000-0001-a1234567890b",
                         "authors": Array [
                           "Franz Ferdinand",
                         ],
                         "citations": Array [],
                         "compatibleData": Array [],
+                        "exampleDataset": "bbdeeded-0000-0000-0001-a1234567890b",
                         "isOriginal": true,
                         "labels": Array [],
                         "name": "",
@@ -217,12 +220,13 @@ exports[`BioblocksPortalPage Should match existing snapshot when hooked up to a 
                         "version": "",
                       },
                       Object {
-                        "_id": "eminem-viz-id",
+                        "_id": "bbfacade-0000-0000-0002-a1234567890b",
                         "authors": Array [
                           "Eminem",
                         ],
                         "citations": Array [],
                         "compatibleData": Array [],
+                        "exampleDataset": "bbdeeded-0000-0000-0002-a1234567890b",
                         "isOriginal": true,
                         "labels": Array [],
                         "name": "",
@@ -238,66 +242,14 @@ exports[`BioblocksPortalPage Should match existing snapshot when hooked up to a 
                   }
                 >
                   <UnconnectedSiteHeader
+                    dataset={null}
                     dispatch={[Function]}
                     dispatchVignettesFetch={[Function]}
                     dispatchVisualizationsFetch={[Function]}
                     pathname="/"
                     search=""
-                    vignettes={
-                      Array [
-                        Object {
-                          "_id": "rise-against-vignette-id",
-                          "authors": Array [],
-                          "icon": "",
-                          "link": "",
-                          "name": "",
-                          "summary": "Rise Against Viz",
-                          "visualizations": Array [
-                            "franz-ferdinand-viz-id",
-                          ],
-                        },
-                      ]
-                    }
-                    visualizations={
-                      Array [
-                        Object {
-                          "_id": "franz-ferdinand-viz-id",
-                          "authors": Array [
-                            "Franz Ferdinand",
-                          ],
-                          "citations": Array [],
-                          "compatibleData": Array [],
-                          "isOriginal": true,
-                          "labels": Array [],
-                          "name": "",
-                          "repo": Object {
-                            "lastUpdate": "03/13/19",
-                            "link": "the-dark-of-the-matinée",
-                            "version": "",
-                          },
-                          "summary": "",
-                          "version": "",
-                        },
-                        Object {
-                          "_id": "eminem-viz-id",
-                          "authors": Array [
-                            "Eminem",
-                          ],
-                          "citations": Array [],
-                          "compatibleData": Array [],
-                          "isOriginal": true,
-                          "labels": Array [],
-                          "name": "",
-                          "repo": Object {
-                            "lastUpdate": "03/13/19",
-                            "link": "The Ringer",
-                            "version": "",
-                          },
-                          "summary": "",
-                          "version": "",
-                        },
-                      ]
-                    }
+                    vignettes={Array []}
+                    visualizations={Array []}
                   >
                     <Header>
                       <div
@@ -371,38 +323,6 @@ exports[`BioblocksPortalPage Should match existing snapshot when hooked up to a 
                               <div
                                 className="ui secondary menu"
                               >
-                                <MenuItem
-                                  key="datasets"
-                                >
-                                  <div
-                                    className="item"
-                                    onClick={[Function]}
-                                  >
-                                    <Link
-                                      replace={false}
-                                      style={
-                                        Object {
-                                          "color": "black",
-                                          "fontSize": "18px",
-                                        }
-                                      }
-                                      to="/dataset"
-                                    >
-                                      <a
-                                        href="#/dataset"
-                                        onClick={[Function]}
-                                        style={
-                                          Object {
-                                            "color": "black",
-                                            "fontSize": "18px",
-                                          }
-                                        }
-                                      >
-                                        datasets
-                                      </a>
-                                    </Link>
-                                  </div>
-                                </MenuItem>
                                 <MenuItem
                                   key="visualizations"
                                 >
@@ -567,7 +487,21 @@ exports[`BioblocksPortalPage Should match existing snapshot when hooked up to a 
                     render={[Function]}
                   >
                     <LandingPage
-                      featuredVignettes={Array []}
+                      featuredVignettes={
+                        Array [
+                          Object {
+                            "_id": "bbdecade-0000-0000-0001-a1234567890b",
+                            "authors": Array [],
+                            "dataset": "",
+                            "icon": "",
+                            "name": "",
+                            "summary": "Rise Against Viz",
+                            "visualizations": Array [
+                              "bbfacade-0000-0000-0001-a1234567890b",
+                            ],
+                          },
+                        ]
+                      }
                       featuredVisualizations={Array []}
                       history={
                         Object {
@@ -655,6 +589,99 @@ exports[`BioblocksPortalPage Should match existing snapshot when hooked up to a 
                                               className="ui section divider"
                                             />
                                           </Divider>
+                                        </div>
+                                      </GridColumn>
+                                    </div>
+                                  </GridRow>
+                                  <GridRow
+                                    columns={3}
+                                  >
+                                    <div
+                                      className="three column row"
+                                    >
+                                      <GridColumn
+                                        width={2}
+                                      >
+                                        <div
+                                          className="two wide column"
+                                        >
+                                          <img
+                                            alt="vignettes  icon"
+                                            src="undefined"
+                                            style={
+                                              Object {
+                                                "height": "90px",
+                                                "width": "90px",
+                                              }
+                                            }
+                                          />
+                                        </div>
+                                      </GridColumn>
+                                      <GridColumn
+                                        textAlign="left"
+                                        width={8}
+                                      >
+                                        <div
+                                          className="left aligned eight wide column"
+                                        >
+                                          <Header>
+                                            <div
+                                              className="ui header"
+                                            />
+                                          </Header>
+                                          <p>
+                                            <span
+                                              style={
+                                                Object {
+                                                  "fontWeight": "bold",
+                                                }
+                                              }
+                                            >
+                                              Description: 
+                                            </span>
+                                            Rise Against Viz
+                                          </p>
+                                          <p>
+                                            <span
+                                              style={
+                                                Object {
+                                                  "fontWeight": "bold",
+                                                }
+                                              }
+                                            >
+                                              Analysis authors: 
+                                            </span>
+                                          </p>
+                                          <br />
+                                        </div>
+                                      </GridColumn>
+                                      <GridColumn
+                                        width={2}
+                                      >
+                                        <div
+                                          className="two wide column"
+                                        >
+                                          <Button
+                                            as="button"
+                                            basic={true}
+                                          >
+                                            <button
+                                              className="ui basic button"
+                                              onClick={[Function]}
+                                            >
+                                              <Link
+                                                replace={false}
+                                                to="/dataset?id=&viz=bbfacade-0000-0000-0001-a1234567890b"
+                                              >
+                                                <a
+                                                  href="#/dataset?id=&viz=bbfacade-0000-0000-0001-a1234567890b"
+                                                  onClick={[Function]}
+                                                >
+                                                  launch
+                                                </a>
+                                              </Link>
+                                            </button>
+                                          </Button>
                                         </div>
                                       </GridColumn>
                                     </div>
@@ -870,45 +897,24 @@ exports[`BioblocksPortalPage Should match existing snapshot when hooked up to a 
                                             </div>
                                           </GridRow>
                                           <br />
-                                        </div>
-                                      </GridColumn>
-                                    </div>
-                                  </GridRow>
-                                  <GridRow
-                                    centered={false}
-                                  >
-                                    <div
-                                      className="row"
-                                    >
-                                      <GridColumn
-                                        width={12}
-                                      >
-                                        <div
-                                          className="twelve wide column"
-                                        >
-                                          <Link
-                                            replace={false}
-                                            style={
-                                              Object {
-                                                "color": "blue",
-                                                "float": "right",
-                                              }
-                                            }
-                                            to="datasets"
+                                          <GridRow
+                                            textAlign="center"
                                           >
-                                            <a
-                                              href="#/datasets"
-                                              onClick={[Function]}
-                                              style={
-                                                Object {
-                                                  "color": "blue",
-                                                  "float": "right",
-                                                }
-                                              }
+                                            <div
+                                              className="center aligned row"
                                             >
-                                              more datasets...
-                                            </a>
-                                          </Link>
+                                              <Header
+                                                as="h3"
+                                                textAlign="center"
+                                              >
+                                                <h3
+                                                  className="ui center aligned header"
+                                                >
+                                                  Coming soon!
+                                                </h3>
+                                              </Header>
+                                            </div>
+                                          </GridRow>
                                         </div>
                                       </GridColumn>
                                     </div>
@@ -1029,14 +1035,14 @@ exports[`BioblocksPortalPage Should match existing snapshot when vignettes and v
       vignettes={
         Array [
           Object {
-            "_id": "rise-against-vignette-id",
+            "_id": "bbdecade-0000-0000-0001-a1234567890b",
             "authors": Array [],
+            "dataset": "",
             "icon": "",
-            "link": "",
             "name": "",
             "summary": "Rise Against Viz",
             "visualizations": Array [
-              "franz-ferdinand-viz-id",
+              "bbfacade-0000-0000-0001-a1234567890b",
             ],
           },
         ]
@@ -1044,12 +1050,13 @@ exports[`BioblocksPortalPage Should match existing snapshot when vignettes and v
       visualizations={
         Array [
           Object {
-            "_id": "eminem-viz-id",
+            "_id": "bbfacade-0000-0000-0002-a1234567890b",
             "authors": Array [
               "Eminem",
             ],
             "citations": Array [],
             "compatibleData": Array [],
+            "exampleDataset": "bbdeeded-0000-0000-0002-a1234567890b",
             "isOriginal": true,
             "labels": Array [],
             "name": "",

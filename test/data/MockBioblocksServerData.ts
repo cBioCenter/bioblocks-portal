@@ -1,32 +1,33 @@
 import { IVignette, IVisualization } from '~bioblocks-portal~/data';
 
 export const riseAgainstVignette = {
-  _id: 'rise-against-vignette-id',
+  _id: 'bbdecade-0000-0000-0001-a1234567890b',
   authors: [],
+  dataset: '',
   icon: '',
-  link: '',
   name: '',
   summary: 'Rise Against Viz',
-  visualizations: ['franz-ferdinand-viz-id'],
+  visualizations: ['bbfacade-0000-0000-0001-a1234567890b'],
 };
 
 export const jukeboxVignette = {
-  _id: 'psycho-jukebox-vignette-id',
+  _id: 'bbdecade-0000-0000-0002-a1234567890b',
   authors: [],
+  dataset: '',
   icon: '',
-  link: '',
   name: '',
   summary: 'Psycho Jukebox Vignette',
-  visualizations: ['eminem-viz-id'],
+  visualizations: ['bbfacade-0000-0000-0002-a1234567890b'],
 };
 
 export const testVignettes: IVignette[] = [riseAgainstVignette];
 
 export const originalViz = {
-  _id: 'franz-ferdinand-viz-id',
+  _id: 'bbfacade-0000-0000-0001-a1234567890b',
   authors: ['Franz Ferdinand'],
   citations: [],
   compatibleData: [],
+  exampleDataset: 'bbdeeded-0000-0000-0001-a1234567890b',
   isOriginal: true,
   labels: [],
   name: '',
@@ -40,10 +41,11 @@ export const originalViz = {
 };
 
 export const unoriginalViz = {
-  _id: 'eminem-viz-id',
+  _id: 'bbfacade-0000-0000-0002-a1234567890b',
   authors: ['Eminem'],
   citations: [],
   compatibleData: [],
+  exampleDataset: 'bbdeeded-0000-0000-0002-a1234567890b',
   isOriginal: true,
   labels: [],
   name: '',

@@ -5,7 +5,7 @@ import { Middleware } from 'redux';
 import { logger } from 'redux-logger';
 import * as thunk from 'redux-thunk';
 
-import { IVignette, IVisualization } from '~bioblocks-portal~/data';
+import { IDataset, IVignette, IVisualization } from '~bioblocks-portal~/data';
 
 export const history = createHashHistory();
 
@@ -15,6 +15,7 @@ if (process.env.NODE_ENV === `development`) {
 }
 middleWares.push(BioblocksMiddleware);
 
+ReducerRegistry.register('dataset', DataReducer<IDataset | null>('dataset', null));
 ReducerRegistry.register('router', connectRouter(history) as any);
 ReducerRegistry.register('vignettes', DataReducer<IVignette[]>('vignettes', []));
 ReducerRegistry.register('visualizations', DataReducer<IVisualization[]>('visualizations', []));
