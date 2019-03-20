@@ -12,7 +12,8 @@ module.exports = merge(common, {
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
-        API_URL: JSON.stringify('http://localhost:11037'),
+        // tslint:disable-next-line: no-http-string
+        API_URL: JSON.stringify('http://155.52.47.138:11037'),
         NODE_ENV: JSON.stringify('production'),
       },
     }),
