@@ -4,8 +4,8 @@ import { Provider } from 'react-redux';
 
 import { BioblocksPortalPage, configureStore } from '~bioblocks-portal~';
 
-// tslint:disable-next-line:no-import-side-effect no-relative-imports
-import './assets/semantic.flat.min.css';
+// tslint:disable-next-line:no-submodule-imports no-import-side-effect
+import 'bioblocks-viz/lib/assets/semantic.flat.min.css';
 
 const store = configureStore();
 

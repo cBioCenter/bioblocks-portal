@@ -1,6 +1,7 @@
-import * as CleanWebpackPlugin from 'clean-webpack-plugin';
+import { default as CleanWebpackPlugin } from 'clean-webpack-plugin';
 import * as CopyWebpackPlugin from 'copy-webpack-plugin';
 import * as HtmlWebpackPlugin from 'html-webpack-plugin';
+import * as MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import * as webpack from 'webpack';
 
 // TODO: Use https://github.com/TypeStrong/typedoc and https://github.com/Microsoft/Typedoc-Webpack-Plugin
@@ -17,7 +18,12 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
+          'css-loader',
+        ],
       },
       {
         test: /\.tsx?$/,
@@ -35,9 +41,18 @@ module.exports = {
         test: /\.js$/,
       },
       {
-        include: [path.resolve(__dirname, 'node_modules/anatomogram')],
-        test: /\.(jpe?g|png|gif)$/i,
+        include: [
+          path.resolve(__dirname, 'node_modules/anatomogram'),
+          path.resolve(__dirname, 'node_modules/bioblocks-viz'),
+        ],
+        test: /\.(woff(2)?|ttf|png|eot)(\?v=\d+\.\d+\.\d+)?$/,
         use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+            },
+          },
           {
             loader: `image-webpack-loader`,
             options: {
@@ -58,7 +73,11 @@ module.exports = {
         ],
       },
       {
-        test: /\.(woff(2)?|ttf|png|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        include: [
+          path.resolve(__dirname, 'node_modules/anatomogram'),
+          path.resolve(__dirname, 'node_modules/bioblocks-viz'),
+        ],
+        test: /\.(svg)$/i,
         use: [
           {
             loader: 'file-loader',
@@ -99,7 +118,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
   },
   plugins: [
-    new CleanWebpackPlugin(['dist']),
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       chunks: ['index'],
       favicon: 'assets/favicons/favicon.ico',
@@ -108,13 +127,6 @@ module.exports = {
       template: './index.html',
       title: 'Development',
     }),
-    new CopyWebpackPlugin([
-      {
-        from: './assets/datasets',
-        to: './datasets',
-        toType: 'dir',
-      },
-    ]),
     new CopyWebpackPlugin([
       {
         from: './assets',
@@ -130,10 +142,13 @@ module.exports = {
         toType: 'dir',
       },
     ]),
+    new MiniCssExtractPlugin(),
     new webpack.NamedModulesPlugin(),
   ],
   resolve: {
     alias: {
+      ngl: path.resolve(__dirname, './node_modules/ngl/dist/ngl.js'),
+      'plotly.js/lib/index-gl2d': path.resolve(__dirname, './node_modules/plotly.js/dist/plotly-gl2d.min.js'),
       '~bioblocks-portal~': path.resolve(__dirname, './src'),
       '~bioblocks-portal~/component': path.resolve(__dirname, './src/component'),
     },
