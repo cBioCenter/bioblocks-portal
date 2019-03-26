@@ -162,7 +162,7 @@
     "@types/mini-css-extract-plugin": "^0.2.0",
     "@types/react": "^16.4.7",
     "@types/react-dom": "^16.0.5",
-    "@types/react-redux": "^7.0.1",
+    "@types/react-redux": "^6.0.11",
     "@types/react-router-dom": "^4.3.1",
     "@types/redux-logger": "^3.0.7",
     "@types/wallabyjs": "^0.0.6",
