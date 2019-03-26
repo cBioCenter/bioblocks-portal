@@ -1,4 +1,4 @@
-import * as CleanWebpackPlugin from 'clean-webpack-plugin';
+import { default as CleanWebpackPlugin } from 'clean-webpack-plugin';
 import * as CopyWebpackPlugin from 'copy-webpack-plugin';
 import * as HtmlWebpackPlugin from 'html-webpack-plugin';
 import * as webpack from 'webpack';
@@ -99,7 +99,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
   },
   plugins: [
-    new CleanWebpackPlugin(['dist']),
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       chunks: ['index'],
       favicon: 'assets/favicons/favicon.ico',
@@ -108,13 +108,6 @@ module.exports = {
       template: './index.html',
       title: 'Development',
     }),
-    new CopyWebpackPlugin([
-      {
-        from: './assets/datasets',
-        to: './datasets',
-        toType: 'dir',
-      },
-    ]),
     new CopyWebpackPlugin([
       {
         from: './assets',
@@ -134,6 +127,8 @@ module.exports = {
   ],
   resolve: {
     alias: {
+      ngl: path.resolve(__dirname, './node_modules/ngl/dist/ngl.js'),
+      'plotly.js/lib/index-gl2d': path.resolve(__dirname, './node_modules/plotly.js/dist/plotly-gl2d.min.js'),
       '~bioblocks-portal~': path.resolve(__dirname, './src'),
       '~bioblocks-portal~/component': path.resolve(__dirname, './src/component'),
     },
