@@ -94,7 +94,7 @@ export class UnconnectedDatasetPage extends React.Component<IDatasetPageProps, I
         }
       });
       dispatchDatasetFetch('dataset', async () => {
-        const datasetFetchResult = await fetch(`${process.env.API_URL}/dataset/${datasetId}`);
+        const datasetFetchResult = await fetch(`${process.env.API_URL}/dataset/${datasetId}?embedded={"analyses":1}`);
         if (!datasetFetchResult.ok) {
           return null;
         } else {
@@ -111,11 +111,21 @@ export class UnconnectedDatasetPage extends React.Component<IDatasetPageProps, I
   protected renderVisualization(viz: IVisualization, datasetLocation: string) {
     const isFullPage = this.state.datasetVisualizations.length === 1;
     const iconSrc = `${process.env.API_URL}${viz.icon}`;
+    let analysisLocation = '';
     switch (viz.name.toLocaleLowerCase()) {
       case 'spring':
+        if (this.props.dataset) {
+          const analsyis = this.props.dataset.analyses.find(anAnalsyis => anAnalsyis.processType === 'SPRING');
+          if (analsyis) {
+            analysisLocation = analsyis._id;
+          }
+        }
+
+        const datasetName = this.props.dataset ? this.props.dataset.name : '';
+
         return (
           <SpringContainer
-            datasetLocation={datasetLocation}
+            datasetLocation={`${datasetLocation}/analyses/${analysisLocation}/${datasetName}`}
             datasetsURI={`${process.env.API_URL}/datasets`}
             isFullPage={isFullPage}
             springSrc={`${process.env.API_URL}/${viz.location}`}
@@ -123,8 +133,18 @@ export class UnconnectedDatasetPage extends React.Component<IDatasetPageProps, I
           />
         );
       case 'tfjs-tsne':
+        if (this.props.dataset) {
+          const tsneAnalysis = this.props.dataset.analyses.find(analsyis => analsyis.processType === 'TSNE');
+          if (tsneAnalysis) {
+            analysisLocation = tsneAnalysis._id;
+          }
+        }
+
         return (
-          <TensorTContainer datasetLocation={`${process.env.API_URL}/datasets/${datasetLocation}`} iconSrc={iconSrc} />
+          <TensorTContainer
+            datasetLocation={`${process.env.API_URL}/datasets/${datasetLocation}/analyses/${analysisLocation}`}
+            iconSrc={iconSrc}
+          />
         );
       case 'anatomogram':
         return <AnatomogramContainer species={'homo_sapiens'} iconSrc={iconSrc} />;

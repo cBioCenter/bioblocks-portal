@@ -1,5 +1,24 @@
 import { SPECIES_TYPE } from 'bioblocks-viz';
 
+export type BIOBLOCKS_JOB_STATUS_TYPE = 'IN_PROGRESS' | 'ERROR' | 'COMPLETE';
+export type BIOBLOCKS_PROCESS_TYPE = 'SPRING' | 'TSNE';
+
+export interface IAnalysis {
+  _id: string;
+  parameters?: object;
+  processType: BIOBLOCKS_PROCESS_TYPE;
+}
+
+export interface IDataset {
+  _id: string;
+  analyses: IAnalysis[];
+  authors: string[];
+  derivedFrom: IDataset[];
+  matrixLocation: string;
+  name: string;
+  species?: SPECIES_TYPE;
+}
+
 export interface IEveLink {
   href: string;
   title: string;
@@ -18,11 +37,13 @@ export interface IEveResponse<T> {
   };
 }
 
-export interface IDataset {
+export interface IJob {
   _id: string;
-  authors: string[];
-  name: string;
-  species?: SPECIES_TYPE;
+  associatedDataset: {
+    dataset: IDataset;
+    etag: string;
+  };
+  status: BIOBLOCKS_JOB_STATUS_TYPE;
 }
 
 export interface IVignette {

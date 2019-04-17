@@ -13,7 +13,7 @@ module.exports = merge(common, {
     new webpack.DefinePlugin({
       'process.env': {
         // tslint:disable-next-line: no-http-string
-        API_URL: JSON.stringify('http://155.52.47.138:11037'),
+        API_URL: JSON.stringify('https://bioblocks.org'),
         NODE_ENV: JSON.stringify('production'),
       },
     }),
