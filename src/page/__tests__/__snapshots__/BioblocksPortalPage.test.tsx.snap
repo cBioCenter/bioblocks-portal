@@ -13,6 +13,8 @@ exports[`BioblocksPortalPage Should match existing snapshot when hooked up to a 
   }
 >
   <UnconnectedBioblocksPortalPage
+    datasets={Array []}
+    dispatchDatasetsFetch={[Function]}
     dispatchVignettesFetch={[Function]}
     dispatchVisualizationsFetch={[Function]}
     vignettes={
@@ -181,6 +183,8 @@ exports[`BioblocksPortalPage Should match existing snapshot when hooked up to a 
                 id="BioblocksPortalPage"
               >
                 <Connect(UnconnectedSiteHeader)
+                  datasets={Array []}
+                  dispatchDatasetsFetch={[Function]}
                   dispatchVignettesFetch={[Function]}
                   dispatchVisualizationsFetch={[Function]}
                   vignettes={
@@ -243,7 +247,9 @@ exports[`BioblocksPortalPage Should match existing snapshot when hooked up to a 
                 >
                   <UnconnectedSiteHeader
                     dataset={null}
+                    datasets={Array []}
                     dispatch={[Function]}
+                    dispatchDatasetsFetch={[Function]}
                     dispatchVignettesFetch={[Function]}
                     dispatchVisualizationsFetch={[Function]}
                     pathname="/"
@@ -323,6 +329,38 @@ exports[`BioblocksPortalPage Should match existing snapshot when hooked up to a 
                               <div
                                 className="ui secondary menu"
                               >
+                                <MenuItem
+                                  key="datasets"
+                                >
+                                  <div
+                                    className="item"
+                                    onClick={[Function]}
+                                  >
+                                    <Link
+                                      replace={false}
+                                      style={
+                                        Object {
+                                          "color": "black",
+                                          "fontSize": "18px",
+                                        }
+                                      }
+                                      to="/datasets"
+                                    >
+                                      <a
+                                        href="#/datasets"
+                                        onClick={[Function]}
+                                        style={
+                                          Object {
+                                            "color": "black",
+                                            "fontSize": "18px",
+                                          }
+                                        }
+                                      >
+                                        datasets
+                                      </a>
+                                    </Link>
+                                  </div>
+                                </MenuItem>
                                 <MenuItem
                                   key="visualizations"
                                 >
@@ -966,12 +1004,20 @@ exports[`BioblocksPortalPage Should match existing snapshot when no props are pr
     id="BioblocksPortalPage"
   >
     <Connect(UnconnectedSiteHeader)
+      datasets={Array []}
+      dispatchDatasetsFetch={[Function]}
       dispatchVignettesFetch={[Function]}
       dispatchVisualizationsFetch={[Function]}
       vignettes={Array []}
       visualizations={Array []}
     />
     <Switch>
+      <Route
+        exact={true}
+        path="/datasets"
+        render={[Function]}
+        strict={true}
+      />
       <Route
         exact={true}
         path="/visualizations"
@@ -1030,6 +1076,8 @@ exports[`BioblocksPortalPage Should match existing snapshot when vignettes and v
     id="BioblocksPortalPage"
   >
     <Connect(UnconnectedSiteHeader)
+      datasets={Array []}
+      dispatchDatasetsFetch={[Function]}
       dispatchVignettesFetch={[Function]}
       dispatchVisualizationsFetch={[Function]}
       vignettes={
@@ -1074,6 +1122,12 @@ exports[`BioblocksPortalPage Should match existing snapshot when vignettes and v
     <Switch>
       <Route
         exact={true}
+        path="/datasets"
+        render={[Function]}
+        strict={true}
+      />
+      <Route
+        exact={true}
         path="/visualizations"
         render={[Function]}
         strict={true}
@@ -1100,4 +1154,3306 @@ exports[`BioblocksPortalPage Should match existing snapshot when vignettes and v
     </Switch>
   </Container>
 </Connect(ConnectedRouterWithContext)>
+`;
+
+exports[`BioblocksPortalPage Should update the page when navigating to a page 1`] = `
+<Connect(UnconnectedBioblocksPortalPage)>
+  <UnconnectedBioblocksPortalPage
+    datasets={Array []}
+    dispatchDatasetsFetch={[Function]}
+    dispatchVignettesFetch={[Function]}
+    dispatchVisualizationsFetch={[Function]}
+    vignettes={Array []}
+    visualizations={Array []}
+  >
+    <Connect(ConnectedRouterWithContext)
+      history={
+        Object {
+          "action": "PUSH",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 2,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/datasets",
+            "search": "",
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <ConnectedRouterWithContext
+        history={
+          Object {
+            "action": "PUSH",
+            "block": [Function],
+            "createHref": [Function],
+            "go": [Function],
+            "goBack": [Function],
+            "goForward": [Function],
+            "length": 2,
+            "listen": [Function],
+            "location": Object {
+              "hash": "",
+              "pathname": "/datasets",
+              "search": "",
+            },
+            "push": [Function],
+            "replace": [Function],
+          }
+        }
+        onLocationChanged={[Function]}
+      >
+        <ConnectedRouter
+          history={
+            Object {
+              "action": "PUSH",
+              "block": [Function],
+              "createHref": [Function],
+              "go": [Function],
+              "goBack": [Function],
+              "goForward": [Function],
+              "length": 2,
+              "listen": [Function],
+              "location": Object {
+                "hash": "",
+                "pathname": "/datasets",
+                "search": "",
+              },
+              "push": [Function],
+              "replace": [Function],
+            }
+          }
+          onLocationChanged={[Function]}
+          store={
+            Object {
+              "dispatch": [Function],
+              "getState": [Function],
+              "replaceReducer": [Function],
+              "subscribe": [Function],
+              Symbol(observable): [Function],
+            }
+          }
+        >
+          <Router
+            history={
+              Object {
+                "action": "PUSH",
+                "block": [Function],
+                "createHref": [Function],
+                "go": [Function],
+                "goBack": [Function],
+                "goForward": [Function],
+                "length": 2,
+                "listen": [Function],
+                "location": Object {
+                  "hash": "",
+                  "pathname": "/datasets",
+                  "search": "",
+                },
+                "push": [Function],
+                "replace": [Function],
+              }
+            }
+          >
+            <Container
+              fluid={true}
+              id="BioblocksPortalPage"
+            >
+              <div
+                className="ui fluid container"
+                id="BioblocksPortalPage"
+              >
+                <Connect(UnconnectedSiteHeader)
+                  datasets={Array []}
+                  dispatchDatasetsFetch={[Function]}
+                  dispatchVignettesFetch={[Function]}
+                  dispatchVisualizationsFetch={[Function]}
+                  vignettes={Array []}
+                  visualizations={Array []}
+                >
+                  <UnconnectedSiteHeader
+                    dataset={null}
+                    datasets={Array []}
+                    dispatch={[Function]}
+                    dispatchDatasetsFetch={[Function]}
+                    dispatchVignettesFetch={[Function]}
+                    dispatchVisualizationsFetch={[Function]}
+                    pathname="/datasets"
+                    search=""
+                    vignettes={Array []}
+                    visualizations={Array []}
+                  >
+                    <Header>
+                      <div
+                        className="ui header"
+                      >
+                        <Menu
+                          borderless={true}
+                          fluid={true}
+                          secondary={true}
+                          style={
+                            Object {
+                              "maxHeight": "40px",
+                              "padding": "20px 0 0 0",
+                            }
+                          }
+                        >
+                          <div
+                            className="ui borderless fluid secondary menu"
+                            style={
+                              Object {
+                                "maxHeight": "40px",
+                                "padding": "20px 0 0 0",
+                              }
+                            }
+                          >
+                            <MenuItem
+                              fitted="vertically"
+                              position="left"
+                            >
+                              <div
+                                className="left vertically fitted item"
+                                onClick={[Function]}
+                              >
+                                <Link
+                                  replace={false}
+                                  to="/"
+                                >
+                                  <a
+                                    href="#/"
+                                    onClick={[Function]}
+                                  >
+                                    <img
+                                      alt="hca-dynamics-icon"
+                                      src="assets/icons/bio-blocks-icon-2x.png"
+                                      style={
+                                        Object {
+                                          "height": "32px",
+                                          "width": "32px",
+                                        }
+                                      }
+                                    />
+                                    <span
+                                      style={
+                                        Object {
+                                          "color": "black",
+                                          "fontSize": "32px",
+                                          "fontWeight": "bold",
+                                        }
+                                      }
+                                    >
+                                      HCA Dynamics
+                                    </span>
+                                  </a>
+                                </Link>
+                              </div>
+                            </MenuItem>
+                            <Menu
+                              defaultActiveIndex={-1}
+                              secondary={true}
+                            >
+                              <div
+                                className="ui secondary menu"
+                              >
+                                <MenuItem
+                                  key="datasets"
+                                >
+                                  <div
+                                    className="item"
+                                    onClick={[Function]}
+                                  >
+                                    <Link
+                                      replace={false}
+                                      style={
+                                        Object {
+                                          "color": "black",
+                                          "fontSize": "18px",
+                                        }
+                                      }
+                                      to="/datasets"
+                                    >
+                                      <a
+                                        href="#/datasets"
+                                        onClick={[Function]}
+                                        style={
+                                          Object {
+                                            "color": "black",
+                                            "fontSize": "18px",
+                                          }
+                                        }
+                                      >
+                                        datasets
+                                      </a>
+                                    </Link>
+                                  </div>
+                                </MenuItem>
+                                <MenuItem
+                                  key="visualizations"
+                                >
+                                  <div
+                                    className="item"
+                                    onClick={[Function]}
+                                  >
+                                    <Link
+                                      replace={false}
+                                      style={
+                                        Object {
+                                          "color": "black",
+                                          "fontSize": "18px",
+                                        }
+                                      }
+                                      to="/visualizations"
+                                    >
+                                      <a
+                                        href="#/visualizations"
+                                        onClick={[Function]}
+                                        style={
+                                          Object {
+                                            "color": "black",
+                                            "fontSize": "18px",
+                                          }
+                                        }
+                                      >
+                                        visualizations
+                                      </a>
+                                    </Link>
+                                  </div>
+                                </MenuItem>
+                                <MenuItem
+                                  key="vignettes"
+                                >
+                                  <div
+                                    className="item"
+                                    onClick={[Function]}
+                                  >
+                                    <Link
+                                      replace={false}
+                                      style={
+                                        Object {
+                                          "color": "black",
+                                          "fontSize": "18px",
+                                        }
+                                      }
+                                      to="/vignettes"
+                                    >
+                                      <a
+                                        href="#/vignettes"
+                                        onClick={[Function]}
+                                        style={
+                                          Object {
+                                            "color": "black",
+                                            "fontSize": "18px",
+                                          }
+                                        }
+                                      >
+                                        vignettes
+                                      </a>
+                                    </Link>
+                                  </div>
+                                </MenuItem>
+                              </div>
+                            </Menu>
+                            <MenuItem
+                              position="right"
+                            >
+                              <div
+                                className="right item"
+                                onClick={[Function]}
+                              >
+                                <Input
+                                  icon="search"
+                                  size="massive"
+                                  transparent={true}
+                                  type="text"
+                                >
+                                  <div
+                                    className="ui massive transparent icon input"
+                                  >
+                                    <input
+                                      onChange={[Function]}
+                                      type="text"
+                                    />
+                                    <Icon
+                                      as="i"
+                                      name="search"
+                                    >
+                                      <i
+                                        aria-hidden="true"
+                                        className="search icon"
+                                        onClick={[Function]}
+                                      />
+                                    </Icon>
+                                  </div>
+                                </Input>
+                              </div>
+                            </MenuItem>
+                          </div>
+                        </Menu>
+                        <Breadcrumb
+                          style={
+                            Object {
+                              "padding": "0 0 0 40px",
+                            }
+                          }
+                        >
+                          <div
+                            className="ui breadcrumb"
+                            style={
+                              Object {
+                                "padding": "0 0 0 40px",
+                              }
+                            }
+                          >
+                            <BreadcrumbSection>
+                              <div
+                                className="section"
+                                onClick={[Function]}
+                              >
+                                <Link
+                                  replace={false}
+                                  to="/"
+                                >
+                                  <a
+                                    href="#/"
+                                    onClick={[Function]}
+                                  >
+                                    home
+                                  </a>
+                                </Link>
+                              </div>
+                            </BreadcrumbSection>
+                            <BreadcrumbDivider
+                              icon="right angle"
+                            >
+                              <Icon
+                                as="i"
+                                className="divider"
+                                name="right angle"
+                              >
+                                <i
+                                  aria-hidden="true"
+                                  className="right angle icon divider"
+                                  onClick={[Function]}
+                                />
+                              </Icon>
+                            </BreadcrumbDivider>
+                            <BreadcrumbSection>
+                              <div
+                                className="section"
+                                onClick={[Function]}
+                              >
+                                <Link
+                                  replace={false}
+                                  to="/datasets"
+                                >
+                                  <a
+                                    href="#/datasets"
+                                    onClick={[Function]}
+                                  >
+                                    datasets
+                                  </a>
+                                </Link>
+                              </div>
+                            </BreadcrumbSection>
+                          </div>
+                        </Breadcrumb>
+                      </div>
+                    </Header>
+                  </UnconnectedSiteHeader>
+                </Connect(UnconnectedSiteHeader)>
+                <Switch>
+                  <Route
+                    computedMatch={
+                      Object {
+                        "isExact": true,
+                        "params": Object {},
+                        "path": "/datasets",
+                        "url": "/datasets",
+                      }
+                    }
+                    exact={true}
+                    location={
+                      Object {
+                        "hash": "",
+                        "pathname": "/datasets",
+                        "search": "",
+                      }
+                    }
+                    path="/datasets"
+                    render={[Function]}
+                    strict={true}
+                  >
+                    <Connect(UnconnectedDatasetsPage)
+                      datasets={Array []}
+                      history={
+                        Object {
+                          "action": "PUSH",
+                          "block": [Function],
+                          "createHref": [Function],
+                          "go": [Function],
+                          "goBack": [Function],
+                          "goForward": [Function],
+                          "length": 2,
+                          "listen": [Function],
+                          "location": Object {
+                            "hash": "",
+                            "pathname": "/datasets",
+                            "search": "",
+                          },
+                          "push": [Function],
+                          "replace": [Function],
+                        }
+                      }
+                      location={
+                        Object {
+                          "hash": "",
+                          "pathname": "/datasets",
+                          "search": "",
+                        }
+                      }
+                      match={
+                        Object {
+                          "isExact": true,
+                          "params": Object {},
+                          "path": "/datasets",
+                          "url": "/datasets",
+                        }
+                      }
+                      visualizations={Array []}
+                    >
+                      <UnconnectedDatasetsPage
+                        datasets={Array []}
+                        dispatch={[Function]}
+                        history={
+                          Object {
+                            "action": "PUSH",
+                            "block": [Function],
+                            "createHref": [Function],
+                            "go": [Function],
+                            "goBack": [Function],
+                            "goForward": [Function],
+                            "length": 2,
+                            "listen": [Function],
+                            "location": Object {
+                              "hash": "",
+                              "pathname": "/datasets",
+                              "search": "",
+                            },
+                            "push": [Function],
+                            "replace": [Function],
+                          }
+                        }
+                        location={
+                          Object {
+                            "hash": "",
+                            "pathname": "/datasets",
+                            "search": "",
+                          }
+                        }
+                        match={
+                          Object {
+                            "isExact": true,
+                            "params": Object {},
+                            "path": "/datasets",
+                            "url": "/datasets",
+                          }
+                        }
+                        visualizations={Array []}
+                      >
+                        <Grid
+                          centered={true}
+                          padded={true}
+                          relaxed={true}
+                        >
+                          <div
+                            className="ui centered padded relaxed grid"
+                          />
+                        </Grid>
+                      </UnconnectedDatasetsPage>
+                    </Connect(UnconnectedDatasetsPage)>
+                  </Route>
+                </Switch>
+              </div>
+            </Container>
+          </Router>
+        </ConnectedRouter>
+      </ConnectedRouterWithContext>
+    </Connect(ConnectedRouterWithContext)>
+  </UnconnectedBioblocksPortalPage>
+</Connect(UnconnectedBioblocksPortalPage)>
+`;
+
+exports[`BioblocksPortalPage Should update the page when navigating to a page 2`] = `
+<Connect(UnconnectedBioblocksPortalPage)>
+  <UnconnectedBioblocksPortalPage
+    datasets={Array []}
+    dispatchDatasetsFetch={[Function]}
+    dispatchVignettesFetch={[Function]}
+    dispatchVisualizationsFetch={[Function]}
+    vignettes={Array []}
+    visualizations={Array []}
+  >
+    <Connect(ConnectedRouterWithContext)
+      history={
+        Object {
+          "action": "PUSH",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 3,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/visualizations",
+            "search": "",
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <ConnectedRouterWithContext
+        history={
+          Object {
+            "action": "PUSH",
+            "block": [Function],
+            "createHref": [Function],
+            "go": [Function],
+            "goBack": [Function],
+            "goForward": [Function],
+            "length": 3,
+            "listen": [Function],
+            "location": Object {
+              "hash": "",
+              "pathname": "/visualizations",
+              "search": "",
+            },
+            "push": [Function],
+            "replace": [Function],
+          }
+        }
+        onLocationChanged={[Function]}
+      >
+        <ConnectedRouter
+          history={
+            Object {
+              "action": "PUSH",
+              "block": [Function],
+              "createHref": [Function],
+              "go": [Function],
+              "goBack": [Function],
+              "goForward": [Function],
+              "length": 3,
+              "listen": [Function],
+              "location": Object {
+                "hash": "",
+                "pathname": "/visualizations",
+                "search": "",
+              },
+              "push": [Function],
+              "replace": [Function],
+            }
+          }
+          onLocationChanged={[Function]}
+          store={
+            Object {
+              "dispatch": [Function],
+              "getState": [Function],
+              "replaceReducer": [Function],
+              "subscribe": [Function],
+              Symbol(observable): [Function],
+            }
+          }
+        >
+          <Router
+            history={
+              Object {
+                "action": "PUSH",
+                "block": [Function],
+                "createHref": [Function],
+                "go": [Function],
+                "goBack": [Function],
+                "goForward": [Function],
+                "length": 3,
+                "listen": [Function],
+                "location": Object {
+                  "hash": "",
+                  "pathname": "/visualizations",
+                  "search": "",
+                },
+                "push": [Function],
+                "replace": [Function],
+              }
+            }
+          >
+            <Container
+              fluid={true}
+              id="BioblocksPortalPage"
+            >
+              <div
+                className="ui fluid container"
+                id="BioblocksPortalPage"
+              >
+                <Connect(UnconnectedSiteHeader)
+                  datasets={Array []}
+                  dispatchDatasetsFetch={[Function]}
+                  dispatchVignettesFetch={[Function]}
+                  dispatchVisualizationsFetch={[Function]}
+                  vignettes={Array []}
+                  visualizations={Array []}
+                >
+                  <UnconnectedSiteHeader
+                    dataset={null}
+                    datasets={Array []}
+                    dispatch={[Function]}
+                    dispatchDatasetsFetch={[Function]}
+                    dispatchVignettesFetch={[Function]}
+                    dispatchVisualizationsFetch={[Function]}
+                    pathname="/visualizations"
+                    search=""
+                    vignettes={Array []}
+                    visualizations={Array []}
+                  >
+                    <Header>
+                      <div
+                        className="ui header"
+                      >
+                        <Menu
+                          borderless={true}
+                          fluid={true}
+                          secondary={true}
+                          style={
+                            Object {
+                              "maxHeight": "40px",
+                              "padding": "20px 0 0 0",
+                            }
+                          }
+                        >
+                          <div
+                            className="ui borderless fluid secondary menu"
+                            style={
+                              Object {
+                                "maxHeight": "40px",
+                                "padding": "20px 0 0 0",
+                              }
+                            }
+                          >
+                            <MenuItem
+                              fitted="vertically"
+                              position="left"
+                            >
+                              <div
+                                className="left vertically fitted item"
+                                onClick={[Function]}
+                              >
+                                <Link
+                                  replace={false}
+                                  to="/"
+                                >
+                                  <a
+                                    href="#/"
+                                    onClick={[Function]}
+                                  >
+                                    <img
+                                      alt="hca-dynamics-icon"
+                                      src="assets/icons/bio-blocks-icon-2x.png"
+                                      style={
+                                        Object {
+                                          "height": "32px",
+                                          "width": "32px",
+                                        }
+                                      }
+                                    />
+                                    <span
+                                      style={
+                                        Object {
+                                          "color": "black",
+                                          "fontSize": "32px",
+                                          "fontWeight": "bold",
+                                        }
+                                      }
+                                    >
+                                      HCA Dynamics
+                                    </span>
+                                  </a>
+                                </Link>
+                              </div>
+                            </MenuItem>
+                            <Menu
+                              defaultActiveIndex={-1}
+                              secondary={true}
+                            >
+                              <div
+                                className="ui secondary menu"
+                              >
+                                <MenuItem
+                                  key="datasets"
+                                >
+                                  <div
+                                    className="item"
+                                    onClick={[Function]}
+                                  >
+                                    <Link
+                                      replace={false}
+                                      style={
+                                        Object {
+                                          "color": "black",
+                                          "fontSize": "18px",
+                                        }
+                                      }
+                                      to="/datasets"
+                                    >
+                                      <a
+                                        href="#/datasets"
+                                        onClick={[Function]}
+                                        style={
+                                          Object {
+                                            "color": "black",
+                                            "fontSize": "18px",
+                                          }
+                                        }
+                                      >
+                                        datasets
+                                      </a>
+                                    </Link>
+                                  </div>
+                                </MenuItem>
+                                <MenuItem
+                                  key="visualizations"
+                                >
+                                  <div
+                                    className="item"
+                                    onClick={[Function]}
+                                  >
+                                    <Link
+                                      replace={false}
+                                      style={
+                                        Object {
+                                          "color": "black",
+                                          "fontSize": "18px",
+                                        }
+                                      }
+                                      to="/visualizations"
+                                    >
+                                      <a
+                                        href="#/visualizations"
+                                        onClick={[Function]}
+                                        style={
+                                          Object {
+                                            "color": "black",
+                                            "fontSize": "18px",
+                                          }
+                                        }
+                                      >
+                                        visualizations
+                                      </a>
+                                    </Link>
+                                  </div>
+                                </MenuItem>
+                                <MenuItem
+                                  key="vignettes"
+                                >
+                                  <div
+                                    className="item"
+                                    onClick={[Function]}
+                                  >
+                                    <Link
+                                      replace={false}
+                                      style={
+                                        Object {
+                                          "color": "black",
+                                          "fontSize": "18px",
+                                        }
+                                      }
+                                      to="/vignettes"
+                                    >
+                                      <a
+                                        href="#/vignettes"
+                                        onClick={[Function]}
+                                        style={
+                                          Object {
+                                            "color": "black",
+                                            "fontSize": "18px",
+                                          }
+                                        }
+                                      >
+                                        vignettes
+                                      </a>
+                                    </Link>
+                                  </div>
+                                </MenuItem>
+                              </div>
+                            </Menu>
+                            <MenuItem
+                              position="right"
+                            >
+                              <div
+                                className="right item"
+                                onClick={[Function]}
+                              >
+                                <Input
+                                  icon="search"
+                                  size="massive"
+                                  transparent={true}
+                                  type="text"
+                                >
+                                  <div
+                                    className="ui massive transparent icon input"
+                                  >
+                                    <input
+                                      onChange={[Function]}
+                                      type="text"
+                                    />
+                                    <Icon
+                                      as="i"
+                                      name="search"
+                                    >
+                                      <i
+                                        aria-hidden="true"
+                                        className="search icon"
+                                        onClick={[Function]}
+                                      />
+                                    </Icon>
+                                  </div>
+                                </Input>
+                              </div>
+                            </MenuItem>
+                          </div>
+                        </Menu>
+                        <Breadcrumb
+                          style={
+                            Object {
+                              "padding": "0 0 0 40px",
+                            }
+                          }
+                        >
+                          <div
+                            className="ui breadcrumb"
+                            style={
+                              Object {
+                                "padding": "0 0 0 40px",
+                              }
+                            }
+                          >
+                            <BreadcrumbSection>
+                              <div
+                                className="section"
+                                onClick={[Function]}
+                              >
+                                <Link
+                                  replace={false}
+                                  to="/"
+                                >
+                                  <a
+                                    href="#/"
+                                    onClick={[Function]}
+                                  >
+                                    home
+                                  </a>
+                                </Link>
+                              </div>
+                            </BreadcrumbSection>
+                            <BreadcrumbDivider
+                              icon="right angle"
+                            >
+                              <Icon
+                                as="i"
+                                className="divider"
+                                name="right angle"
+                              >
+                                <i
+                                  aria-hidden="true"
+                                  className="right angle icon divider"
+                                  onClick={[Function]}
+                                />
+                              </Icon>
+                            </BreadcrumbDivider>
+                            <BreadcrumbSection>
+                              <div
+                                className="section"
+                                onClick={[Function]}
+                              >
+                                <Link
+                                  replace={false}
+                                  to="/visualizations"
+                                >
+                                  <a
+                                    href="#/visualizations"
+                                    onClick={[Function]}
+                                  >
+                                    visualizations
+                                  </a>
+                                </Link>
+                              </div>
+                            </BreadcrumbSection>
+                          </div>
+                        </Breadcrumb>
+                      </div>
+                    </Header>
+                  </UnconnectedSiteHeader>
+                </Connect(UnconnectedSiteHeader)>
+                <Switch>
+                  <Route
+                    computedMatch={
+                      Object {
+                        "isExact": true,
+                        "params": Object {},
+                        "path": "/visualizations",
+                        "url": "/visualizations",
+                      }
+                    }
+                    exact={true}
+                    location={
+                      Object {
+                        "hash": "",
+                        "pathname": "/visualizations",
+                        "search": "",
+                      }
+                    }
+                    path="/visualizations"
+                    render={[Function]}
+                    strict={true}
+                  >
+                    <VisualizationsPage
+                      history={
+                        Object {
+                          "action": "PUSH",
+                          "block": [Function],
+                          "createHref": [Function],
+                          "go": [Function],
+                          "goBack": [Function],
+                          "goForward": [Function],
+                          "length": 3,
+                          "listen": [Function],
+                          "location": Object {
+                            "hash": "",
+                            "pathname": "/visualizations",
+                            "search": "",
+                          },
+                          "push": [Function],
+                          "replace": [Function],
+                        }
+                      }
+                      location={
+                        Object {
+                          "hash": "",
+                          "pathname": "/visualizations",
+                          "search": "",
+                        }
+                      }
+                      match={
+                        Object {
+                          "isExact": true,
+                          "params": Object {},
+                          "path": "/visualizations",
+                          "url": "/visualizations",
+                        }
+                      }
+                      visualizations={Array []}
+                    >
+                      <List
+                        divided={true}
+                      >
+                        <div
+                          className="ui divided list"
+                          role="list"
+                        />
+                      </List>
+                    </VisualizationsPage>
+                  </Route>
+                </Switch>
+              </div>
+            </Container>
+          </Router>
+        </ConnectedRouter>
+      </ConnectedRouterWithContext>
+    </Connect(ConnectedRouterWithContext)>
+  </UnconnectedBioblocksPortalPage>
+</Connect(UnconnectedBioblocksPortalPage)>
+`;
+
+exports[`BioblocksPortalPage Should update the page when navigating to a page 3`] = `
+<Connect(UnconnectedBioblocksPortalPage)>
+  <UnconnectedBioblocksPortalPage
+    datasets={Array []}
+    dispatchDatasetsFetch={[Function]}
+    dispatchVignettesFetch={[Function]}
+    dispatchVisualizationsFetch={[Function]}
+    vignettes={Array []}
+    visualizations={Array []}
+  >
+    <Connect(ConnectedRouterWithContext)
+      history={
+        Object {
+          "action": "PUSH",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 4,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/visualizations/",
+            "search": "",
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <ConnectedRouterWithContext
+        history={
+          Object {
+            "action": "PUSH",
+            "block": [Function],
+            "createHref": [Function],
+            "go": [Function],
+            "goBack": [Function],
+            "goForward": [Function],
+            "length": 4,
+            "listen": [Function],
+            "location": Object {
+              "hash": "",
+              "pathname": "/visualizations/",
+              "search": "",
+            },
+            "push": [Function],
+            "replace": [Function],
+          }
+        }
+        onLocationChanged={[Function]}
+      >
+        <ConnectedRouter
+          history={
+            Object {
+              "action": "PUSH",
+              "block": [Function],
+              "createHref": [Function],
+              "go": [Function],
+              "goBack": [Function],
+              "goForward": [Function],
+              "length": 4,
+              "listen": [Function],
+              "location": Object {
+                "hash": "",
+                "pathname": "/visualizations/",
+                "search": "",
+              },
+              "push": [Function],
+              "replace": [Function],
+            }
+          }
+          onLocationChanged={[Function]}
+          store={
+            Object {
+              "dispatch": [Function],
+              "getState": [Function],
+              "replaceReducer": [Function],
+              "subscribe": [Function],
+              Symbol(observable): [Function],
+            }
+          }
+        >
+          <Router
+            history={
+              Object {
+                "action": "PUSH",
+                "block": [Function],
+                "createHref": [Function],
+                "go": [Function],
+                "goBack": [Function],
+                "goForward": [Function],
+                "length": 4,
+                "listen": [Function],
+                "location": Object {
+                  "hash": "",
+                  "pathname": "/visualizations/",
+                  "search": "",
+                },
+                "push": [Function],
+                "replace": [Function],
+              }
+            }
+          >
+            <Container
+              fluid={true}
+              id="BioblocksPortalPage"
+            >
+              <div
+                className="ui fluid container"
+                id="BioblocksPortalPage"
+              >
+                <Connect(UnconnectedSiteHeader)
+                  datasets={Array []}
+                  dispatchDatasetsFetch={[Function]}
+                  dispatchVignettesFetch={[Function]}
+                  dispatchVisualizationsFetch={[Function]}
+                  vignettes={Array []}
+                  visualizations={Array []}
+                >
+                  <UnconnectedSiteHeader
+                    dataset={null}
+                    datasets={Array []}
+                    dispatch={[Function]}
+                    dispatchDatasetsFetch={[Function]}
+                    dispatchVignettesFetch={[Function]}
+                    dispatchVisualizationsFetch={[Function]}
+                    pathname="/visualizations/"
+                    search=""
+                    vignettes={Array []}
+                    visualizations={Array []}
+                  >
+                    <Header>
+                      <div
+                        className="ui header"
+                      >
+                        <Menu
+                          borderless={true}
+                          fluid={true}
+                          secondary={true}
+                          style={
+                            Object {
+                              "maxHeight": "40px",
+                              "padding": "20px 0 0 0",
+                            }
+                          }
+                        >
+                          <div
+                            className="ui borderless fluid secondary menu"
+                            style={
+                              Object {
+                                "maxHeight": "40px",
+                                "padding": "20px 0 0 0",
+                              }
+                            }
+                          >
+                            <MenuItem
+                              fitted="vertically"
+                              position="left"
+                            >
+                              <div
+                                className="left vertically fitted item"
+                                onClick={[Function]}
+                              >
+                                <Link
+                                  replace={false}
+                                  to="/"
+                                >
+                                  <a
+                                    href="#/"
+                                    onClick={[Function]}
+                                  >
+                                    <img
+                                      alt="hca-dynamics-icon"
+                                      src="assets/icons/bio-blocks-icon-2x.png"
+                                      style={
+                                        Object {
+                                          "height": "32px",
+                                          "width": "32px",
+                                        }
+                                      }
+                                    />
+                                    <span
+                                      style={
+                                        Object {
+                                          "color": "black",
+                                          "fontSize": "32px",
+                                          "fontWeight": "bold",
+                                        }
+                                      }
+                                    >
+                                      HCA Dynamics
+                                    </span>
+                                  </a>
+                                </Link>
+                              </div>
+                            </MenuItem>
+                            <Menu
+                              defaultActiveIndex={-1}
+                              secondary={true}
+                            >
+                              <div
+                                className="ui secondary menu"
+                              >
+                                <MenuItem
+                                  key="datasets"
+                                >
+                                  <div
+                                    className="item"
+                                    onClick={[Function]}
+                                  >
+                                    <Link
+                                      replace={false}
+                                      style={
+                                        Object {
+                                          "color": "black",
+                                          "fontSize": "18px",
+                                        }
+                                      }
+                                      to="/datasets"
+                                    >
+                                      <a
+                                        href="#/datasets"
+                                        onClick={[Function]}
+                                        style={
+                                          Object {
+                                            "color": "black",
+                                            "fontSize": "18px",
+                                          }
+                                        }
+                                      >
+                                        datasets
+                                      </a>
+                                    </Link>
+                                  </div>
+                                </MenuItem>
+                                <MenuItem
+                                  key="visualizations"
+                                >
+                                  <div
+                                    className="item"
+                                    onClick={[Function]}
+                                  >
+                                    <Link
+                                      replace={false}
+                                      style={
+                                        Object {
+                                          "color": "black",
+                                          "fontSize": "18px",
+                                        }
+                                      }
+                                      to="/visualizations"
+                                    >
+                                      <a
+                                        href="#/visualizations"
+                                        onClick={[Function]}
+                                        style={
+                                          Object {
+                                            "color": "black",
+                                            "fontSize": "18px",
+                                          }
+                                        }
+                                      >
+                                        visualizations
+                                      </a>
+                                    </Link>
+                                  </div>
+                                </MenuItem>
+                                <MenuItem
+                                  key="vignettes"
+                                >
+                                  <div
+                                    className="item"
+                                    onClick={[Function]}
+                                  >
+                                    <Link
+                                      replace={false}
+                                      style={
+                                        Object {
+                                          "color": "black",
+                                          "fontSize": "18px",
+                                        }
+                                      }
+                                      to="/vignettes"
+                                    >
+                                      <a
+                                        href="#/vignettes"
+                                        onClick={[Function]}
+                                        style={
+                                          Object {
+                                            "color": "black",
+                                            "fontSize": "18px",
+                                          }
+                                        }
+                                      >
+                                        vignettes
+                                      </a>
+                                    </Link>
+                                  </div>
+                                </MenuItem>
+                              </div>
+                            </Menu>
+                            <MenuItem
+                              position="right"
+                            >
+                              <div
+                                className="right item"
+                                onClick={[Function]}
+                              >
+                                <Input
+                                  icon="search"
+                                  size="massive"
+                                  transparent={true}
+                                  type="text"
+                                >
+                                  <div
+                                    className="ui massive transparent icon input"
+                                  >
+                                    <input
+                                      onChange={[Function]}
+                                      type="text"
+                                    />
+                                    <Icon
+                                      as="i"
+                                      name="search"
+                                    >
+                                      <i
+                                        aria-hidden="true"
+                                        className="search icon"
+                                        onClick={[Function]}
+                                      />
+                                    </Icon>
+                                  </div>
+                                </Input>
+                              </div>
+                            </MenuItem>
+                          </div>
+                        </Menu>
+                        <Breadcrumb
+                          style={
+                            Object {
+                              "padding": "0 0 0 40px",
+                            }
+                          }
+                        >
+                          <div
+                            className="ui breadcrumb"
+                            style={
+                              Object {
+                                "padding": "0 0 0 40px",
+                              }
+                            }
+                          >
+                            <BreadcrumbSection>
+                              <div
+                                className="section"
+                                onClick={[Function]}
+                              >
+                                <Link
+                                  replace={false}
+                                  to="/"
+                                >
+                                  <a
+                                    href="#/"
+                                    onClick={[Function]}
+                                  >
+                                    home
+                                  </a>
+                                </Link>
+                              </div>
+                            </BreadcrumbSection>
+                            <BreadcrumbDivider
+                              icon="right angle"
+                            >
+                              <Icon
+                                as="i"
+                                className="divider"
+                                name="right angle"
+                              >
+                                <i
+                                  aria-hidden="true"
+                                  className="right angle icon divider"
+                                  onClick={[Function]}
+                                />
+                              </Icon>
+                            </BreadcrumbDivider>
+                            <BreadcrumbSection>
+                              <div
+                                className="section"
+                                onClick={[Function]}
+                              >
+                                <Link
+                                  replace={false}
+                                  to="/visualizations"
+                                >
+                                  <a
+                                    href="#/visualizations"
+                                    onClick={[Function]}
+                                  >
+                                    visualizations
+                                  </a>
+                                </Link>
+                              </div>
+                            </BreadcrumbSection>
+                          </div>
+                        </Breadcrumb>
+                      </div>
+                    </Header>
+                  </UnconnectedSiteHeader>
+                </Connect(UnconnectedSiteHeader)>
+                <Switch>
+                  <Route
+                    computedMatch={
+                      Object {
+                        "isExact": true,
+                        "params": Object {},
+                        "path": "/visualizations/",
+                        "url": "/visualizations/",
+                      }
+                    }
+                    exact={true}
+                    location={
+                      Object {
+                        "hash": "",
+                        "pathname": "/visualizations/",
+                        "search": "",
+                      }
+                    }
+                    path="/visualizations/"
+                    render={[Function]}
+                    strict={true}
+                  >
+                    <Connect(UnconnectedVizOverviewPage)
+                      history={
+                        Object {
+                          "action": "PUSH",
+                          "block": [Function],
+                          "createHref": [Function],
+                          "go": [Function],
+                          "goBack": [Function],
+                          "goForward": [Function],
+                          "length": 4,
+                          "listen": [Function],
+                          "location": Object {
+                            "hash": "",
+                            "pathname": "/visualizations/",
+                            "search": "",
+                          },
+                          "push": [Function],
+                          "replace": [Function],
+                        }
+                      }
+                      location={
+                        Object {
+                          "hash": "",
+                          "pathname": "/visualizations/",
+                          "search": "",
+                        }
+                      }
+                      match={
+                        Object {
+                          "isExact": true,
+                          "params": Object {},
+                          "path": "/visualizations/",
+                          "url": "/visualizations/",
+                        }
+                      }
+                      vignettes={Array []}
+                      visualizations={Array []}
+                    >
+                      <UnconnectedVizOverviewPage
+                        dispatch={[Function]}
+                        hash=""
+                        history={
+                          Object {
+                            "action": "PUSH",
+                            "block": [Function],
+                            "createHref": [Function],
+                            "go": [Function],
+                            "goBack": [Function],
+                            "goForward": [Function],
+                            "length": 4,
+                            "listen": [Function],
+                            "location": Object {
+                              "hash": "",
+                              "pathname": "/visualizations/",
+                              "search": "",
+                            },
+                            "push": [Function],
+                            "replace": [Function],
+                          }
+                        }
+                        location={
+                          Object {
+                            "hash": "",
+                            "pathname": "/visualizations/",
+                            "search": "",
+                          }
+                        }
+                        match={
+                          Object {
+                            "isExact": true,
+                            "params": Object {},
+                            "path": "/visualizations/",
+                            "url": "/visualizations/",
+                          }
+                        }
+                        pathname="/visualizations/"
+                        search=""
+                        vignettes={Array []}
+                        visualizations={Array []}
+                      />
+                    </Connect(UnconnectedVizOverviewPage)>
+                  </Route>
+                </Switch>
+              </div>
+            </Container>
+          </Router>
+        </ConnectedRouter>
+      </ConnectedRouterWithContext>
+    </Connect(ConnectedRouterWithContext)>
+  </UnconnectedBioblocksPortalPage>
+</Connect(UnconnectedBioblocksPortalPage)>
+`;
+
+exports[`BioblocksPortalPage Should update the page when navigating to a page 4`] = `
+<Connect(UnconnectedBioblocksPortalPage)>
+  <UnconnectedBioblocksPortalPage
+    datasets={Array []}
+    dispatchDatasetsFetch={[Function]}
+    dispatchVignettesFetch={[Function]}
+    dispatchVisualizationsFetch={[Function]}
+    vignettes={Array []}
+    visualizations={Array []}
+  >
+    <Connect(ConnectedRouterWithContext)
+      history={
+        Object {
+          "action": "PUSH",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 5,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/dynamics",
+            "search": "",
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <ConnectedRouterWithContext
+        history={
+          Object {
+            "action": "PUSH",
+            "block": [Function],
+            "createHref": [Function],
+            "go": [Function],
+            "goBack": [Function],
+            "goForward": [Function],
+            "length": 5,
+            "listen": [Function],
+            "location": Object {
+              "hash": "",
+              "pathname": "/dynamics",
+              "search": "",
+            },
+            "push": [Function],
+            "replace": [Function],
+          }
+        }
+        onLocationChanged={[Function]}
+      >
+        <ConnectedRouter
+          history={
+            Object {
+              "action": "PUSH",
+              "block": [Function],
+              "createHref": [Function],
+              "go": [Function],
+              "goBack": [Function],
+              "goForward": [Function],
+              "length": 5,
+              "listen": [Function],
+              "location": Object {
+                "hash": "",
+                "pathname": "/dynamics",
+                "search": "",
+              },
+              "push": [Function],
+              "replace": [Function],
+            }
+          }
+          onLocationChanged={[Function]}
+          store={
+            Object {
+              "dispatch": [Function],
+              "getState": [Function],
+              "replaceReducer": [Function],
+              "subscribe": [Function],
+              Symbol(observable): [Function],
+            }
+          }
+        >
+          <Router
+            history={
+              Object {
+                "action": "PUSH",
+                "block": [Function],
+                "createHref": [Function],
+                "go": [Function],
+                "goBack": [Function],
+                "goForward": [Function],
+                "length": 5,
+                "listen": [Function],
+                "location": Object {
+                  "hash": "",
+                  "pathname": "/dynamics",
+                  "search": "",
+                },
+                "push": [Function],
+                "replace": [Function],
+              }
+            }
+          >
+            <Container
+              fluid={true}
+              id="BioblocksPortalPage"
+            >
+              <div
+                className="ui fluid container"
+                id="BioblocksPortalPage"
+              >
+                <Connect(UnconnectedSiteHeader)
+                  datasets={Array []}
+                  dispatchDatasetsFetch={[Function]}
+                  dispatchVignettesFetch={[Function]}
+                  dispatchVisualizationsFetch={[Function]}
+                  vignettes={Array []}
+                  visualizations={Array []}
+                >
+                  <UnconnectedSiteHeader
+                    dataset={null}
+                    datasets={Array []}
+                    dispatch={[Function]}
+                    dispatchDatasetsFetch={[Function]}
+                    dispatchVignettesFetch={[Function]}
+                    dispatchVisualizationsFetch={[Function]}
+                    pathname="/dynamics"
+                    search=""
+                    vignettes={Array []}
+                    visualizations={Array []}
+                  >
+                    <Header>
+                      <div
+                        className="ui header"
+                      >
+                        <Menu
+                          borderless={true}
+                          fluid={true}
+                          secondary={true}
+                          style={
+                            Object {
+                              "maxHeight": "40px",
+                              "padding": "20px 0 0 0",
+                            }
+                          }
+                        >
+                          <div
+                            className="ui borderless fluid secondary menu"
+                            style={
+                              Object {
+                                "maxHeight": "40px",
+                                "padding": "20px 0 0 0",
+                              }
+                            }
+                          >
+                            <MenuItem
+                              fitted="vertically"
+                              position="left"
+                            >
+                              <div
+                                className="left vertically fitted item"
+                                onClick={[Function]}
+                              >
+                                <Link
+                                  replace={false}
+                                  to="/"
+                                >
+                                  <a
+                                    href="#/"
+                                    onClick={[Function]}
+                                  >
+                                    <img
+                                      alt="hca-dynamics-icon"
+                                      src="assets/icons/bio-blocks-icon-2x.png"
+                                      style={
+                                        Object {
+                                          "height": "32px",
+                                          "width": "32px",
+                                        }
+                                      }
+                                    />
+                                    <span
+                                      style={
+                                        Object {
+                                          "color": "black",
+                                          "fontSize": "32px",
+                                          "fontWeight": "bold",
+                                        }
+                                      }
+                                    >
+                                      HCA Dynamics
+                                    </span>
+                                  </a>
+                                </Link>
+                              </div>
+                            </MenuItem>
+                            <Menu
+                              defaultActiveIndex={-1}
+                              secondary={true}
+                            >
+                              <div
+                                className="ui secondary menu"
+                              >
+                                <MenuItem
+                                  key="datasets"
+                                >
+                                  <div
+                                    className="item"
+                                    onClick={[Function]}
+                                  >
+                                    <Link
+                                      replace={false}
+                                      style={
+                                        Object {
+                                          "color": "black",
+                                          "fontSize": "18px",
+                                        }
+                                      }
+                                      to="/datasets"
+                                    >
+                                      <a
+                                        href="#/datasets"
+                                        onClick={[Function]}
+                                        style={
+                                          Object {
+                                            "color": "black",
+                                            "fontSize": "18px",
+                                          }
+                                        }
+                                      >
+                                        datasets
+                                      </a>
+                                    </Link>
+                                  </div>
+                                </MenuItem>
+                                <MenuItem
+                                  key="visualizations"
+                                >
+                                  <div
+                                    className="item"
+                                    onClick={[Function]}
+                                  >
+                                    <Link
+                                      replace={false}
+                                      style={
+                                        Object {
+                                          "color": "black",
+                                          "fontSize": "18px",
+                                        }
+                                      }
+                                      to="/visualizations"
+                                    >
+                                      <a
+                                        href="#/visualizations"
+                                        onClick={[Function]}
+                                        style={
+                                          Object {
+                                            "color": "black",
+                                            "fontSize": "18px",
+                                          }
+                                        }
+                                      >
+                                        visualizations
+                                      </a>
+                                    </Link>
+                                  </div>
+                                </MenuItem>
+                                <MenuItem
+                                  key="vignettes"
+                                >
+                                  <div
+                                    className="item"
+                                    onClick={[Function]}
+                                  >
+                                    <Link
+                                      replace={false}
+                                      style={
+                                        Object {
+                                          "color": "black",
+                                          "fontSize": "18px",
+                                        }
+                                      }
+                                      to="/vignettes"
+                                    >
+                                      <a
+                                        href="#/vignettes"
+                                        onClick={[Function]}
+                                        style={
+                                          Object {
+                                            "color": "black",
+                                            "fontSize": "18px",
+                                          }
+                                        }
+                                      >
+                                        vignettes
+                                      </a>
+                                    </Link>
+                                  </div>
+                                </MenuItem>
+                              </div>
+                            </Menu>
+                            <MenuItem
+                              position="right"
+                            >
+                              <div
+                                className="right item"
+                                onClick={[Function]}
+                              >
+                                <Input
+                                  icon="search"
+                                  size="massive"
+                                  transparent={true}
+                                  type="text"
+                                >
+                                  <div
+                                    className="ui massive transparent icon input"
+                                  >
+                                    <input
+                                      onChange={[Function]}
+                                      type="text"
+                                    />
+                                    <Icon
+                                      as="i"
+                                      name="search"
+                                    >
+                                      <i
+                                        aria-hidden="true"
+                                        className="search icon"
+                                        onClick={[Function]}
+                                      />
+                                    </Icon>
+                                  </div>
+                                </Input>
+                              </div>
+                            </MenuItem>
+                          </div>
+                        </Menu>
+                        <Breadcrumb
+                          style={
+                            Object {
+                              "padding": "0 0 0 40px",
+                            }
+                          }
+                        >
+                          <div
+                            className="ui breadcrumb"
+                            style={
+                              Object {
+                                "padding": "0 0 0 40px",
+                              }
+                            }
+                          >
+                            <BreadcrumbSection>
+                              <div
+                                className="section"
+                                onClick={[Function]}
+                              >
+                                <Link
+                                  replace={false}
+                                  to="/"
+                                >
+                                  <a
+                                    href="#/"
+                                    onClick={[Function]}
+                                  >
+                                    home
+                                  </a>
+                                </Link>
+                              </div>
+                            </BreadcrumbSection>
+                            <BreadcrumbDivider
+                              icon="right angle"
+                            >
+                              <Icon
+                                as="i"
+                                className="divider"
+                                name="right angle"
+                              >
+                                <i
+                                  aria-hidden="true"
+                                  className="right angle icon divider"
+                                  onClick={[Function]}
+                                />
+                              </Icon>
+                            </BreadcrumbDivider>
+                            <BreadcrumbSection>
+                              <div
+                                className="section"
+                                onClick={[Function]}
+                              >
+                                <Link
+                                  replace={false}
+                                  to="/dynamics"
+                                >
+                                  <a
+                                    href="#/dynamics"
+                                    onClick={[Function]}
+                                  >
+                                    dynamics
+                                  </a>
+                                </Link>
+                              </div>
+                            </BreadcrumbSection>
+                          </div>
+                        </Breadcrumb>
+                      </div>
+                    </Header>
+                  </UnconnectedSiteHeader>
+                </Connect(UnconnectedSiteHeader)>
+                <Switch>
+                  <Route
+                    computedMatch={
+                      Object {
+                        "isExact": true,
+                        "params": Object {},
+                        "path": "/dynamics",
+                        "url": "/dynamics",
+                      }
+                    }
+                    location={
+                      Object {
+                        "hash": "",
+                        "pathname": "/dynamics",
+                        "search": "",
+                      }
+                    }
+                    path="/dynamics"
+                    render={[Function]}
+                  >
+                    <Connect(UnconnectedDynamicsPage)>
+                      <UnconnectedDynamicsPage
+                        dataset={null}
+                        dispatchDatasetFetch={[Function]}
+                        pathname="/dynamics"
+                        search=""
+                        vignettes={Array []}
+                        visualizations={Array []}
+                      >
+                        <div
+                          style={
+                            Object {
+                              "padding": "20px",
+                            }
+                          }
+                        >
+                          <Grid
+                            centered={true}
+                            columns={2}
+                            padded={true}
+                            stackable={true}
+                            stretched={false}
+                          >
+                            <div
+                              className="ui centered stackable padded two column grid"
+                            >
+                              <GridColumn>
+                                <div
+                                  className="column"
+                                >
+                                  No visualizations!
+                                </div>
+                              </GridColumn>
+                            </div>
+                          </Grid>
+                        </div>
+                      </UnconnectedDynamicsPage>
+                    </Connect(UnconnectedDynamicsPage)>
+                  </Route>
+                </Switch>
+              </div>
+            </Container>
+          </Router>
+        </ConnectedRouter>
+      </ConnectedRouterWithContext>
+    </Connect(ConnectedRouterWithContext)>
+  </UnconnectedBioblocksPortalPage>
+</Connect(UnconnectedBioblocksPortalPage)>
+`;
+
+exports[`BioblocksPortalPage Should update the page when navigating to a page 5`] = `
+<Connect(UnconnectedBioblocksPortalPage)>
+  <UnconnectedBioblocksPortalPage
+    datasets={Array []}
+    dispatchDatasetsFetch={[Function]}
+    dispatchVignettesFetch={[Function]}
+    dispatchVisualizationsFetch={[Function]}
+    vignettes={Array []}
+    visualizations={Array []}
+  >
+    <Connect(ConnectedRouterWithContext)
+      history={
+        Object {
+          "action": "PUSH",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 6,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/vignettes",
+            "search": "",
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <ConnectedRouterWithContext
+        history={
+          Object {
+            "action": "PUSH",
+            "block": [Function],
+            "createHref": [Function],
+            "go": [Function],
+            "goBack": [Function],
+            "goForward": [Function],
+            "length": 6,
+            "listen": [Function],
+            "location": Object {
+              "hash": "",
+              "pathname": "/vignettes",
+              "search": "",
+            },
+            "push": [Function],
+            "replace": [Function],
+          }
+        }
+        onLocationChanged={[Function]}
+      >
+        <ConnectedRouter
+          history={
+            Object {
+              "action": "PUSH",
+              "block": [Function],
+              "createHref": [Function],
+              "go": [Function],
+              "goBack": [Function],
+              "goForward": [Function],
+              "length": 6,
+              "listen": [Function],
+              "location": Object {
+                "hash": "",
+                "pathname": "/vignettes",
+                "search": "",
+              },
+              "push": [Function],
+              "replace": [Function],
+            }
+          }
+          onLocationChanged={[Function]}
+          store={
+            Object {
+              "dispatch": [Function],
+              "getState": [Function],
+              "replaceReducer": [Function],
+              "subscribe": [Function],
+              Symbol(observable): [Function],
+            }
+          }
+        >
+          <Router
+            history={
+              Object {
+                "action": "PUSH",
+                "block": [Function],
+                "createHref": [Function],
+                "go": [Function],
+                "goBack": [Function],
+                "goForward": [Function],
+                "length": 6,
+                "listen": [Function],
+                "location": Object {
+                  "hash": "",
+                  "pathname": "/vignettes",
+                  "search": "",
+                },
+                "push": [Function],
+                "replace": [Function],
+              }
+            }
+          >
+            <Container
+              fluid={true}
+              id="BioblocksPortalPage"
+            >
+              <div
+                className="ui fluid container"
+                id="BioblocksPortalPage"
+              >
+                <Connect(UnconnectedSiteHeader)
+                  datasets={Array []}
+                  dispatchDatasetsFetch={[Function]}
+                  dispatchVignettesFetch={[Function]}
+                  dispatchVisualizationsFetch={[Function]}
+                  vignettes={Array []}
+                  visualizations={Array []}
+                >
+                  <UnconnectedSiteHeader
+                    dataset={null}
+                    datasets={Array []}
+                    dispatch={[Function]}
+                    dispatchDatasetsFetch={[Function]}
+                    dispatchVignettesFetch={[Function]}
+                    dispatchVisualizationsFetch={[Function]}
+                    pathname="/vignettes"
+                    search=""
+                    vignettes={Array []}
+                    visualizations={Array []}
+                  >
+                    <Header>
+                      <div
+                        className="ui header"
+                      >
+                        <Menu
+                          borderless={true}
+                          fluid={true}
+                          secondary={true}
+                          style={
+                            Object {
+                              "maxHeight": "40px",
+                              "padding": "20px 0 0 0",
+                            }
+                          }
+                        >
+                          <div
+                            className="ui borderless fluid secondary menu"
+                            style={
+                              Object {
+                                "maxHeight": "40px",
+                                "padding": "20px 0 0 0",
+                              }
+                            }
+                          >
+                            <MenuItem
+                              fitted="vertically"
+                              position="left"
+                            >
+                              <div
+                                className="left vertically fitted item"
+                                onClick={[Function]}
+                              >
+                                <Link
+                                  replace={false}
+                                  to="/"
+                                >
+                                  <a
+                                    href="#/"
+                                    onClick={[Function]}
+                                  >
+                                    <img
+                                      alt="hca-dynamics-icon"
+                                      src="assets/icons/bio-blocks-icon-2x.png"
+                                      style={
+                                        Object {
+                                          "height": "32px",
+                                          "width": "32px",
+                                        }
+                                      }
+                                    />
+                                    <span
+                                      style={
+                                        Object {
+                                          "color": "black",
+                                          "fontSize": "32px",
+                                          "fontWeight": "bold",
+                                        }
+                                      }
+                                    >
+                                      HCA Dynamics
+                                    </span>
+                                  </a>
+                                </Link>
+                              </div>
+                            </MenuItem>
+                            <Menu
+                              defaultActiveIndex={-1}
+                              secondary={true}
+                            >
+                              <div
+                                className="ui secondary menu"
+                              >
+                                <MenuItem
+                                  key="datasets"
+                                >
+                                  <div
+                                    className="item"
+                                    onClick={[Function]}
+                                  >
+                                    <Link
+                                      replace={false}
+                                      style={
+                                        Object {
+                                          "color": "black",
+                                          "fontSize": "18px",
+                                        }
+                                      }
+                                      to="/datasets"
+                                    >
+                                      <a
+                                        href="#/datasets"
+                                        onClick={[Function]}
+                                        style={
+                                          Object {
+                                            "color": "black",
+                                            "fontSize": "18px",
+                                          }
+                                        }
+                                      >
+                                        datasets
+                                      </a>
+                                    </Link>
+                                  </div>
+                                </MenuItem>
+                                <MenuItem
+                                  key="visualizations"
+                                >
+                                  <div
+                                    className="item"
+                                    onClick={[Function]}
+                                  >
+                                    <Link
+                                      replace={false}
+                                      style={
+                                        Object {
+                                          "color": "black",
+                                          "fontSize": "18px",
+                                        }
+                                      }
+                                      to="/visualizations"
+                                    >
+                                      <a
+                                        href="#/visualizations"
+                                        onClick={[Function]}
+                                        style={
+                                          Object {
+                                            "color": "black",
+                                            "fontSize": "18px",
+                                          }
+                                        }
+                                      >
+                                        visualizations
+                                      </a>
+                                    </Link>
+                                  </div>
+                                </MenuItem>
+                                <MenuItem
+                                  key="vignettes"
+                                >
+                                  <div
+                                    className="item"
+                                    onClick={[Function]}
+                                  >
+                                    <Link
+                                      replace={false}
+                                      style={
+                                        Object {
+                                          "color": "black",
+                                          "fontSize": "18px",
+                                        }
+                                      }
+                                      to="/vignettes"
+                                    >
+                                      <a
+                                        href="#/vignettes"
+                                        onClick={[Function]}
+                                        style={
+                                          Object {
+                                            "color": "black",
+                                            "fontSize": "18px",
+                                          }
+                                        }
+                                      >
+                                        vignettes
+                                      </a>
+                                    </Link>
+                                  </div>
+                                </MenuItem>
+                              </div>
+                            </Menu>
+                            <MenuItem
+                              position="right"
+                            >
+                              <div
+                                className="right item"
+                                onClick={[Function]}
+                              >
+                                <Input
+                                  icon="search"
+                                  size="massive"
+                                  transparent={true}
+                                  type="text"
+                                >
+                                  <div
+                                    className="ui massive transparent icon input"
+                                  >
+                                    <input
+                                      onChange={[Function]}
+                                      type="text"
+                                    />
+                                    <Icon
+                                      as="i"
+                                      name="search"
+                                    >
+                                      <i
+                                        aria-hidden="true"
+                                        className="search icon"
+                                        onClick={[Function]}
+                                      />
+                                    </Icon>
+                                  </div>
+                                </Input>
+                              </div>
+                            </MenuItem>
+                          </div>
+                        </Menu>
+                        <Breadcrumb
+                          style={
+                            Object {
+                              "padding": "0 0 0 40px",
+                            }
+                          }
+                        >
+                          <div
+                            className="ui breadcrumb"
+                            style={
+                              Object {
+                                "padding": "0 0 0 40px",
+                              }
+                            }
+                          >
+                            <BreadcrumbSection>
+                              <div
+                                className="section"
+                                onClick={[Function]}
+                              >
+                                <Link
+                                  replace={false}
+                                  to="/"
+                                >
+                                  <a
+                                    href="#/"
+                                    onClick={[Function]}
+                                  >
+                                    home
+                                  </a>
+                                </Link>
+                              </div>
+                            </BreadcrumbSection>
+                            <BreadcrumbDivider
+                              icon="right angle"
+                            >
+                              <Icon
+                                as="i"
+                                className="divider"
+                                name="right angle"
+                              >
+                                <i
+                                  aria-hidden="true"
+                                  className="right angle icon divider"
+                                  onClick={[Function]}
+                                />
+                              </Icon>
+                            </BreadcrumbDivider>
+                            <BreadcrumbSection>
+                              <div
+                                className="section"
+                                onClick={[Function]}
+                              >
+                                <Link
+                                  replace={false}
+                                  to="/vignettes"
+                                >
+                                  <a
+                                    href="#/vignettes"
+                                    onClick={[Function]}
+                                  >
+                                    vignettes
+                                  </a>
+                                </Link>
+                              </div>
+                            </BreadcrumbSection>
+                          </div>
+                        </Breadcrumb>
+                      </div>
+                    </Header>
+                  </UnconnectedSiteHeader>
+                </Connect(UnconnectedSiteHeader)>
+                <Switch>
+                  <Route
+                    computedMatch={
+                      Object {
+                        "isExact": true,
+                        "params": Object {},
+                        "path": "/vignettes",
+                        "url": "/vignettes",
+                      }
+                    }
+                    location={
+                      Object {
+                        "hash": "",
+                        "pathname": "/vignettes",
+                        "search": "",
+                      }
+                    }
+                    path="/vignettes"
+                    render={[Function]}
+                  >
+                    <Connect(UnconnectedVignettesPage)
+                      history={
+                        Object {
+                          "action": "PUSH",
+                          "block": [Function],
+                          "createHref": [Function],
+                          "go": [Function],
+                          "goBack": [Function],
+                          "goForward": [Function],
+                          "length": 6,
+                          "listen": [Function],
+                          "location": Object {
+                            "hash": "",
+                            "pathname": "/vignettes",
+                            "search": "",
+                          },
+                          "push": [Function],
+                          "replace": [Function],
+                        }
+                      }
+                      location={
+                        Object {
+                          "hash": "",
+                          "pathname": "/vignettes",
+                          "search": "",
+                        }
+                      }
+                      match={
+                        Object {
+                          "isExact": true,
+                          "params": Object {},
+                          "path": "/vignettes",
+                          "url": "/vignettes",
+                        }
+                      }
+                      vignettes={Array []}
+                    >
+                      <UnconnectedVignettesPage
+                        dispatch={[Function]}
+                        history={
+                          Object {
+                            "action": "PUSH",
+                            "block": [Function],
+                            "createHref": [Function],
+                            "go": [Function],
+                            "goBack": [Function],
+                            "goForward": [Function],
+                            "length": 6,
+                            "listen": [Function],
+                            "location": Object {
+                              "hash": "",
+                              "pathname": "/vignettes",
+                              "search": "",
+                            },
+                            "push": [Function],
+                            "replace": [Function],
+                          }
+                        }
+                        location={
+                          Object {
+                            "hash": "",
+                            "pathname": "/vignettes",
+                            "search": "",
+                          }
+                        }
+                        match={
+                          Object {
+                            "isExact": true,
+                            "params": Object {},
+                            "path": "/vignettes",
+                            "url": "/vignettes",
+                          }
+                        }
+                        vignettes={Array []}
+                      >
+                        <Grid
+                          centered={true}
+                          padded={true}
+                          relaxed={true}
+                        >
+                          <div
+                            className="ui centered padded relaxed grid"
+                          />
+                        </Grid>
+                      </UnconnectedVignettesPage>
+                    </Connect(UnconnectedVignettesPage)>
+                  </Route>
+                </Switch>
+              </div>
+            </Container>
+          </Router>
+        </ConnectedRouter>
+      </ConnectedRouterWithContext>
+    </Connect(ConnectedRouterWithContext)>
+  </UnconnectedBioblocksPortalPage>
+</Connect(UnconnectedBioblocksPortalPage)>
+`;
+
+exports[`BioblocksPortalPage Should update the page when navigating to a page 6`] = `
+<Connect(UnconnectedBioblocksPortalPage)>
+  <UnconnectedBioblocksPortalPage
+    datasets={Array []}
+    dispatchDatasetsFetch={[Function]}
+    dispatchVignettesFetch={[Function]}
+    dispatchVisualizationsFetch={[Function]}
+    vignettes={Array []}
+    visualizations={Array []}
+  >
+    <Connect(ConnectedRouterWithContext)
+      history={
+        Object {
+          "action": "PUSH",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 7,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <ConnectedRouterWithContext
+        history={
+          Object {
+            "action": "PUSH",
+            "block": [Function],
+            "createHref": [Function],
+            "go": [Function],
+            "goBack": [Function],
+            "goForward": [Function],
+            "length": 7,
+            "listen": [Function],
+            "location": Object {
+              "hash": "",
+              "pathname": "/",
+              "search": "",
+            },
+            "push": [Function],
+            "replace": [Function],
+          }
+        }
+        onLocationChanged={[Function]}
+      >
+        <ConnectedRouter
+          history={
+            Object {
+              "action": "PUSH",
+              "block": [Function],
+              "createHref": [Function],
+              "go": [Function],
+              "goBack": [Function],
+              "goForward": [Function],
+              "length": 7,
+              "listen": [Function],
+              "location": Object {
+                "hash": "",
+                "pathname": "/",
+                "search": "",
+              },
+              "push": [Function],
+              "replace": [Function],
+            }
+          }
+          onLocationChanged={[Function]}
+          store={
+            Object {
+              "dispatch": [Function],
+              "getState": [Function],
+              "replaceReducer": [Function],
+              "subscribe": [Function],
+              Symbol(observable): [Function],
+            }
+          }
+        >
+          <Router
+            history={
+              Object {
+                "action": "PUSH",
+                "block": [Function],
+                "createHref": [Function],
+                "go": [Function],
+                "goBack": [Function],
+                "goForward": [Function],
+                "length": 7,
+                "listen": [Function],
+                "location": Object {
+                  "hash": "",
+                  "pathname": "/",
+                  "search": "",
+                },
+                "push": [Function],
+                "replace": [Function],
+              }
+            }
+          >
+            <Container
+              fluid={true}
+              id="BioblocksPortalPage"
+            >
+              <div
+                className="ui fluid container"
+                id="BioblocksPortalPage"
+              >
+                <Connect(UnconnectedSiteHeader)
+                  datasets={Array []}
+                  dispatchDatasetsFetch={[Function]}
+                  dispatchVignettesFetch={[Function]}
+                  dispatchVisualizationsFetch={[Function]}
+                  vignettes={Array []}
+                  visualizations={Array []}
+                >
+                  <UnconnectedSiteHeader
+                    dataset={null}
+                    datasets={Array []}
+                    dispatch={[Function]}
+                    dispatchDatasetsFetch={[Function]}
+                    dispatchVignettesFetch={[Function]}
+                    dispatchVisualizationsFetch={[Function]}
+                    pathname="/"
+                    search=""
+                    vignettes={Array []}
+                    visualizations={Array []}
+                  >
+                    <Header>
+                      <div
+                        className="ui header"
+                      >
+                        <Menu
+                          borderless={true}
+                          fluid={true}
+                          secondary={true}
+                          style={
+                            Object {
+                              "maxHeight": "40px",
+                              "padding": "20px 0 0 0",
+                            }
+                          }
+                        >
+                          <div
+                            className="ui borderless fluid secondary menu"
+                            style={
+                              Object {
+                                "maxHeight": "40px",
+                                "padding": "20px 0 0 0",
+                              }
+                            }
+                          >
+                            <MenuItem
+                              fitted="vertically"
+                              position="left"
+                            >
+                              <div
+                                className="left vertically fitted item"
+                                onClick={[Function]}
+                              >
+                                <Link
+                                  replace={false}
+                                  to="/"
+                                >
+                                  <a
+                                    href="#/"
+                                    onClick={[Function]}
+                                  >
+                                    <img
+                                      alt="hca-dynamics-icon"
+                                      src="assets/icons/bio-blocks-icon-2x.png"
+                                      style={
+                                        Object {
+                                          "height": "32px",
+                                          "width": "32px",
+                                        }
+                                      }
+                                    />
+                                    <span
+                                      style={
+                                        Object {
+                                          "color": "black",
+                                          "fontSize": "32px",
+                                          "fontWeight": "bold",
+                                        }
+                                      }
+                                    >
+                                      HCA Dynamics
+                                    </span>
+                                  </a>
+                                </Link>
+                              </div>
+                            </MenuItem>
+                            <Menu
+                              defaultActiveIndex={-1}
+                              secondary={true}
+                            >
+                              <div
+                                className="ui secondary menu"
+                              >
+                                <MenuItem
+                                  key="datasets"
+                                >
+                                  <div
+                                    className="item"
+                                    onClick={[Function]}
+                                  >
+                                    <Link
+                                      replace={false}
+                                      style={
+                                        Object {
+                                          "color": "black",
+                                          "fontSize": "18px",
+                                        }
+                                      }
+                                      to="/datasets"
+                                    >
+                                      <a
+                                        href="#/datasets"
+                                        onClick={[Function]}
+                                        style={
+                                          Object {
+                                            "color": "black",
+                                            "fontSize": "18px",
+                                          }
+                                        }
+                                      >
+                                        datasets
+                                      </a>
+                                    </Link>
+                                  </div>
+                                </MenuItem>
+                                <MenuItem
+                                  key="visualizations"
+                                >
+                                  <div
+                                    className="item"
+                                    onClick={[Function]}
+                                  >
+                                    <Link
+                                      replace={false}
+                                      style={
+                                        Object {
+                                          "color": "black",
+                                          "fontSize": "18px",
+                                        }
+                                      }
+                                      to="/visualizations"
+                                    >
+                                      <a
+                                        href="#/visualizations"
+                                        onClick={[Function]}
+                                        style={
+                                          Object {
+                                            "color": "black",
+                                            "fontSize": "18px",
+                                          }
+                                        }
+                                      >
+                                        visualizations
+                                      </a>
+                                    </Link>
+                                  </div>
+                                </MenuItem>
+                                <MenuItem
+                                  key="vignettes"
+                                >
+                                  <div
+                                    className="item"
+                                    onClick={[Function]}
+                                  >
+                                    <Link
+                                      replace={false}
+                                      style={
+                                        Object {
+                                          "color": "black",
+                                          "fontSize": "18px",
+                                        }
+                                      }
+                                      to="/vignettes"
+                                    >
+                                      <a
+                                        href="#/vignettes"
+                                        onClick={[Function]}
+                                        style={
+                                          Object {
+                                            "color": "black",
+                                            "fontSize": "18px",
+                                          }
+                                        }
+                                      >
+                                        vignettes
+                                      </a>
+                                    </Link>
+                                  </div>
+                                </MenuItem>
+                              </div>
+                            </Menu>
+                            <MenuItem
+                              position="right"
+                            >
+                              <div
+                                className="right item"
+                                onClick={[Function]}
+                              >
+                                <Input
+                                  icon="search"
+                                  size="massive"
+                                  transparent={true}
+                                  type="text"
+                                >
+                                  <div
+                                    className="ui massive transparent icon input"
+                                  >
+                                    <input
+                                      onChange={[Function]}
+                                      type="text"
+                                    />
+                                    <Icon
+                                      as="i"
+                                      name="search"
+                                    >
+                                      <i
+                                        aria-hidden="true"
+                                        className="search icon"
+                                        onClick={[Function]}
+                                      />
+                                    </Icon>
+                                  </div>
+                                </Input>
+                              </div>
+                            </MenuItem>
+                          </div>
+                        </Menu>
+                        <Breadcrumb
+                          style={
+                            Object {
+                              "padding": "0 0 0 40px",
+                            }
+                          }
+                        >
+                          <div
+                            className="ui breadcrumb"
+                            style={
+                              Object {
+                                "padding": "0 0 0 40px",
+                              }
+                            }
+                          >
+                            <BreadcrumbSection>
+                              <div
+                                className="section"
+                                onClick={[Function]}
+                              >
+                                <Link
+                                  replace={false}
+                                  to="/"
+                                >
+                                  <a
+                                    href="#/"
+                                    onClick={[Function]}
+                                  >
+                                    home
+                                  </a>
+                                </Link>
+                              </div>
+                            </BreadcrumbSection>
+                          </div>
+                        </Breadcrumb>
+                      </div>
+                    </Header>
+                  </UnconnectedSiteHeader>
+                </Connect(UnconnectedSiteHeader)>
+                <Switch>
+                  <Route
+                    computedMatch={
+                      Object {
+                        "isExact": true,
+                        "params": Object {},
+                        "path": "/",
+                        "url": "/",
+                      }
+                    }
+                    exact={true}
+                    location={
+                      Object {
+                        "hash": "",
+                        "pathname": "/",
+                        "search": "",
+                      }
+                    }
+                    path="/"
+                    render={[Function]}
+                  >
+                    <LandingPage
+                      featuredVignettes={Array []}
+                      featuredVisualizations={Array []}
+                      history={
+                        Object {
+                          "action": "PUSH",
+                          "block": [Function],
+                          "createHref": [Function],
+                          "go": [Function],
+                          "goBack": [Function],
+                          "goForward": [Function],
+                          "length": 7,
+                          "listen": [Function],
+                          "location": Object {
+                            "hash": "",
+                            "pathname": "/",
+                            "search": "",
+                          },
+                          "push": [Function],
+                          "replace": [Function],
+                        }
+                      }
+                      location={
+                        Object {
+                          "hash": "",
+                          "pathname": "/",
+                          "search": "",
+                        }
+                      }
+                      match={
+                        Object {
+                          "isExact": true,
+                          "params": Object {},
+                          "path": "/",
+                          "url": "/",
+                        }
+                      }
+                    >
+                      <Container
+                        fluid={false}
+                      >
+                        <div
+                          className="ui container"
+                        >
+                          <Segment
+                            basic={true}
+                            padded="very"
+                          >
+                            <div
+                              className="ui basic very padded segment"
+                            >
+                              <Grid
+                                centered={true}
+                                padded={true}
+                                relaxed={true}
+                              >
+                                <div
+                                  className="ui centered padded relaxed grid"
+                                >
+                                  <GridRow
+                                    centered={false}
+                                  >
+                                    <div
+                                      className="row"
+                                    >
+                                      <GridColumn
+                                        width={12}
+                                      >
+                                        <div
+                                          className="twelve wide column"
+                                        >
+                                          <Header
+                                            floated="left"
+                                          >
+                                            <div
+                                              className="ui left floated header"
+                                            >
+                                              Featured Vignettes
+                                            </div>
+                                          </Header>
+                                          <Divider
+                                            section={true}
+                                          >
+                                            <div
+                                              className="ui section divider"
+                                            />
+                                          </Divider>
+                                        </div>
+                                      </GridColumn>
+                                    </div>
+                                  </GridRow>
+                                  <GridRow
+                                    centered={false}
+                                  >
+                                    <div
+                                      className="row"
+                                    >
+                                      <GridColumn
+                                        width={12}
+                                      >
+                                        <div
+                                          className="twelve wide column"
+                                        >
+                                          <Link
+                                            replace={false}
+                                            style={
+                                              Object {
+                                                "color": "blue",
+                                                "float": "right",
+                                              }
+                                            }
+                                            to="vignettes"
+                                          >
+                                            <a
+                                              href="#/vignettes"
+                                              onClick={[Function]}
+                                              style={
+                                                Object {
+                                                  "color": "blue",
+                                                  "float": "right",
+                                                }
+                                              }
+                                            >
+                                              more vignettes...
+                                            </a>
+                                          </Link>
+                                        </div>
+                                      </GridColumn>
+                                    </div>
+                                  </GridRow>
+                                  <GridRow
+                                    centered={false}
+                                  >
+                                    <div
+                                      className="row"
+                                    >
+                                      <GridColumn
+                                        width={12}
+                                      >
+                                        <div
+                                          className="twelve wide column"
+                                        >
+                                          <Header
+                                            floated="left"
+                                          >
+                                            <div
+                                              className="ui left floated header"
+                                            >
+                                              Featured Visualizations
+                                            </div>
+                                          </Header>
+                                          <Divider
+                                            section={true}
+                                          >
+                                            <div
+                                              className="ui section divider"
+                                            />
+                                          </Divider>
+                                        </div>
+                                      </GridColumn>
+                                    </div>
+                                  </GridRow>
+                                  <GridRow
+                                    centered={false}
+                                  >
+                                    <div
+                                      className="row"
+                                    >
+                                      <GridColumn
+                                        width={12}
+                                      >
+                                        <div
+                                          className="twelve wide column"
+                                        >
+                                          <Link
+                                            replace={false}
+                                            style={
+                                              Object {
+                                                "color": "blue",
+                                                "float": "right",
+                                              }
+                                            }
+                                            to="visualizations"
+                                          >
+                                            <a
+                                              href="#/visualizations"
+                                              onClick={[Function]}
+                                              style={
+                                                Object {
+                                                  "color": "blue",
+                                                  "float": "right",
+                                                }
+                                              }
+                                            >
+                                              more visualizations...
+                                            </a>
+                                          </Link>
+                                        </div>
+                                      </GridColumn>
+                                    </div>
+                                  </GridRow>
+                                  <GridRow
+                                    centered={true}
+                                  >
+                                    <div
+                                      className="centered row"
+                                    >
+                                      <GridColumn
+                                        width={12}
+                                      >
+                                        <div
+                                          className="twelve wide column"
+                                        >
+                                          <Header
+                                            floated="left"
+                                          >
+                                            <div
+                                              className="ui left floated header"
+                                            >
+                                              Featured Datasets
+                                            </div>
+                                          </Header>
+                                          <Divider
+                                            section={true}
+                                          >
+                                            <div
+                                              className="ui section divider"
+                                            />
+                                          </Divider>
+                                        </div>
+                                      </GridColumn>
+                                    </div>
+                                  </GridRow>
+                                  <GridRow
+                                    columns={2}
+                                    divided={true}
+                                  >
+                                    <div
+                                      className="divided two column row"
+                                    >
+                                      <GridColumn
+                                        width={3}
+                                      >
+                                        <div
+                                          className="three wide column"
+                                        >
+                                          <GridRow>
+                                            <div
+                                              className="row"
+                                            >
+                                              <img
+                                                alt="human cell atlas logo"
+                                                src="assets/icons/hca-logo.png"
+                                                style={
+                                                  Object {
+                                                    "height": "250px",
+                                                    "width": "150px",
+                                                  }
+                                                }
+                                              />
+                                              <GridRow>
+                                                <div
+                                                  className="row"
+                                                >
+                                                  <a
+                                                    href="https://preview.data.humancellatlas.org/"
+                                                  >
+                                                    Search HCA datasets ...
+                                                  </a>
+                                                </div>
+                                              </GridRow>
+                                            </div>
+                                          </GridRow>
+                                        </div>
+                                      </GridColumn>
+                                      <GridColumn
+                                        stretched={true}
+                                        textAlign="left"
+                                        width={8}
+                                      >
+                                        <div
+                                          className="stretched left aligned eight wide column"
+                                        >
+                                          <GridRow
+                                            textAlign="center"
+                                          >
+                                            <div
+                                              className="center aligned row"
+                                            >
+                                              <Header
+                                                as="h2"
+                                                textAlign="center"
+                                              >
+                                                <h2
+                                                  className="ui center aligned header"
+                                                >
+                                                  User shared
+                                                </h2>
+                                              </Header>
+                                            </div>
+                                          </GridRow>
+                                          <br />
+                                          <GridRow
+                                            textAlign="center"
+                                          >
+                                            <div
+                                              className="center aligned row"
+                                            >
+                                              <Header
+                                                as="h3"
+                                                textAlign="center"
+                                              >
+                                                <h3
+                                                  className="ui center aligned header"
+                                                >
+                                                  Coming soon!
+                                                </h3>
+                                              </Header>
+                                            </div>
+                                          </GridRow>
+                                        </div>
+                                      </GridColumn>
+                                    </div>
+                                  </GridRow>
+                                </div>
+                              </Grid>
+                            </div>
+                          </Segment>
+                        </div>
+                      </Container>
+                    </LandingPage>
+                  </Route>
+                </Switch>
+              </div>
+            </Container>
+          </Router>
+        </ConnectedRouter>
+      </ConnectedRouterWithContext>
+    </Connect(ConnectedRouterWithContext)>
+  </UnconnectedBioblocksPortalPage>
+</Connect(UnconnectedBioblocksPortalPage)>
 `;

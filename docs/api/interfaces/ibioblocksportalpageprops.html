@@ -79,6 +79,7 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ibioblocksportalpageprops.html#datasets" class="tsd-kind-icon">datasets</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ibioblocksportalpageprops.html#vignettes" class="tsd-kind-icon">vignettes</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ibioblocksportalpageprops.html#visualizations" class="tsd-kind-icon">visualizations</a></li>
 							</ul>
@@ -86,6 +87,7 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="ibioblocksportalpageprops.html#dispatchdatasetsfetch" class="tsd-kind-icon">dispatch<wbr>Datasets<wbr>Fetch</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="ibioblocksportalpageprops.html#dispatchvignettesfetch" class="tsd-kind-icon">dispatch<wbr>Vignettes<wbr>Fetch</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="ibioblocksportalpageprops.html#dispatchvisualizationsfetch" class="tsd-kind-icon">dispatch<wbr>Visualizations<wbr>Fetch</a></li>
 							</ul>
@@ -96,12 +98,22 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="datasets" class="tsd-anchor"></a>
+					<h3>datasets</h3>
+					<div class="tsd-signature tsd-kind-icon">datasets<span class="tsd-signature-symbol">:</span> <a href="idataset.html" class="tsd-signature-type">IDataset</a><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/54f2719/src/page/BioblocksPortalPage.tsx#L23">src/page/BioblocksPortalPage.tsx:23</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="vignettes" class="tsd-anchor"></a>
 					<h3>vignettes</h3>
 					<div class="tsd-signature tsd-kind-icon">vignettes<span class="tsd-signature-symbol">:</span> <a href="ivignette.html" class="tsd-signature-type">IVignette</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/8b5607d/src/page/BioblocksPortalPage.tsx#L16">src/page/BioblocksPortalPage.tsx:16</a></li>
+							<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/54f2719/src/page/BioblocksPortalPage.tsx#L24">src/page/BioblocksPortalPage.tsx:24</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -111,13 +123,51 @@
 					<div class="tsd-signature tsd-kind-icon">visualizations<span class="tsd-signature-symbol">:</span> <a href="ivisualization.html" class="tsd-signature-type">IVisualization</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/8b5607d/src/page/BioblocksPortalPage.tsx#L17">src/page/BioblocksPortalPage.tsx:17</a></li>
+							<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/54f2719/src/page/BioblocksPortalPage.tsx#L25">src/page/BioblocksPortalPage.tsx:25</a></li>
 						</ul>
 					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="dispatchdatasetsfetch" class="tsd-anchor"></a>
+					<h3>dispatch<wbr>Datasets<wbr>Fetch</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">dispatch<wbr>Datasets<wbr>Fetch<span class="tsd-signature-symbol">(</span>dataset<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, fetchFn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/54f2719/src/page/BioblocksPortalPage.tsx#L26">src/page/BioblocksPortalPage.tsx:26</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>dataset: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>fetchFn: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="idataset.html" class="tsd-signature-type">IDataset</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="idataset.html" class="tsd-signature-type">IDataset</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
 					<a name="dispatchvignettesfetch" class="tsd-anchor"></a>
 					<h3>dispatch<wbr>Vignettes<wbr>Fetch</h3>
@@ -128,7 +178,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/8b5607d/src/page/BioblocksPortalPage.tsx#L18">src/page/BioblocksPortalPage.tsx:18</a></li>
+									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/54f2719/src/page/BioblocksPortalPage.tsx#L27">src/page/BioblocksPortalPage.tsx:27</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -166,7 +216,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/8b5607d/src/page/BioblocksPortalPage.tsx#L19">src/page/BioblocksPortalPage.tsx:19</a></li>
+									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/54f2719/src/page/BioblocksPortalPage.tsx#L28">src/page/BioblocksPortalPage.tsx:28</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -212,10 +262,16 @@
 						<a href="ibioblocksportalpageprops.html" class="tsd-kind-icon">IBioblocks<wbr>Portal<wbr>Page<wbr>Props</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="ibioblocksportalpageprops.html#datasets" class="tsd-kind-icon">datasets</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="ibioblocksportalpageprops.html#vignettes" class="tsd-kind-icon">vignettes</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="ibioblocksportalpageprops.html#visualizations" class="tsd-kind-icon">visualizations</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="ibioblocksportalpageprops.html#dispatchdatasetsfetch" class="tsd-kind-icon">dispatch<wbr>Datasets<wbr>Fetch</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
 								<a href="ibioblocksportalpageprops.html#dispatchvignettesfetch" class="tsd-kind-icon">dispatch<wbr>Vignettes<wbr>Fetch</a>

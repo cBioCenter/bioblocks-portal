@@ -7,20 +7,31 @@ import { Container } from 'semantic-ui-react';
 
 import { ConnectedRouter } from 'connected-react-router';
 import { SiteHeader } from '~bioblocks-portal~/container';
-import { IEveResponse, IVignette, IVisualization } from '~bioblocks-portal~/data';
-import { DynamicsPage, LandingPage, VignettesPage, VisualizationsPage, VizOverviewPage } from '~bioblocks-portal~/page';
+import { IDataset, IEveResponse, IVignette, IVisualization } from '~bioblocks-portal~/data';
+import {
+  DatasetsPage,
+  DynamicsPage,
+  LandingPage,
+  VignettesPage,
+  VisualizationsPage,
+  VizOverviewPage,
+} from '~bioblocks-portal~/page';
 import { history, IPortalReducerState } from '~bioblocks-portal~/reducer';
-import { selectVignettes, selectVisualizations } from '~bioblocks-portal~/selector';
+import { selectDatasets, selectVignettes, selectVisualizations } from '~bioblocks-portal~/selector';
 
 export interface IBioblocksPortalPageProps {
+  datasets: IDataset[];
   vignettes: IVignette[];
   visualizations: IVisualization[];
+  dispatchDatasetsFetch(dataset: string, fetchFn: () => Promise<IDataset[]>): void;
   dispatchVignettesFetch(dataset: string, fetchFn: () => Promise<IVignette[]>): void;
   dispatchVisualizationsFetch(dataset: string, fetchFn: () => Promise<IVisualization[]>): void;
 }
 
 export class UnconnectedBioblocksPortalPage extends React.Component<IBioblocksPortalPageProps> {
   public static defaultProps = {
+    datasets: new Array<IDataset>(),
+    dispatchDatasetsFetch: EMPTY_FUNCTION,
     dispatchVignettesFetch: EMPTY_FUNCTION,
     dispatchVisualizationsFetch: EMPTY_FUNCTION,
     vignettes: new Array<IVignette>(),
@@ -32,7 +43,18 @@ export class UnconnectedBioblocksPortalPage extends React.Component<IBioblocksPo
   }
 
   public async componentDidMount() {
-    const { dispatchVignettesFetch, dispatchVisualizationsFetch } = this.props;
+    const { dispatchDatasetsFetch, dispatchVignettesFetch, dispatchVisualizationsFetch } = this.props;
+
+    dispatchDatasetsFetch('datasets', async () => {
+      const datasetFetchResult = await fetch(`${process.env.API_URL}/dataset?embedded={"analyses": 1}`);
+      if (!datasetFetchResult.ok) {
+        return [];
+      } else {
+        const response = (await datasetFetchResult.json()) as IEveResponse<IDataset>;
+
+        return response._items.sort((a, b) => a.name.localeCompare(b.name));
+      }
+    });
 
     dispatchVignettesFetch('vignettes', async () => {
       const vignetteFetchResult = await fetch(`${process.env.API_URL}/vignette`);
@@ -64,6 +86,7 @@ export class UnconnectedBioblocksPortalPage extends React.Component<IBioblocksPo
           <SiteHeader {...this.props} />
 
           <Switch>
+            <Route exact={true} strict={true} path={'/datasets'} render={this.renderDatasetsPage} />
             <Route exact={true} strict={true} path={'/visualizations'} render={this.renderVisualizationsPage} />
             <Route exact={true} strict={true} path={'/visualizations/'} render={this.renderVizOverviewPage} />
             <Route path={'/dynamics'} render={this.renderDynamicsPage} />
@@ -113,10 +136,10 @@ export class UnconnectedBioblocksPortalPage extends React.Component<IBioblocksPo
     );
   };
 
-  protected renderVizOverviewPage = (props: RouteComponentProps) => {
-    const { vignettes, visualizations } = this.props;
+  protected renderDatasetsPage = (props: RouteComponentProps) => {
+    const { datasets, visualizations } = this.props;
 
-    return <VizOverviewPage {...props} vignettes={vignettes} visualizations={visualizations} />;
+    return <DatasetsPage datasets={datasets} visualizations={visualizations} {...props} />;
   };
 
   protected renderVignettesPage = (props: RouteComponentProps) => {
@@ -130,9 +153,16 @@ export class UnconnectedBioblocksPortalPage extends React.Component<IBioblocksPo
 
     return <VisualizationsPage {...props} visualizations={visualizations} />;
   };
+
+  protected renderVizOverviewPage = (props: RouteComponentProps) => {
+    const { vignettes, visualizations } = this.props;
+
+    return <VizOverviewPage {...props} vignettes={vignettes} visualizations={visualizations} />;
+  };
 }
 
 const mapStateToProps = (state: IPortalReducerState) => ({
+  datasets: selectDatasets(state),
   vignettes: selectVignettes(state),
   visualizations: selectVisualizations(state),
 });
@@ -140,6 +170,7 @@ const mapStateToProps = (state: IPortalReducerState) => ({
 const mapDispatchToProps = (dispatch: Dispatch) =>
   bindActionCreators(
     {
+      dispatchDatasetsFetch: fetchDataset,
       dispatchVignettesFetch: fetchDataset,
       dispatchVisualizationsFetch: fetchDataset,
     },

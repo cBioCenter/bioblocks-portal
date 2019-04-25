@@ -6,6 +6,7 @@ describe('PortalReducer', () => {
     const history = createHashHistory();
     const expectedState = {
       dataset: null,
+      datasets: [],
       router: {
         action: 'POP',
         location: {

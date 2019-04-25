@@ -90,7 +90,15 @@ exports[`DynamicsPage Should match existing snapshot when hooked up to a Redux s
       >
         <div
           className="ui centered stackable padded two column grid"
-        />
+        >
+          <GridColumn>
+            <div
+              className="column"
+            >
+              No visualizations!
+            </div>
+          </GridColumn>
+        </div>
       </Grid>
     </div>
   </UnconnectedDynamicsPage>

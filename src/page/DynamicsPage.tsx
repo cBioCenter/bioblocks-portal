@@ -64,12 +64,16 @@ export class UnconnectedDynamicsPage extends React.Component<IDynamicsPageProps,
     return (
       <div style={{ padding: '20px' }}>
         <Grid centered={true} stackable={true} stretched={false} padded={true} columns={2}>
-          {datasetLocation.length >= 1 &&
+          {datasetVisualizations.length >= 1 ? (
+            datasetLocation.length >= 1 &&
             datasetVisualizations.map((visualization, index) => (
               <Grid.Column key={`dataset-visualization-${index}`} style={{ width: 'auto' }}>
                 {this.renderVisualization(visualization, datasetLocation)}
               </Grid.Column>
-            ))}
+            ))
+          ) : (
+            <Grid.Column>No visualizations!</Grid.Column>
+          )}
         </Grid>
       </div>
     );

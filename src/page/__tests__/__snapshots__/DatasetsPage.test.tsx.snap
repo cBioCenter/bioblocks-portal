@@ -1,0 +1,174 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DatasetsPage Should match existing snapshot when given a dataset. 1`] = `
+<Grid
+  centered={true}
+  padded={true}
+  relaxed={true}
+>
+  <GridRow
+    columns={3}
+  >
+    <GridColumn
+      textAlign="left"
+    >
+      <Header />
+      <p>
+        <span
+          style={
+            Object {
+              "fontWeight": "bold",
+            }
+          }
+        >
+          Analyses: 0
+        </span>
+      </p>
+      <p>
+        <span
+          style={
+            Object {
+              "fontWeight": "bold",
+            }
+          }
+        >
+          Derived from: 
+          Nothing
+        </span>
+      </p>
+      <br />
+    </GridColumn>
+    <GridColumn />
+  </GridRow>
+</Grid>
+`;
+
+exports[`DatasetsPage Should match existing snapshot when given a dataset. 2`] = `
+<Grid
+  centered={true}
+  padded={true}
+  relaxed={true}
+>
+  <GridRow
+    columns={3}
+  >
+    <GridColumn
+      textAlign="left"
+    >
+      <Header />
+      <p>
+        <span
+          style={
+            Object {
+              "fontWeight": "bold",
+            }
+          }
+        >
+          Analyses: 0
+        </span>
+      </p>
+      <p>
+        <span
+          style={
+            Object {
+              "fontWeight": "bold",
+            }
+          }
+        >
+          Derived from: 
+          Nothing
+        </span>
+      </p>
+      <br />
+    </GridColumn>
+    <GridColumn />
+  </GridRow>
+</Grid>
+`;
+
+exports[`DatasetsPage Should match existing snapshot when hooked up to a Redux store. 1`] = `
+<Connect(UnconnectedDatasetsPage)>
+  <UnconnectedDatasetsPage
+    datasets={Array []}
+    dispatch={[Function]}
+    visualizations={Array []}
+  >
+    <Grid
+      centered={true}
+      padded={true}
+      relaxed={true}
+    >
+      <div
+        className="ui centered padded relaxed grid"
+      />
+    </Grid>
+  </UnconnectedDatasetsPage>
+</Connect(UnconnectedDatasetsPage)>
+`;
+
+exports[`DatasetsPage Should match existing snapshot when no props are provided. 1`] = `
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
+`;
+
+exports[`DatasetsPage Should match existing snapshot when no props are provided. 2`] = `
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
+`;
+
+exports[`DatasetsPage Should render dynamics links correctly. 1`] = `
+<Grid
+  centered={true}
+  padded={true}
+  relaxed={true}
+>
+  <GridRow
+    columns={3}
+  >
+    <GridColumn
+      textAlign="left"
+    >
+      <Header />
+      <p>
+        <span
+          style={
+            Object {
+              "fontWeight": "bold",
+            }
+          }
+        >
+          Analyses: 2
+        </span>
+      </p>
+      <p>
+        <span
+          style={
+            Object {
+              "fontWeight": "bold",
+            }
+          }
+        >
+          Derived from: 
+          Nothing
+        </span>
+      </p>
+      <br />
+    </GridColumn>
+    <GridColumn>
+      <Button
+        as="button"
+        basic={true}
+      >
+        <Link
+          replace={false}
+          to="/dynamics?id=some-kind-of-musical-reference&viz=bbfacade-0000-0000-0001-a1234567890b&viz=bbfacade-0000-0000-0003-a1234567890b"
+        >
+          launch
+        </Link>
+      </Button>
+    </GridColumn>
+  </GridRow>
+</Grid>
+`;
