@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IVignette | bioblocks-portal</title>
+	<title>IJob | bioblocks-portal</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="ivignette.html">IVignette</a>
+					<a href="ijob.html">IJob</a>
 				</li>
 			</ul>
-			<h1>Interface IVignette</h1>
+			<h1>Interface IJob</h1>
 		</div>
 	</div>
 </header>
@@ -68,7 +68,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">IVignette</span>
+						<span class="target">IJob</span>
 					</li>
 				</ul>
 			</section>
@@ -79,13 +79,9 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ivignette.html#_id" class="tsd-kind-icon">_id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ivignette.html#authors" class="tsd-kind-icon">authors</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ivignette.html#dataset" class="tsd-kind-icon">dataset</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ivignette.html#icon" class="tsd-kind-icon">icon</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ivignette.html#name" class="tsd-kind-icon">name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ivignette.html#summary" class="tsd-kind-icon">summary</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ivignette.html#visualizations" class="tsd-kind-icon">visualizations</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ijob.html#_id" class="tsd-kind-icon">_id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ijob.html#associateddataset" class="tsd-kind-icon">associated<wbr>Dataset</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ijob.html#status" class="tsd-kind-icon">status</a></li>
 							</ul>
 						</section>
 					</div>
@@ -99,67 +95,38 @@
 					<div class="tsd-signature tsd-kind-icon">_id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/ca459dc/src/data/BioblocksData.ts#L50">src/data/BioblocksData.ts:50</a></li>
+							<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/ca459dc/src/data/BioblocksData.ts#L41">src/data/BioblocksData.ts:41</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="authors" class="tsd-anchor"></a>
-					<h3>authors</h3>
-					<div class="tsd-signature tsd-kind-icon">authors<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
+					<a name="associateddataset" class="tsd-anchor"></a>
+					<h3>associated<wbr>Dataset</h3>
+					<div class="tsd-signature tsd-kind-icon">associated<wbr>Dataset<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/ca459dc/src/data/BioblocksData.ts#L51">src/data/BioblocksData.ts:51</a></li>
+							<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/ca459dc/src/data/BioblocksData.ts#L42">src/data/BioblocksData.ts:42</a></li>
 						</ul>
 					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="dataset" class="tsd-anchor"></a>
-					<h3>dataset</h3>
-					<div class="tsd-signature tsd-kind-icon">dataset<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/ca459dc/src/data/BioblocksData.ts#L52">src/data/BioblocksData.ts:52</a></li>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter">
+								<h5>dataset<span class="tsd-signature-symbol">: </span><a href="idataset.html" class="tsd-signature-type">IDataset</a></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>etag<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+							</li>
 						</ul>
-					</aside>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="icon" class="tsd-anchor"></a>
-					<h3>icon</h3>
-					<div class="tsd-signature tsd-kind-icon">icon<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="status" class="tsd-anchor"></a>
+					<h3>status</h3>
+					<div class="tsd-signature tsd-kind-icon">status<span class="tsd-signature-symbol">:</span> <a href="../globals.html#bioblocks_job_status_type" class="tsd-signature-type">BIOBLOCKS_JOB_STATUS_TYPE</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/ca459dc/src/data/BioblocksData.ts#L53">src/data/BioblocksData.ts:53</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="name" class="tsd-anchor"></a>
-					<h3>name</h3>
-					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/ca459dc/src/data/BioblocksData.ts#L54">src/data/BioblocksData.ts:54</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="summary" class="tsd-anchor"></a>
-					<h3>summary</h3>
-					<div class="tsd-signature tsd-kind-icon">summary<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/ca459dc/src/data/BioblocksData.ts#L55">src/data/BioblocksData.ts:55</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="visualizations" class="tsd-anchor"></a>
-					<h3>visualizations</h3>
-					<div class="tsd-signature tsd-kind-icon">visualizations<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/ca459dc/src/data/BioblocksData.ts#L56">src/data/BioblocksData.ts:56</a></li>
+							<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/ca459dc/src/data/BioblocksData.ts#L46">src/data/BioblocksData.ts:46</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -178,28 +145,16 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="ivignette.html" class="tsd-kind-icon">IVignette</a>
+						<a href="ijob.html" class="tsd-kind-icon">IJob</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="ivignette.html#_id" class="tsd-kind-icon">_id</a>
+								<a href="ijob.html#_id" class="tsd-kind-icon">_id</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="ivignette.html#authors" class="tsd-kind-icon">authors</a>
+								<a href="ijob.html#associateddataset" class="tsd-kind-icon">associated<wbr>Dataset</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="ivignette.html#dataset" class="tsd-kind-icon">dataset</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="ivignette.html#icon" class="tsd-kind-icon">icon</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="ivignette.html#name" class="tsd-kind-icon">name</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="ivignette.html#summary" class="tsd-kind-icon">summary</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="ivignette.html#visualizations" class="tsd-kind-icon">visualizations</a>
+								<a href="ijob.html#status" class="tsd-kind-icon">status</a>
 							</li>
 						</ul>
 					</li>
