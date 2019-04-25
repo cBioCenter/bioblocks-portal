@@ -12,7 +12,6 @@ module.exports = merge(common, {
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
-        // tslint:disable-next-line: no-http-string
         API_URL: JSON.stringify('https://bioblocks.org'),
         NODE_ENV: JSON.stringify('production'),
       },

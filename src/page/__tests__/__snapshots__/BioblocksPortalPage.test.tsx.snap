@@ -985,7 +985,7 @@ exports[`BioblocksPortalPage Should match existing snapshot when no props are pr
         strict={true}
       />
       <Route
-        path="/dataset"
+        path="/dynamics"
         render={[Function]}
       />
       <Route
@@ -1085,7 +1085,7 @@ exports[`BioblocksPortalPage Should match existing snapshot when vignettes and v
         strict={true}
       />
       <Route
-        path="/dataset"
+        path="/dynamics"
         render={[Function]}
       />
       <Route

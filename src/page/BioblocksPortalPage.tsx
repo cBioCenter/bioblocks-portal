@@ -8,7 +8,7 @@ import { Container } from 'semantic-ui-react';
 import { ConnectedRouter } from 'connected-react-router';
 import { SiteHeader } from '~bioblocks-portal~/container';
 import { IEveResponse, IVignette, IVisualization } from '~bioblocks-portal~/data';
-import { DatasetPage, LandingPage, VignettesPage, VisualizationsPage, VizOverviewPage } from '~bioblocks-portal~/page';
+import { DynamicsPage, LandingPage, VignettesPage, VisualizationsPage, VizOverviewPage } from '~bioblocks-portal~/page';
 import { history, IPortalReducerState } from '~bioblocks-portal~/reducer';
 import { selectVignettes, selectVisualizations } from '~bioblocks-portal~/selector';
 
@@ -66,7 +66,7 @@ export class UnconnectedBioblocksPortalPage extends React.Component<IBioblocksPo
           <Switch>
             <Route exact={true} strict={true} path={'/visualizations'} render={this.renderVisualizationsPage} />
             <Route exact={true} strict={true} path={'/visualizations/'} render={this.renderVizOverviewPage} />
-            <Route path={'/dataset'} render={this.renderDatasetPage} />
+            <Route path={'/dynamics'} render={this.renderDynamicsPage} />
             <Route path={'/vignettes'} render={this.renderVignettesPage} />
             <Route exact={true} path={'/'} render={this.renderLandingPage} />
           </Switch>
@@ -75,8 +75,8 @@ export class UnconnectedBioblocksPortalPage extends React.Component<IBioblocksPo
     );
   }
 
-  protected renderDatasetPage = () => {
-    return <DatasetPage />;
+  protected renderDynamicsPage = () => {
+    return <DynamicsPage />;
   };
 
   protected renderLandingPage = (props: RouteComponentProps) => {

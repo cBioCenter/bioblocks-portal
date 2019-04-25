@@ -17,7 +17,7 @@ const devConfig: Config = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
-        API_URL: JSON.stringify('http://localhost:11037'),
+        API_URL: JSON.stringify('https://bioblocks.org'),
         NODE_ENV: JSON.stringify('development'),
       },
     }),
