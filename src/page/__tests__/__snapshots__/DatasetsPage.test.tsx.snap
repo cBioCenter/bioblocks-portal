@@ -43,49 +43,6 @@ exports[`DatasetsPage Should match existing snapshot when given a dataset. 1`] =
 </Grid>
 `;
 
-exports[`DatasetsPage Should match existing snapshot when given a dataset. 2`] = `
-<Grid
-  centered={true}
-  padded={true}
-  relaxed={true}
->
-  <GridRow
-    columns={3}
-  >
-    <GridColumn
-      textAlign="left"
-    >
-      <Header />
-      <p>
-        <span
-          style={
-            Object {
-              "fontWeight": "bold",
-            }
-          }
-        >
-          Analyses: 0
-        </span>
-      </p>
-      <p>
-        <span
-          style={
-            Object {
-              "fontWeight": "bold",
-            }
-          }
-        >
-          Derived from: 
-          Nothing
-        </span>
-      </p>
-      <br />
-    </GridColumn>
-    <GridColumn />
-  </GridRow>
-</Grid>
-`;
-
 exports[`DatasetsPage Should match existing snapshot when hooked up to a Redux store. 1`] = `
 <Connect(UnconnectedDatasetsPage)>
   <UnconnectedDatasetsPage
@@ -107,12 +64,6 @@ exports[`DatasetsPage Should match existing snapshot when hooked up to a Redux s
 `;
 
 exports[`DatasetsPage Should match existing snapshot when no props are provided. 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
-`;
-
-exports[`DatasetsPage Should match existing snapshot when no props are provided. 2`] = `
 <ContextConsumer>
   <Component />
 </ContextConsumer>
