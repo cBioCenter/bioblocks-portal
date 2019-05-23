@@ -4,15 +4,15 @@ import * as React from 'react';
 import { ConnectedRouter } from 'connected-react-router';
 import { createMemoryHistory } from 'history';
 import { Provider } from 'react-redux';
-import { DatasetPage, UnconnectedDatasetPage } from '~bioblocks-portal~/page';
+import { DynamicsPage, UnconnectedDynamicsPage } from '~bioblocks-portal~/page';
 import { configureStore } from '~bioblocks-portal~/reducer';
 import { originalViz, testVignettes, testVisualizations } from '~bioblocks-portal~/test';
 
-describe('DatasetPage', () => {
+describe('DynamicsPage', () => {
   const visualizations = ['anatomogram', 'spring', 'tfjs-tsne'];
 
   it('Should match existing snapshot when no props are provided.', () => {
-    const wrapper = shallow(<DatasetPage />);
+    const wrapper = shallow(<DynamicsPage />);
     expect(wrapper).toMatchSnapshot();
   });
 
@@ -24,13 +24,13 @@ describe('DatasetPage', () => {
           name: viz,
         };
         const wrapper = shallow(
-          <UnconnectedDatasetPage
-            search={`/dataset?id=psycho-jukebox-vignette-id&viz=${originalViz._id}`}
+          <UnconnectedDynamicsPage
+            search={`/dynamics?id=psycho-jukebox-vignette-id&viz=${originalViz._id}`}
             vignettes={testVignettes}
             visualizations={[testVisualization]}
           />,
         );
-        expect(wrapper.find(DatasetPage)).toMatchSnapshot();
+        expect(wrapper.find(DynamicsPage)).toMatchSnapshot();
       });
     });
   });
@@ -41,12 +41,12 @@ describe('DatasetPage', () => {
     const wrapper = mount(
       <Provider store={store}>
         <ConnectedRouter history={history}>
-          <DatasetPage vignettes={testVignettes} visualizations={testVisualizations} />
+          <DynamicsPage vignettes={testVignettes} visualizations={testVisualizations} />
         </ConnectedRouter>
       </Provider>,
     );
-    history.push('/dataset?id=psycho-jukebox-vignette-id');
+    history.push('/dynamics?id=psycho-jukebox-vignette-id');
     wrapper.update();
-    expect(wrapper.find(DatasetPage)).toMatchSnapshot();
+    expect(wrapper.find(DynamicsPage)).toMatchSnapshot();
   });
 });

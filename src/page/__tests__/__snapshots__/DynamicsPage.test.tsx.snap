@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DatasetPage Should match existing snapshot for initial visualizations. 1`] = `null`;
+exports[`DynamicsPage Should match existing snapshot for initial visualizations. 1`] = `null`;
 
-exports[`DatasetPage Should match existing snapshot for initial visualizations. 2`] = `null`;
+exports[`DynamicsPage Should match existing snapshot for initial visualizations. 2`] = `null`;
 
-exports[`DatasetPage Should match existing snapshot for initial visualizations. 3`] = `null`;
+exports[`DynamicsPage Should match existing snapshot for initial visualizations. 3`] = `null`;
 
-exports[`DatasetPage Should match existing snapshot when hooked up to a Redux store. 1`] = `
-<Connect(UnconnectedDatasetPage)
+exports[`DynamicsPage Should match existing snapshot when hooked up to a Redux store. 1`] = `
+<Connect(UnconnectedDynamicsPage)
   vignettes={
     Array [
       Object {
@@ -66,10 +66,10 @@ exports[`DatasetPage Should match existing snapshot when hooked up to a Redux st
     ]
   }
 >
-  <UnconnectedDatasetPage
+  <UnconnectedDynamicsPage
     dataset={null}
     dispatchDatasetFetch={[Function]}
-    pathname="/dataset"
+    pathname="/dynamics"
     search="?id=psycho-jukebox-vignette-id"
     vignettes={Array []}
     visualizations={Array []}
@@ -90,14 +90,22 @@ exports[`DatasetPage Should match existing snapshot when hooked up to a Redux st
       >
         <div
           className="ui centered stackable padded two column grid"
-        />
+        >
+          <GridColumn>
+            <div
+              className="column"
+            >
+              No visualizations!
+            </div>
+          </GridColumn>
+        </div>
       </Grid>
     </div>
-  </UnconnectedDatasetPage>
-</Connect(UnconnectedDatasetPage)>
+  </UnconnectedDynamicsPage>
+</Connect(UnconnectedDynamicsPage)>
 `;
 
-exports[`DatasetPage Should match existing snapshot when no props are provided. 1`] = `
+exports[`DynamicsPage Should match existing snapshot when no props are provided. 1`] = `
 <ContextConsumer>
   <Component />
 </ContextConsumer>

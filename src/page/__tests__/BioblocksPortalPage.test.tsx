@@ -1,9 +1,12 @@
+import { ConnectedRouter } from 'connected-react-router';
 import { mount, shallow } from 'enzyme';
+import { createMemoryHistory } from 'history';
 import * as React from 'react';
-
 import { Provider } from 'react-redux';
+import { MemoryRouter } from 'react-router';
+
 import { IVignette, IVisualization } from '~bioblocks-portal~/data';
-import { UnconnectedBioblocksPortalPage } from '~bioblocks-portal~/page';
+import { BioblocksPortalPage, UnconnectedBioblocksPortalPage } from '~bioblocks-portal~/page';
 import { configureStore } from '~bioblocks-portal~/reducer';
 import { riseAgainstVignette, testVignettes, testVisualizations, unoriginalViz } from '~bioblocks-portal~/test';
 
@@ -51,5 +54,27 @@ describe('BioblocksPortalPage', () => {
       </Provider>,
     );
     expect(wrapper).toMatchSnapshot();
+  });
+
+  it('Should update the page when navigating to a page', () => {
+    [['/datasets'], ['/visualizations'], ['/visualizations/'], ['/dynamics'], ['/vignettes'], ['/']].forEach(
+      ([page]) => {
+        const store = configureStore();
+        const history = createMemoryHistory();
+        const wrapper = mount(
+          <Provider store={store}>
+            <MemoryRouter keyLength={0}>
+              <ConnectedRouter history={history}>
+                <BioblocksPortalPage />
+              </ConnectedRouter>
+            </MemoryRouter>
+          </Provider>,
+        );
+
+        history.push(page);
+        wrapper.update();
+        expect(wrapper.find(BioblocksPortalPage)).toMatchSnapshot();
+      },
+    );
   });
 });

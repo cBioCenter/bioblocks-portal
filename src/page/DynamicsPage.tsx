@@ -8,7 +8,7 @@ import { IDataset, IVignette, IVisualization } from '~bioblocks-portal~/data';
 import { IPortalReducerState } from '~bioblocks-portal~/reducer';
 import { selectVignettes, selectVisualizations } from '~bioblocks-portal~/selector';
 
-export interface IDatasetPageProps {
+export interface IDynamicsPageProps {
   dataset: IDataset | null;
   pathname: string;
   search: string;
@@ -17,12 +17,12 @@ export interface IDatasetPageProps {
   dispatchDatasetFetch(dataset: string, fetchFn: () => Promise<IDataset | null>): void;
 }
 
-export interface IDatasetPageState {
+export interface IDynamicsPageState {
   datasetVisualizations: IVisualization[];
   datasetLocation: string;
 }
 
-export class UnconnectedDatasetPage extends React.Component<IDatasetPageProps, IDatasetPageState> {
+export class UnconnectedDynamicsPage extends React.Component<IDynamicsPageProps, IDynamicsPageState> {
   public static defaultProps = {
     dataset: null,
     dispatchDatasetFetch: EMPTY_FUNCTION,
@@ -32,7 +32,7 @@ export class UnconnectedDatasetPage extends React.Component<IDatasetPageProps, I
     visualizations: new Array<IVisualization>(),
   };
 
-  constructor(props: IDatasetPageProps) {
+  constructor(props: IDynamicsPageProps) {
     super(props);
     this.state = {
       datasetLocation: 'hpc_sf2/full',
@@ -47,7 +47,7 @@ export class UnconnectedDatasetPage extends React.Component<IDatasetPageProps, I
     }
   }
 
-  public componentDidUpdate(prevProps: IDatasetPageProps) {
+  public componentDidUpdate(prevProps: IDynamicsPageProps) {
     const { search, vignettes, visualizations } = this.props;
     if (
       (search && search !== prevProps.search) ||
@@ -64,12 +64,16 @@ export class UnconnectedDatasetPage extends React.Component<IDatasetPageProps, I
     return (
       <div style={{ padding: '20px' }}>
         <Grid centered={true} stackable={true} stretched={false} padded={true} columns={2}>
-          {datasetLocation.length >= 1 &&
+          {datasetVisualizations.length >= 1 ? (
+            datasetLocation.length >= 1 &&
             datasetVisualizations.map((visualization, index) => (
               <Grid.Column key={`dataset-visualization-${index}`} style={{ width: 'auto' }}>
                 {this.renderVisualization(visualization, datasetLocation)}
               </Grid.Column>
-            ))}
+            ))
+          ) : (
+            <Grid.Column>No visualizations!</Grid.Column>
+          )}
         </Grid>
       </div>
     );
@@ -170,7 +174,7 @@ const mapDispatchToProps = (dispatch: Dispatch) =>
     dispatch,
   );
 
-export const DatasetPage = connect(
+export const DynamicsPage = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(UnconnectedDatasetPage);
+)(UnconnectedDynamicsPage);
