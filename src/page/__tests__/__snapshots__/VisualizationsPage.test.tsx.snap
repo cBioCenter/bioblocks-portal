@@ -76,7 +76,7 @@ exports[`AppsPage Should match existing snapshot when given sample visualization
               replace={false}
               to={
                 Object {
-                  "pathname": "/dataset",
+                  "pathname": "/dynamics",
                   "search": "?id=bbdeeded-0000-0000-0001-a1234567890b&viz=bbfacade-0000-0000-0001-a1234567890b",
                 }
               }
@@ -154,7 +154,7 @@ exports[`AppsPage Should match existing snapshot when given sample visualization
               replace={false}
               to={
                 Object {
-                  "pathname": "/dataset",
+                  "pathname": "/dynamics",
                   "search": "?id=bbdeeded-0000-0000-0002-a1234567890b&viz=bbfacade-0000-0000-0002-a1234567890b",
                 }
               }

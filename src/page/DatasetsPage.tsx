@@ -45,7 +45,7 @@ export class UnconnectedDatasetsPage extends React.Component<IDatasetsPageProps,
             <span style={{ fontWeight: 'bold' }}>
               {'Derived from: '}
               {dataset.derivedFrom.length >= 1 ? (
-                <Link to={`/dataset?id=${dataset.derivedFrom[0]}`}>{dataset.derivedFrom[0]}</Link>
+                <Link to={`/dynamics?id=${dataset.derivedFrom[0]}`}>{dataset.derivedFrom[0]}</Link>
               ) : (
                 'Nothing'
               )}

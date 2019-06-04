@@ -114,7 +114,7 @@ export class UnconnectedVizOverviewPage extends React.Component<IVizOverviewPage
               <List.Item>
                 <Grid.Column floated={'right'}>
                   <Button basic={true} icon={true} labelPosition={'right'}>
-                    <Link to={{ pathname: '/dataset', search: `?id=${viz.exampleDataset}&viz=${viz._id}` }}>{`launch ${
+                    <Link to={{ pathname: '/dynamics', search: `?id=${viz.exampleDataset}&viz=${viz._id}` }}>{`launch ${
                       viz.name
                     }`}</Link>
                     {/* Power Gap */}
@@ -176,7 +176,7 @@ export class UnconnectedVizOverviewPage extends React.Component<IVizOverviewPage
         <Grid.Column floated={'right'}>
           <Button basic={true} icon={true} labelPosition={'right'}>
             {
-              <Link to={`/dataset?id=${example.dataset}${example.visualizations.map(viz => `&viz=${viz}`).join('')}`}>
+              <Link to={`/dynamics?id=${example.dataset}${example.visualizations.map(viz => `&viz=${viz}`).join('')}`}>
                 launch example
               </Link>
             }

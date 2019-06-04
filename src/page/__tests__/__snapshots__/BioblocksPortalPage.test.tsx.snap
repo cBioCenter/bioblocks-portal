@@ -709,10 +709,10 @@ exports[`BioblocksPortalPage Should match existing snapshot when hooked up to a 
                                             >
                                               <Link
                                                 replace={false}
-                                                to="/dataset?id=&viz=bbfacade-0000-0000-0001-a1234567890b"
+                                                to="/dynamics?id=&viz=bbfacade-0000-0000-0001-a1234567890b"
                                               >
                                                 <a
-                                                  href="#/dataset?id=&viz=bbfacade-0000-0000-0001-a1234567890b"
+                                                  href="#/dynamics?id=&viz=bbfacade-0000-0000-0001-a1234567890b"
                                                   onClick={[Function]}
                                                 >
                                                   launch
