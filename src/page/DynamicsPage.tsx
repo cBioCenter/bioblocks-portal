@@ -3,7 +3,14 @@ import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 import { Grid, Message } from 'semantic-ui-react';
 
-import { AnatomogramContainer, EMPTY_FUNCTION, fetchDataset, SpringContainer, TensorTContainer } from 'bioblocks-viz';
+import {
+  AnatomogramContainer,
+  EMPTY_FUNCTION,
+  fetchDataset,
+  SPECIES_TYPE,
+  SpringContainer,
+  TensorTContainer,
+} from 'bioblocks-viz';
 import { IDataset, IVignette, IVisualization } from '~bioblocks-portal~/data';
 import { IPortalReducerState } from '~bioblocks-portal~/reducer';
 import { selectVignettes, selectVisualizations } from '~bioblocks-portal~/selector';
@@ -151,7 +158,10 @@ export class UnconnectedDynamicsPage extends React.Component<IDynamicsPageProps,
           />
         );
       case 'anatomogram':
-        return <AnatomogramContainer species={'homo_sapiens'} iconSrc={iconSrc} />;
+        const species: SPECIES_TYPE =
+          this.props.dataset && this.props.dataset.species === 'mus_musculus' ? 'mus_musculus' : 'homo_sapiens';
+
+        return <AnatomogramContainer species={species} iconSrc={iconSrc} />;
       default:
         return <Message error={true}>{`Currently unsupported visualization '${viz}'`}</Message>;
     }

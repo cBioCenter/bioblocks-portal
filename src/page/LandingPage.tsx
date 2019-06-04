@@ -61,7 +61,7 @@ export class LandingPage extends React.Component<ILandingPageProps, any> {
           </Grid.Row>
           <Grid.Row>
             <Button basic={true}>
-              <Link to={{ pathname: '/dataset', search: `?id=${viz.exampleDataset}&viz=${viz._id}` }}>launch</Link>
+              <Link to={{ pathname: '/dynamics', search: `?id=${viz.exampleDataset}&viz=${viz._id}` }}>launch</Link>
             </Button>
           </Grid.Row>
         </Grid.Column>
@@ -160,7 +160,7 @@ export class LandingPage extends React.Component<ILandingPageProps, any> {
         </Grid.Column>
         <Grid.Column width={2}>
           <Button basic={true}>
-            <Link to={`/dataset?id=${vignette.dataset}${vignette.visualizations.map(viz => `&viz=${viz}`).join('')}`}>
+            <Link to={`/dynamics?id=${vignette.dataset}${vignette.visualizations.map(viz => `&viz=${viz}`).join('')}`}>
               launch
             </Link>
           </Button>
