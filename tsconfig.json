@@ -16,7 +16,9 @@
       "~bioblocks-portal~": ["./src"],
       "~bioblocks-portal~/test": ["./test"],
       "~bioblocks-portal~/*": ["./src/*"],
-      "jest": ["node_modules/@types/jest/index.d.ts"]
+      "jest": ["node_modules/@types/jest/index.d.ts"],
+      "react-redux": ["node_modules/@types/react-redux/index.d.ts"],
+      "redux": ["node_modules/redux/index.d.ts"]
     },
     "skipLibCheck": true,
     "sourceMap": true,

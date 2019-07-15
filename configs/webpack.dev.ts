@@ -1,4 +1,4 @@
-import { Config } from 'html-webpack-plugin';
+import * as Config from 'html-webpack-plugin';
 import * as webpack from 'webpack';
 import * as merge from 'webpack-merge';
 

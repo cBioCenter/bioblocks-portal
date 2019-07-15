@@ -17,6 +17,7 @@ module.exports = {
   module: {
     rules: [
       {
+        include: [/\**bioblocks-viz*/, /\**rc-slider*/],
         test: /\.css$/,
         use: [
           {
@@ -41,10 +42,7 @@ module.exports = {
         test: /\.js$/,
       },
       {
-        include: [
-          path.resolve(__dirname, 'node_modules/anatomogram'),
-          path.resolve(__dirname, 'node_modules/bioblocks-viz'),
-        ],
+        include: [/\**anatomogram*/, /\**bioblocks-viz*/],
         test: /\.(woff(2)?|ttf|png|eot)(\?v=\d+\.\d+\.\d+)?$/,
         use: [
           {
@@ -73,10 +71,7 @@ module.exports = {
         ],
       },
       {
-        include: [
-          path.resolve(__dirname, 'node_modules/anatomogram'),
-          path.resolve(__dirname, 'node_modules/bioblocks-viz'),
-        ],
+        include: [/\**anatomogram*/, /\**bioblocks-viz*/],
         test: /\.(svg)$/i,
         use: [
           {
