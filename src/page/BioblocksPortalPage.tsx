@@ -121,13 +121,13 @@ export class UnconnectedBioblocksPortalPage extends React.Component<IBioblocksPo
     const featuredVisualizations = new Array<IVisualization>();
     if (visualizations) {
       const springViz = visualizations.find(viz => viz.name === 'SPRING');
-      const tsneViz = visualizations.find(viz => viz.name === 'tfjs-tsne');
+      const umapViz = visualizations.find(viz => viz.name === 'UMAP');
 
       if (springViz) {
         featuredVisualizations.push(springViz);
       }
-      if (tsneViz) {
-        featuredVisualizations.push(tsneViz);
+      if (umapViz) {
+        featuredVisualizations.push(umapViz);
       }
     }
 

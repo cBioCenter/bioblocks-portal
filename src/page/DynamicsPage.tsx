@@ -7,10 +7,15 @@ import {
   AnatomogramContainer,
   EMPTY_FUNCTION,
   fetchDataset,
+  fetchJSONFile,
+  fetchMatrixData,
+  ICategoricalAnnotation,
   SPECIES_TYPE,
   SpringContainer,
   TensorTContainer,
+  UMAPTranscriptionalContainer,
 } from 'bioblocks-viz';
+
 import { IDataset, IVignette, IVisualization } from '~bioblocks-portal~/data';
 import { IPortalReducerState } from '~bioblocks-portal~/reducer';
 import { selectVignettes, selectVisualizations } from '~bioblocks-portal~/selector';
@@ -27,6 +32,8 @@ export interface IDynamicsPageProps {
 export interface IDynamicsPageState {
   datasetVisualizations: IVisualization[];
   datasetLocation: string;
+  scRNAseqCategoricalData: ICategoricalAnnotation;
+  scRNAseqMatrix: number[][];
 }
 
 export class UnconnectedDynamicsPage extends React.Component<IDynamicsPageProps, IDynamicsPageState> {
@@ -44,24 +51,26 @@ export class UnconnectedDynamicsPage extends React.Component<IDynamicsPageProps,
     this.state = {
       datasetLocation: 'hpc_sf2/full',
       datasetVisualizations: [],
+      scRNAseqCategoricalData: {},
+      scRNAseqMatrix: new Array(new Array<number>()),
     };
   }
 
-  public componentDidMount() {
+  public async componentDidMount() {
     const { search } = this.props;
     if (search) {
-      this.setupSearchParameters(search);
+      await this.setupSearchParameters(search);
     }
   }
 
-  public componentDidUpdate(prevProps: IDynamicsPageProps) {
+  public async componentDidUpdate(prevProps: IDynamicsPageProps) {
     const { search, vignettes, visualizations } = this.props;
     if (
       (search && search !== prevProps.search) ||
       vignettes !== prevProps.vignettes ||
       visualizations !== prevProps.visualizations
     ) {
-      this.setupSearchParameters(search);
+      await this.setupSearchParameters(search);
     }
   }
 
@@ -86,7 +95,7 @@ export class UnconnectedDynamicsPage extends React.Component<IDynamicsPageProps,
     );
   }
 
-  protected setupSearchParameters(query: string) {
+  protected async setupSearchParameters(query: string) {
     const { dispatchDatasetFetch, vignettes, visualizations } = this.props;
 
     let datasetLocation = this.state.datasetLocation;
@@ -112,9 +121,30 @@ export class UnconnectedDynamicsPage extends React.Component<IDynamicsPageProps,
           return (await datasetFetchResult.json()) as IDataset;
         }
       });
+
+      let scRNAseqCategoricalData = this.state.scRNAseqCategoricalData;
+      let scRNAseqMatrix = this.state.scRNAseqMatrix;
+      if (this.props.dataset) {
+        const springAnalysis = this.props.dataset.analyses.find(anAnalysis => anAnalysis.processType === 'SPRING');
+        const tsneAnalysis = this.props.dataset.analyses.find(anAnalysis => anAnalysis.processType === 'TSNE');
+        if (springAnalysis) {
+          scRNAseqCategoricalData = (await fetchJSONFile(
+            // tslint:disable-next-line: max-line-length
+            `${process.env.API_URL}/datasets/${datasetLocation}/analyses/${springAnalysis._id}/${this.props.dataset.name}/categorical_coloring_data.json`,
+          )) as ICategoricalAnnotation;
+        }
+        if (tsneAnalysis) {
+          scRNAseqMatrix = await fetchMatrixData(
+            `${process.env.API_URL}/datasets/${datasetLocation}/analyses/${tsneAnalysis._id}/tsne_matrix.csv`,
+          );
+        }
+      }
+
       this.setState({
         datasetLocation,
         datasetVisualizations,
+        scRNAseqCategoricalData,
+        scRNAseqMatrix,
       });
     }
   }
@@ -126,12 +156,13 @@ export class UnconnectedDynamicsPage extends React.Component<IDynamicsPageProps,
     switch (viz.name.toLocaleLowerCase()) {
       case 'spring':
         if (this.props.dataset) {
-          const analsyis = this.props.dataset.analyses.find(anAnalsyis => anAnalsyis.processType === 'SPRING');
-          if (analsyis) {
-            analysisLocation = analsyis._id;
+          const analysis = this.props.dataset.analyses.find(anAnalysis => anAnalysis.processType === 'SPRING');
+          if (analysis) {
+            analysisLocation = analysis._id;
           }
         }
 
+        console.log(analysisLocation);
         const datasetName = this.props.dataset ? this.props.dataset.name : '';
 
         return (
@@ -145,7 +176,7 @@ export class UnconnectedDynamicsPage extends React.Component<IDynamicsPageProps,
         );
       case 'tfjs-tsne':
         if (this.props.dataset) {
-          const tsneAnalysis = this.props.dataset.analyses.find(analsyis => analsyis.processType === 'TSNE');
+          const tsneAnalysis = this.props.dataset.analyses.find(analysis => analysis.processType === 'TSNE');
           if (tsneAnalysis) {
             analysisLocation = tsneAnalysis._id;
           }
@@ -162,6 +193,27 @@ export class UnconnectedDynamicsPage extends React.Component<IDynamicsPageProps,
           this.props.dataset && this.props.dataset.species === 'mus_musculus' ? 'mus_musculus' : 'homo_sapiens';
 
         return <AnatomogramContainer species={species} iconSrc={iconSrc} />;
+      case 'umap':
+        if (this.props.dataset) {
+          const springAnalysis = this.props.dataset.analyses.find(anAnalysis => anAnalysis.processType === 'SPRING');
+          const tsneAnalysis = this.props.dataset.analyses.find(anAnalysis => anAnalysis.processType === 'TSNE');
+
+          console.log(springAnalysis);
+          console.log(tsneAnalysis);
+
+          return (
+            <UMAPTranscriptionalContainer
+              numSamplesToShow={5000}
+              numIterationsBeforeReRender={1}
+              categoricalAnnotations={this.state.scRNAseqCategoricalData}
+              sampleNames={undefined}
+              dataMatrix={this.state.scRNAseqMatrix}
+            />
+          );
+        } else {
+          return null;
+        }
+
       default:
         return <Message error={true}>{`Currently unsupported visualization '${viz}'`}</Message>;
     }
