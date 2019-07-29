@@ -1,4 +1,4 @@
-import { BioblocksMiddleware, DataReducer, ReducerRegistry, Store } from 'bioblocks-viz';
+import { BBStore, BioblocksMiddleware, DataReducer, ReducerRegistry } from 'bioblocks-viz';
 import { connectRouter, routerMiddleware } from 'connected-react-router';
 import { createHashHistory } from 'history';
 import { Middleware } from 'redux';
@@ -22,5 +22,5 @@ ReducerRegistry.register('vignettes', DataReducer<IVignette[]>('vignettes', []))
 ReducerRegistry.register('visualizations', DataReducer<IVisualization[]>('visualizations', []));
 
 export const configureStore = () => {
-  return Store;
+  return BBStore;
 };
