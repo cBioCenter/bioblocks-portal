@@ -10,7 +10,7 @@ import { configureStore } from '~bioblocks-portal~/reducer';
 
 describe('DatasetsPage', () => {
   it('Should match existing snapshot when no props are provided.', () => {
-    const wrapper = shallow(<DatasetsPage />);
+    const wrapper = shallow(<UnconnectedDatasetsPage />);
     expect(wrapper).toMatchSnapshot();
   });
 

@@ -12,7 +12,7 @@ describe('DynamicsPage', () => {
   const visualizations = ['anatomogram', 'spring', 'tfjs-tsne'];
 
   it('Should match existing snapshot when no props are provided.', () => {
-    const wrapper = shallow(<DynamicsPage />);
+    const wrapper = shallow(<UnconnectedDynamicsPage />);
     expect(wrapper).toMatchSnapshot();
   });
 
