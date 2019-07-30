@@ -106,7 +106,23 @@ exports[`DynamicsPage Should match existing snapshot when hooked up to a Redux s
 `;
 
 exports[`DynamicsPage Should match existing snapshot when no props are provided. 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
+<div
+  style={
+    Object {
+      "padding": "20px",
+    }
+  }
+>
+  <Grid
+    centered={true}
+    columns={2}
+    padded={true}
+    stackable={true}
+    stretched={false}
+  >
+    <GridColumn>
+      No visualizations!
+    </GridColumn>
+  </Grid>
+</div>
 `;

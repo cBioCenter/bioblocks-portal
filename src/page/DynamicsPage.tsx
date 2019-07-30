@@ -32,6 +32,7 @@ export interface IDynamicsPageProps {
 export interface IDynamicsPageState {
   datasetVisualizations: IVisualization[];
   datasetLocation: string;
+  scRNAseqCategorySelected: string;
   scRNAseqCategoricalData: ICategoricalAnnotation;
   scRNAseqMatrix: number[][];
 }
@@ -52,6 +53,7 @@ export class UnconnectedDynamicsPage extends React.Component<IDynamicsPageProps,
       datasetLocation: 'hpc_sf2/full',
       datasetVisualizations: [],
       scRNAseqCategoricalData: {},
+      scRNAseqCategorySelected: 'Sample',
       scRNAseqMatrix: new Array(new Array<number>()),
     };
   }
@@ -124,6 +126,7 @@ export class UnconnectedDynamicsPage extends React.Component<IDynamicsPageProps,
 
       let scRNAseqCategoricalData = this.state.scRNAseqCategoricalData;
       let scRNAseqMatrix = this.state.scRNAseqMatrix;
+      let scRNAseqCategorySelected = this.state.scRNAseqCategorySelected;
       if (this.props.dataset) {
         const springAnalysis = this.props.dataset.analyses.find(anAnalysis => anAnalysis.processType === 'SPRING');
         const tsneAnalysis = this.props.dataset.analyses.find(anAnalysis => anAnalysis.processType === 'TSNE');
@@ -132,6 +135,10 @@ export class UnconnectedDynamicsPage extends React.Component<IDynamicsPageProps,
             // tslint:disable-next-line: max-line-length
             `${process.env.API_URL}/datasets/${datasetLocation}/analyses/${springAnalysis._id}/${this.props.dataset.name}/categorical_coloring_data.json`,
           )) as ICategoricalAnnotation;
+          scRNAseqCategorySelected =
+            Object.keys(scRNAseqCategoricalData).length >= 1
+              ? Object.keys(scRNAseqCategoricalData)[0]
+              : scRNAseqCategorySelected;
         }
         if (tsneAnalysis) {
           scRNAseqMatrix = await fetchMatrixData(
@@ -144,6 +151,7 @@ export class UnconnectedDynamicsPage extends React.Component<IDynamicsPageProps,
         datasetLocation,
         datasetVisualizations,
         scRNAseqCategoricalData,
+        scRNAseqCategorySelected,
         scRNAseqMatrix,
       });
     }
@@ -195,19 +203,14 @@ export class UnconnectedDynamicsPage extends React.Component<IDynamicsPageProps,
         return <AnatomogramContainer species={species} iconSrc={iconSrc} />;
       case 'umap':
         if (this.props.dataset) {
-          const springAnalysis = this.props.dataset.analyses.find(anAnalysis => anAnalysis.processType === 'SPRING');
-          const tsneAnalysis = this.props.dataset.analyses.find(anAnalysis => anAnalysis.processType === 'TSNE');
-
-          console.log(springAnalysis);
-          console.log(tsneAnalysis);
-
           return (
             <UMAPTranscriptionalContainer
-              numSamplesToShow={5000}
-              numIterationsBeforeReRender={1}
               categoricalAnnotations={this.state.scRNAseqCategoricalData}
-              sampleNames={undefined}
               dataMatrix={this.state.scRNAseqMatrix}
+              labelCategory={this.state.scRNAseqCategorySelected}
+              numIterationsBeforeReRender={1}
+              numSamplesToShow={5000}
+              sampleNames={undefined}
             />
           );
         } else {

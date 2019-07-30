@@ -64,9 +64,11 @@ exports[`DatasetsPage Should match existing snapshot when hooked up to a Redux s
 `;
 
 exports[`DatasetsPage Should match existing snapshot when no props are provided. 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
+<Grid
+  centered={true}
+  padded={true}
+  relaxed={true}
+/>
 `;
 
 exports[`DatasetsPage Should render dynamics links correctly. 1`] = `
