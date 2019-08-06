@@ -144,20 +144,7 @@ export class LandingPage extends React.Component<ILandingPageProps, any> {
             alt={`vignettes ${vignette.name} icon`}
           />
         </Grid.Column>
-        <Grid.Column textAlign={'left'} width={8}>
-          <Header>{vignette.name}</Header>
-          <p>
-            <span style={{ fontWeight: 'bold' }}>Description: </span>
-            {vignette.summary}
-          </p>
-          <p>
-            <span style={{ fontWeight: 'bold' }}>Analysis authors: </span>
-            {vignette.authors.length === 2
-              ? `${vignette.authors[0]} and ${vignette.authors[1]}`
-              : vignette.authors.join(', ')}
-          </p>
-          <br />
-        </Grid.Column>
+        {this.renderVignetteHeader(vignette)}
         <Grid.Column width={2}>
           <Button basic={true}>
             <Link to={`/dynamics?id=${vignette.dataset}${vignette.visualizations.map(viz => `&viz=${viz}`).join('')}`}>
@@ -166,6 +153,25 @@ export class LandingPage extends React.Component<ILandingPageProps, any> {
           </Button>
         </Grid.Column>
       </Grid.Row>
+    );
+  }
+
+  protected renderVignetteHeader(vignette: IVignette) {
+    return (
+      <Grid.Column textAlign={'left'} width={8}>
+        <Header>{vignette.name}</Header>
+        <p>
+          <span style={{ fontWeight: 'bold' }}>Description: </span>
+          {vignette.summary}
+        </p>
+        <p>
+          <span style={{ fontWeight: 'bold' }}>Analysis authors: </span>
+          {vignette.authors.length === 2
+            ? `${vignette.authors[0]} and ${vignette.authors[1]}`
+            : vignette.authors.join(', ')}
+        </p>
+        <br />
+      </Grid.Column>
     );
   }
 
