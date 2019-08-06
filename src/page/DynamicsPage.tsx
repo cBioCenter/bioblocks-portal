@@ -129,21 +129,16 @@ export class UnconnectedDynamicsPage extends React.Component<IDynamicsPageProps,
       let scRNAseqCategorySelected = this.state.scRNAseqCategorySelected;
       if (this.props.dataset) {
         const springAnalysis = this.props.dataset.analyses.find(anAnalysis => anAnalysis.processType === 'SPRING');
-        const tsneAnalysis = this.props.dataset.analyses.find(anAnalysis => anAnalysis.processType === 'TSNE');
         if (springAnalysis) {
+          const springLocation = `${process.env.API_URL}/datasets/${datasetLocation}/analyses/${springAnalysis._id}`;
           scRNAseqCategoricalData = (await fetchJSONFile(
-            // tslint:disable-next-line: max-line-length
-            `${process.env.API_URL}/datasets/${datasetLocation}/analyses/${springAnalysis._id}/${this.props.dataset.name}/categorical_coloring_data.json`,
+            `${springLocation}/${this.props.dataset.name}/categorical_coloring_data.json`,
           )) as ICategoricalAnnotation;
+          scRNAseqMatrix = await fetchMatrixData(`${springLocation}/pca.csv`);
           scRNAseqCategorySelected =
             Object.keys(scRNAseqCategoricalData).length >= 1
               ? Object.keys(scRNAseqCategoricalData)[0]
               : scRNAseqCategorySelected;
-        }
-        if (tsneAnalysis) {
-          scRNAseqMatrix = await fetchMatrixData(
-            `${process.env.API_URL}/datasets/${datasetLocation}/analyses/${tsneAnalysis._id}/tsne_matrix.csv`,
-          );
         }
       }
 
