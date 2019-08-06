@@ -170,7 +170,6 @@ export class UnconnectedDynamicsPage extends React.Component<IDynamicsPageProps,
           }
         }
 
-        console.log(analysisLocation);
         const datasetName = this.props.dataset ? this.props.dataset.name : '';
 
         return (

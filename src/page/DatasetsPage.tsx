@@ -26,41 +26,12 @@ export class UnconnectedDatasetsPage extends React.Component<IDatasetsPageProps,
 
     return (
       <Grid centered={true} padded={true} relaxed={true}>
-        {datasets.map((dataset, index) => (
-          <React.Fragment key={`vignette-${index}`}>{this.renderSingleDatasetEntry(dataset)}</React.Fragment>
-        ))}
+        {datasets
+          .sort((a, b) => b.analyses.length - a.analyses.length)
+          .map((dataset, index) => (
+            <React.Fragment key={`vignette-${index}`}>{this.renderSingleDatasetEntry(dataset)}</React.Fragment>
+          ))}
       </Grid>
-    );
-  }
-
-  protected renderSingleDatasetEntry(dataset: IDataset) {
-    return (
-      <Grid.Row columns={3}>
-        <Grid.Column textAlign={'left'}>
-          <Header>{dataset.name}</Header>
-          <p>
-            <span style={{ fontWeight: 'bold' }}>{`Analyses: ${dataset.analyses.length}`}</span>
-          </p>
-          <p>
-            <span style={{ fontWeight: 'bold' }}>
-              {'Derived from: '}
-              {dataset.derivedFrom.length >= 1 ? (
-                <Link to={`/dynamics?id=${dataset.derivedFrom[0]}`}>{dataset.derivedFrom[0]}</Link>
-              ) : (
-                'Nothing'
-              )}
-            </span>
-          </p>
-          <br />
-        </Grid.Column>
-        <Grid.Column>
-          {dataset.analyses.length >= 1 && (
-            <Button basic={true}>
-              <Link to={`/dynamics?id=${dataset._id}${this.getValidVizIds(dataset.analyses)}`}>launch</Link>
-            </Button>
-          )}
-        </Grid.Column>
-      </Grid.Row>
     );
   }
 
@@ -79,6 +50,49 @@ export class UnconnectedDatasetsPage extends React.Component<IDatasetsPageProps,
 
     return result;
   };
+
+  protected renderSingleDatasetEntry(dataset: IDataset) {
+    return (
+      <Grid.Row columns={3}>
+        {this.renderSingleDatasetEntryHeader(dataset)}
+        {this.renderSingleDatasetEntryContent(dataset)}
+      </Grid.Row>
+    );
+  }
+
+  protected renderSingleDatasetEntryContent(dataset: IDataset) {
+    return (
+      <Grid.Column>
+        {dataset.analyses.length >= 1 && (
+          <Button basic={true}>
+            <Link to={`/dynamics?id=${dataset._id}${this.getValidVizIds(dataset.analyses)}`}>launch</Link>
+          </Button>
+        )}
+      </Grid.Column>
+    );
+  }
+
+  protected renderSingleDatasetEntryHeader(dataset: IDataset) {
+    return (
+      <Grid.Column textAlign={'left'}>
+        <Header>{dataset.name}</Header>
+        <p>
+          <span style={{ fontWeight: 'bold' }}>{`Analyses: ${dataset.analyses.length}`}</span>
+        </p>
+        <p>
+          <span style={{ fontWeight: 'bold' }}>
+            {'Derived from: '}
+            {dataset.derivedFrom.length >= 1 ? (
+              <Link to={`/dynamics?id=${dataset.derivedFrom[0]}`}>{dataset.derivedFrom[0]}</Link>
+            ) : (
+              'Nothing'
+            )}
+          </span>
+        </p>
+        <br />
+      </Grid.Column>
+    );
+  }
 }
 
 export const DatasetsPage = connect(undefined)(UnconnectedDatasetsPage);

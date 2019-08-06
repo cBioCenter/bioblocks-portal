@@ -125,3 +125,138 @@ exports[`DatasetsPage Should render dynamics links correctly. 1`] = `
   </GridRow>
 </Grid>
 `;
+
+exports[`DatasetsPage Should sort datasets with analysis links before those without. 1`] = `
+<Grid
+  centered={true}
+  padded={true}
+  relaxed={true}
+>
+  <GridRow
+    columns={3}
+  >
+    <GridColumn
+      textAlign="left"
+    >
+      <Header />
+      <p>
+        <span
+          style={
+            Object {
+              "fontWeight": "bold",
+            }
+          }
+        >
+          Analyses: 2
+        </span>
+      </p>
+      <p>
+        <span
+          style={
+            Object {
+              "fontWeight": "bold",
+            }
+          }
+        >
+          Derived from: 
+          Nothing
+        </span>
+      </p>
+      <br />
+    </GridColumn>
+    <GridColumn>
+      <Button
+        as="button"
+        basic={true}
+      >
+        <Link
+          replace={false}
+          to="/dynamics?id=will&viz=bbfacade-0000-0000-0001-a1234567890b&viz=bbfacade-0000-0000-0001-a1234567890b"
+        >
+          launch
+        </Link>
+      </Button>
+    </GridColumn>
+  </GridRow>
+  <GridRow
+    columns={3}
+  >
+    <GridColumn
+      textAlign="left"
+    >
+      <Header />
+      <p>
+        <span
+          style={
+            Object {
+              "fontWeight": "bold",
+            }
+          }
+        >
+          Analyses: 1
+        </span>
+      </p>
+      <p>
+        <span
+          style={
+            Object {
+              "fontWeight": "bold",
+            }
+          }
+        >
+          Derived from: 
+          Nothing
+        </span>
+      </p>
+      <br />
+    </GridColumn>
+    <GridColumn>
+      <Button
+        as="button"
+        basic={true}
+      >
+        <Link
+          replace={false}
+          to="/dynamics?id=it&viz=bbfacade-0000-0000-0001-a1234567890b"
+        >
+          launch
+        </Link>
+      </Button>
+    </GridColumn>
+  </GridRow>
+  <GridRow
+    columns={3}
+  >
+    <GridColumn
+      textAlign="left"
+    >
+      <Header />
+      <p>
+        <span
+          style={
+            Object {
+              "fontWeight": "bold",
+            }
+          }
+        >
+          Analyses: 0
+        </span>
+      </p>
+      <p>
+        <span
+          style={
+            Object {
+              "fontWeight": "bold",
+            }
+          }
+        >
+          Derived from: 
+          Nothing
+        </span>
+      </p>
+      <br />
+    </GridColumn>
+    <GridColumn />
+  </GridRow>
+</Grid>
+`;

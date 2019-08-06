@@ -25,13 +25,13 @@ export class UnconnectedVignettesPage extends React.Component<IVignettesPageProp
     return (
       <Grid centered={true} padded={true} relaxed={true}>
         {vignettes.map((vignette, index) => (
-          <React.Fragment key={`vignette-${index}`}>{this.renderSingleFeaturedVignette(vignette)}</React.Fragment>
+          <React.Fragment key={`vignette-${index}`}>{this.renderSingleVignette(vignette)}</React.Fragment>
         ))}
       </Grid>
     );
   }
 
-  protected renderSingleFeaturedVignette(vignette: IVignette) {
+  protected renderSingleVignette(vignette: IVignette) {
     return (
       <Grid.Row columns={3}>
         <Grid.Column>
