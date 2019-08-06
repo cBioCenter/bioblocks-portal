@@ -3,7 +3,7 @@ import { RouteComponentProps } from 'react-router';
 import { Link } from 'react-router-dom';
 import { Button, Grid, Header, List } from 'semantic-ui-react';
 
-import { IVisualization } from '~bioblocks-portal~/data';
+import { getFormattedAuthors, IVisualization } from '~bioblocks-portal~/data';
 
 export interface IVisualizationsPageProps extends Partial<RouteComponentProps> {
   visualizations: IVisualization[];
@@ -36,27 +36,39 @@ export class VisualizationsPage extends React.Component<IVisualizationsPageProps
         <Grid.Column>
           <img src={`${process.env.API_URL}${viz.icon}`} alt={`icon for ${viz.name}`} style={{ height: '100px' }} />
         </Grid.Column>
-        <Grid.Column textAlign={'left'}>
-          <Header as={'h2'}>{viz.name}</Header>
-          <List>
-            <List.Item>{`${viz.isOriginal ? 'original: ' : ''}${viz.authors.join(', ')}`}</List.Item>
-            <List.Item>{viz.summary}</List.Item>
-            <List.Item>{`relevant data: ${viz.compatibleData.join(', ')}`}</List.Item>
-          </List>
-        </Grid.Column>
-        <Grid.Column stretched={true}>
-          <Grid.Row>
-            <Button basic={true}>
-              <Link to={{ pathname: '/visualizations/', search: `?id=${viz._id}` }}>details</Link>
-            </Button>
-          </Grid.Row>
-          <Grid.Row>
-            <Button basic={true}>
-              <Link to={{ pathname: '/dynamics', search: `?id=${viz.exampleDataset}&viz=${viz._id}` }}>launch</Link>
-            </Button>
-          </Grid.Row>
-        </Grid.Column>
+        {this.renderVisualizationHeader(viz)}
+        {this.renderVisualizationLinks(viz)}
       </Grid>
+    );
+  }
+
+  protected renderVisualizationHeader(viz: IVisualization) {
+    return (
+      <Grid.Column textAlign={'left'}>
+        <Header as={'h2'}>{viz.name}</Header>
+        <List>
+          <List.Item>{`${viz.isOriginal ? 'original: ' : ''}${getFormattedAuthors(viz)}`}</List.Item>
+          <List.Item>{viz.summary}</List.Item>
+          <List.Item>{`relevant data: ${viz.compatibleData.join(', ')}`}</List.Item>
+        </List>
+      </Grid.Column>
+    );
+  }
+
+  protected renderVisualizationLinks(viz: IVisualization) {
+    return (
+      <Grid.Column stretched={true}>
+        <Grid.Row>
+          <Button basic={true}>
+            <Link to={{ pathname: '/visualizations/', search: `?id=${viz._id}` }}>details</Link>
+          </Button>
+        </Grid.Row>
+        <Grid.Row>
+          <Button basic={true}>
+            <Link to={{ pathname: '/dynamics', search: `?id=${viz.exampleDataset}&viz=${viz._id}` }}>launch</Link>
+          </Button>
+        </Grid.Row>
+      </Grid.Column>
     );
   }
 }

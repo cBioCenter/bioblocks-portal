@@ -3,7 +3,7 @@ import { RouteComponentProps } from 'react-router';
 import { Link } from 'react-router-dom';
 import { Button, Container, Divider, Grid, Header, Segment } from 'semantic-ui-react';
 
-import { IVignette, IVisualization } from '~bioblocks-portal~/data';
+import { getFormattedAuthors, IVignette, IVisualization } from '~bioblocks-portal~/data';
 
 export interface ILandingPageProps extends Partial<RouteComponentProps> {
   featuredVignettes: IVignette[];
@@ -49,22 +49,11 @@ export class LandingPage extends React.Component<ILandingPageProps, any> {
           {viz.summary}
           <p>
             <span style={{ fontWeight: 'bold' }}>{viz.isOriginal ? 'Original authors' : 'Authors'}: </span>
-            {viz.authors.length === 2 ? `${viz.authors[0]} and ${viz.authors[1]}` : viz.authors.join(', ')}
+            {getFormattedAuthors(viz)}
           </p>
           <br />
         </Grid.Column>
-        <Grid.Column width={2}>
-          <Grid.Row>
-            <Button basic={true}>
-              <Link to={{ pathname: '/visualizations/', search: `?id=${viz._id}` }}>details</Link>
-            </Button>
-          </Grid.Row>
-          <Grid.Row>
-            <Button basic={true}>
-              <Link to={{ pathname: '/dynamics', search: `?id=${viz.exampleDataset}&viz=${viz._id}` }}>launch</Link>
-            </Button>
-          </Grid.Row>
-        </Grid.Column>
+        {this.renderSingleVizLinks(viz)}
       </Grid.Row>
     );
   }
@@ -144,20 +133,7 @@ export class LandingPage extends React.Component<ILandingPageProps, any> {
             alt={`vignettes ${vignette.name} icon`}
           />
         </Grid.Column>
-        <Grid.Column textAlign={'left'} width={8}>
-          <Header>{vignette.name}</Header>
-          <p>
-            <span style={{ fontWeight: 'bold' }}>Description: </span>
-            {vignette.summary}
-          </p>
-          <p>
-            <span style={{ fontWeight: 'bold' }}>Analysis authors: </span>
-            {vignette.authors.length === 2
-              ? `${vignette.authors[0]} and ${vignette.authors[1]}`
-              : vignette.authors.join(', ')}
-          </p>
-          <br />
-        </Grid.Column>
+        {this.renderVignetteHeader(vignette)}
         <Grid.Column width={2}>
           <Button basic={true}>
             <Link to={`/dynamics?id=${vignette.dataset}${vignette.visualizations.map(viz => `&viz=${viz}`).join('')}`}>
@@ -166,6 +142,23 @@ export class LandingPage extends React.Component<ILandingPageProps, any> {
           </Button>
         </Grid.Column>
       </Grid.Row>
+    );
+  }
+
+  protected renderVignetteHeader(vignette: IVignette) {
+    return (
+      <Grid.Column textAlign={'left'} width={8}>
+        <Header>{vignette.name}</Header>
+        <p>
+          <span style={{ fontWeight: 'bold' }}>Description: </span>
+          {vignette.summary}
+        </p>
+        <p>
+          <span style={{ fontWeight: 'bold' }}>Analysis authors: </span>
+          {getFormattedAuthors(vignette)}
+        </p>
+        <br />
+      </Grid.Column>
     );
   }
 
@@ -186,32 +179,6 @@ export class LandingPage extends React.Component<ILandingPageProps, any> {
     );
   }
 
-  /*
-  protected renderSingleUserSharedDatasets(dataset: IDatasetInfo) {
-    return (
-      <Grid.Row columns={2}>
-        <Grid.Column floated={'left'}>
-          <Header>{dataset.name}</Header>
-          <p>
-            {dataset.summary}
-            <br />
-            <span style={{ fontWeight: 'bold' }}>Authors: </span>
-            {dataset.authors.join(', ')}
-          </p>
-        </Grid.Column>
-        <Grid.Column floated={'right'}>
-          <Button basic={true} floated={'right'}>
-            <Link to={dataset.links.detail}>details</Link>
-          </Button>
-          <Button basic={true} floated={'right'}>
-            <Link to={dataset.links.analysis}>analyze</Link>
-          </Button>
-        </Grid.Column>
-      </Grid.Row>
-    );
-  }
-  */
-
   protected renderUserSharedDatasets() {
     return (
       <Grid.Column stretched={true} textAlign={'left'} width={8}>
@@ -225,6 +192,23 @@ export class LandingPage extends React.Component<ILandingPageProps, any> {
           <Header as={'h3'} textAlign={'center'}>
             Coming soon!
           </Header>
+        </Grid.Row>
+      </Grid.Column>
+    );
+  }
+
+  protected renderSingleVizLinks(viz: IVisualization) {
+    return (
+      <Grid.Column width={2}>
+        <Grid.Row>
+          <Button basic={true}>
+            <Link to={{ pathname: '/visualizations/', search: `?id=${viz._id}` }}>details</Link>
+          </Button>
+        </Grid.Row>
+        <Grid.Row>
+          <Button basic={true}>
+            <Link to={{ pathname: '/dynamics', search: `?id=${viz.exampleDataset}&viz=${viz._id}` }}>launch</Link>
+          </Button>
         </Grid.Row>
       </Grid.Column>
     );

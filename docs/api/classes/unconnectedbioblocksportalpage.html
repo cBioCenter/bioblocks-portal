@@ -126,6 +126,9 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="unconnectedbioblocksportalpage.html#componentwillupdate" class="tsd-kind-icon">component<wbr>Will<wbr>Update</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="unconnectedbioblocksportalpage.html#forceupdate" class="tsd-kind-icon">force<wbr>Update</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="unconnectedbioblocksportalpage.html#getsnapshotbeforeupdate" class="tsd-kind-icon">get<wbr>Snapshot<wbr>Before<wbr>Update</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="unconnectedbioblocksportalpage.html#ondatasetfetch" class="tsd-kind-icon">on<wbr>Dataset<wbr>Fetch</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="unconnectedbioblocksportalpage.html#onvignettefetch" class="tsd-kind-icon">on<wbr>Vignette<wbr>Fetch</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="unconnectedbioblocksportalpage.html#onvisualizationfetch" class="tsd-kind-icon">on<wbr>Visualization<wbr>Fetch</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="unconnectedbioblocksportalpage.html#render" class="tsd-kind-icon">render</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="unconnectedbioblocksportalpage.html#renderdatasetspage" class="tsd-kind-icon">render<wbr>Datasets<wbr>Page</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="unconnectedbioblocksportalpage.html#renderdynamicspage" class="tsd-kind-icon">render<wbr>Dynamics<wbr>Page</a></li>
@@ -159,7 +162,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides Component.__constructor</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/885341a/src/page/BioblocksPortalPage.tsx#L39">src/page/BioblocksPortalPage.tsx:39</a></li>
+									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/e9225d3/src/page/BioblocksPortalPage.tsx#L39">src/page/BioblocksPortalPage.tsx:39</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -466,7 +469,7 @@ class Foo extends React.Component {
 							<aside class="tsd-sources">
 								<p>Overrides ComponentLifecycle.componentDidMount</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/885341a/src/page/BioblocksPortalPage.tsx#L45">src/page/BioblocksPortalPage.tsx:45</a></li>
+									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/e9225d3/src/page/BioblocksPortalPage.tsx#L45">src/page/BioblocksPortalPage.tsx:45</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -730,6 +733,57 @@ class Foo extends React.Component {
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<a name="ondatasetfetch" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> on<wbr>Dataset<wbr>Fetch</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">on<wbr>Dataset<wbr>Fetch<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/idataset.html" class="tsd-signature-type">IDataset</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/e9225d3/src/page/BioblocksPortalPage.tsx#L74">src/page/BioblocksPortalPage.tsx:74</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/idataset.html" class="tsd-signature-type">IDataset</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<a name="onvignettefetch" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> on<wbr>Vignette<wbr>Fetch</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">on<wbr>Vignette<wbr>Fetch<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/ivignette.html" class="tsd-signature-type">IVignette</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/e9225d3/src/page/BioblocksPortalPage.tsx#L85">src/page/BioblocksPortalPage.tsx:85</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/ivignette.html" class="tsd-signature-type">IVignette</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<a name="onvisualizationfetch" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> on<wbr>Visualization<wbr>Fetch</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">on<wbr>Visualization<wbr>Fetch<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/ivisualization.html" class="tsd-signature-type">IVisualization</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/e9225d3/src/page/BioblocksPortalPage.tsx#L96">src/page/BioblocksPortalPage.tsx:96</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/ivisualization.html" class="tsd-signature-type">IVisualization</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 					<a name="render" class="tsd-anchor"></a>
 					<h3>render</h3>
@@ -741,7 +795,7 @@ class Foo extends React.Component {
 							<aside class="tsd-sources">
 								<p>Overrides Component.render</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/885341a/src/page/BioblocksPortalPage.tsx#L82">src/page/BioblocksPortalPage.tsx:82</a></li>
+									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/e9225d3/src/page/BioblocksPortalPage.tsx#L55">src/page/BioblocksPortalPage.tsx:55</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Element</span></h4>
@@ -758,7 +812,7 @@ class Foo extends React.Component {
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/885341a/src/page/BioblocksPortalPage.tsx#L139">src/page/BioblocksPortalPage.tsx:139</a></li>
+									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/e9225d3/src/page/BioblocksPortalPage.tsx#L145">src/page/BioblocksPortalPage.tsx:145</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -781,7 +835,7 @@ class Foo extends React.Component {
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/885341a/src/page/BioblocksPortalPage.tsx#L101">src/page/BioblocksPortalPage.tsx:101</a></li>
+									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/e9225d3/src/page/BioblocksPortalPage.tsx#L107">src/page/BioblocksPortalPage.tsx:107</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Element</span></h4>
@@ -798,7 +852,7 @@ class Foo extends React.Component {
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/885341a/src/page/BioblocksPortalPage.tsx#L105">src/page/BioblocksPortalPage.tsx:105</a></li>
+									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/e9225d3/src/page/BioblocksPortalPage.tsx#L111">src/page/BioblocksPortalPage.tsx:111</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -821,7 +875,7 @@ class Foo extends React.Component {
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/885341a/src/page/BioblocksPortalPage.tsx#L145">src/page/BioblocksPortalPage.tsx:145</a></li>
+									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/e9225d3/src/page/BioblocksPortalPage.tsx#L151">src/page/BioblocksPortalPage.tsx:151</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -844,7 +898,7 @@ class Foo extends React.Component {
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/885341a/src/page/BioblocksPortalPage.tsx#L151">src/page/BioblocksPortalPage.tsx:151</a></li>
+									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/e9225d3/src/page/BioblocksPortalPage.tsx#L157">src/page/BioblocksPortalPage.tsx:157</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -867,7 +921,7 @@ class Foo extends React.Component {
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/885341a/src/page/BioblocksPortalPage.tsx#L157">src/page/BioblocksPortalPage.tsx:157</a></li>
+									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/e9225d3/src/page/BioblocksPortalPage.tsx#L163">src/page/BioblocksPortalPage.tsx:163</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -962,7 +1016,7 @@ class Foo extends React.Component {
 					<div class="tsd-signature tsd-kind-icon">default<wbr>Props<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/885341a/src/page/BioblocksPortalPage.tsx#L32">src/page/BioblocksPortalPage.tsx:32</a></li>
+							<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/e9225d3/src/page/BioblocksPortalPage.tsx#L32">src/page/BioblocksPortalPage.tsx:32</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -971,7 +1025,7 @@ class Foo extends React.Component {
 						<div class="tsd-signature tsd-kind-icon">datasets<span class="tsd-signature-symbol">:</span> <a href="../interfaces/idataset.html" class="tsd-signature-type">IDataset</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;new Array&lt;IDataset&gt;()</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/885341a/src/page/BioblocksPortalPage.tsx#L33">src/page/BioblocksPortalPage.tsx:33</a></li>
+								<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/e9225d3/src/page/BioblocksPortalPage.tsx#L33">src/page/BioblocksPortalPage.tsx:33</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -981,7 +1035,7 @@ class Foo extends React.Component {
 						<div class="tsd-signature tsd-kind-icon">dispatch<wbr>Datasets<wbr>Fetch<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span><span class="tsd-signature-symbol"> =&nbsp;EMPTY_FUNCTION</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/885341a/src/page/BioblocksPortalPage.tsx#L34">src/page/BioblocksPortalPage.tsx:34</a></li>
+								<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/e9225d3/src/page/BioblocksPortalPage.tsx#L34">src/page/BioblocksPortalPage.tsx:34</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-type-declaration">
@@ -1006,7 +1060,7 @@ class Foo extends React.Component {
 						<div class="tsd-signature tsd-kind-icon">dispatch<wbr>Vignettes<wbr>Fetch<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span><span class="tsd-signature-symbol"> =&nbsp;EMPTY_FUNCTION</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/885341a/src/page/BioblocksPortalPage.tsx#L35">src/page/BioblocksPortalPage.tsx:35</a></li>
+								<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/e9225d3/src/page/BioblocksPortalPage.tsx#L35">src/page/BioblocksPortalPage.tsx:35</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-type-declaration">
@@ -1031,7 +1085,7 @@ class Foo extends React.Component {
 						<div class="tsd-signature tsd-kind-icon">dispatch<wbr>Visualizations<wbr>Fetch<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span><span class="tsd-signature-symbol"> =&nbsp;EMPTY_FUNCTION</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/885341a/src/page/BioblocksPortalPage.tsx#L36">src/page/BioblocksPortalPage.tsx:36</a></li>
+								<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/e9225d3/src/page/BioblocksPortalPage.tsx#L36">src/page/BioblocksPortalPage.tsx:36</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-type-declaration">
@@ -1056,7 +1110,7 @@ class Foo extends React.Component {
 						<div class="tsd-signature tsd-kind-icon">vignettes<span class="tsd-signature-symbol">:</span> <a href="../interfaces/ivignette.html" class="tsd-signature-type">IVignette</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;new Array&lt;IVignette&gt;()</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/885341a/src/page/BioblocksPortalPage.tsx#L37">src/page/BioblocksPortalPage.tsx:37</a></li>
+								<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/e9225d3/src/page/BioblocksPortalPage.tsx#L37">src/page/BioblocksPortalPage.tsx:37</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -1066,7 +1120,7 @@ class Foo extends React.Component {
 						<div class="tsd-signature tsd-kind-icon">visualizations<span class="tsd-signature-symbol">:</span> <a href="../interfaces/ivisualization.html" class="tsd-signature-type">IVisualization</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;new Array&lt;IVisualization&gt;()</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/885341a/src/page/BioblocksPortalPage.tsx#L38">src/page/BioblocksPortalPage.tsx:38</a></li>
+								<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/e9225d3/src/page/BioblocksPortalPage.tsx#L38">src/page/BioblocksPortalPage.tsx:38</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -1141,6 +1195,15 @@ class Foo extends React.Component {
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="unconnectedbioblocksportalpage.html#getsnapshotbeforeupdate" class="tsd-kind-icon">get<wbr>Snapshot<wbr>Before<wbr>Update</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+								<a href="unconnectedbioblocksportalpage.html#ondatasetfetch" class="tsd-kind-icon">on<wbr>Dataset<wbr>Fetch</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+								<a href="unconnectedbioblocksportalpage.html#onvignettefetch" class="tsd-kind-icon">on<wbr>Vignette<wbr>Fetch</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+								<a href="unconnectedbioblocksportalpage.html#onvisualizationfetch" class="tsd-kind-icon">on<wbr>Visualization<wbr>Fetch</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 								<a href="unconnectedbioblocksportalpage.html#render" class="tsd-kind-icon">render</a>
