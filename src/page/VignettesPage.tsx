@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Button, Grid, Header } from 'semantic-ui-react';
 
 import { connect } from 'react-redux';
-import { IVignette } from '~bioblocks-portal~/data';
+import { getFormattedAuthors, IVignette } from '~bioblocks-portal~/data';
 
 export interface IVignettesPageProps extends Partial<RouteComponentProps> {
   vignettes: IVignette[];
@@ -41,28 +41,38 @@ export class UnconnectedVignettesPage extends React.Component<IVignettesPageProp
             alt={`vignette ${vignette.name} icon`}
           />
         </Grid.Column>
-        <Grid.Column textAlign={'left'}>
-          <Header>{vignette.name}</Header>
-          <p>
-            <span style={{ fontWeight: 'bold' }}>Description: </span>
-            {vignette.summary}
-          </p>
-          <p>
-            <span style={{ fontWeight: 'bold' }}>Analysis authors: </span>
-            {vignette.authors.length === 2
-              ? `${vignette.authors[0]} and ${vignette.authors[1]}`
-              : vignette.authors.join(', ')}
-          </p>
-          <br />
-        </Grid.Column>
-        <Grid.Column>
-          <Button basic={true}>
-            <Link to={`/dynamics?id=${vignette.dataset}${vignette.visualizations.map(viz => `&viz=${viz}`).join('')}`}>
-              launch
-            </Link>
-          </Button>
-        </Grid.Column>
+        {this.renderVignetteSummary(vignette)}
+        {this.renderVignetteLink(vignette)}
       </Grid.Row>
+    );
+  }
+
+  protected renderVignetteLink(vignette: IVignette) {
+    return (
+      <Grid.Column>
+        <Button basic={true}>
+          <Link to={`/dynamics?id=${vignette.dataset}${vignette.visualizations.map(viz => `&viz=${viz}`).join('')}`}>
+            launch
+          </Link>
+        </Button>
+      </Grid.Column>
+    );
+  }
+
+  protected renderVignetteSummary(vignette: IVignette) {
+    return (
+      <Grid.Column textAlign={'left'}>
+        <Header>{vignette.name}</Header>
+        <p>
+          <span style={{ fontWeight: 'bold' }}>Description: </span>
+          {vignette.summary}
+        </p>
+        <p>
+          <span style={{ fontWeight: 'bold' }}>Analysis authors: </span>
+          {getFormattedAuthors(vignette)}
+        </p>
+        <br />
+      </Grid.Column>
     );
   }
 }

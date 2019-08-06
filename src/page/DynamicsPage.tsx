@@ -157,30 +157,59 @@ export class UnconnectedDynamicsPage extends React.Component<IDynamicsPageProps,
     }
   }
 
+  protected renderSpringVisualization(
+    viz: IVisualization,
+    isFullPage: boolean,
+    datasetLocation: string,
+    iconSrc: string,
+  ) {
+    let analysisLocation = '';
+    if (this.props.dataset) {
+      const analysis = this.props.dataset.analyses.find(anAnalysis => anAnalysis.processType === 'SPRING');
+      if (analysis) {
+        analysisLocation = analysis._id;
+      }
+    }
+
+    const datasetName = this.props.dataset ? this.props.dataset.name : '';
+
+    return (
+      <SpringContainer
+        datasetLocation={`${datasetLocation}/analyses/${analysisLocation}/${datasetName}`}
+        datasetsURI={`${process.env.API_URL}/datasets`}
+        isFullPage={isFullPage}
+        springSrc={`${process.env.API_URL}/${viz.location}`}
+        iconSrc={iconSrc}
+      />
+    );
+  }
+
+  protected renderUMAPVisualization() {
+    const { scRNAseqCategoricalData, scRNAseqMatrix, scRNAseqCategorySelected } = this.state;
+
+    if (this.props.dataset) {
+      return (
+        <UMAPTranscriptionalContainer
+          categoricalAnnotations={scRNAseqCategoricalData}
+          dataMatrix={scRNAseqMatrix}
+          labelCategory={scRNAseqCategorySelected}
+          numIterationsBeforeReRender={1}
+          numSamplesToShow={5000}
+          sampleNames={undefined}
+        />
+      );
+    } else {
+      return null;
+    }
+  }
+
   protected renderVisualization(viz: IVisualization, datasetLocation: string) {
     const isFullPage = this.state.datasetVisualizations.length === 1;
     const iconSrc = `${process.env.API_URL}${viz.icon}`;
     let analysisLocation = '';
     switch (viz.name.toLocaleLowerCase()) {
       case 'spring':
-        if (this.props.dataset) {
-          const analysis = this.props.dataset.analyses.find(anAnalysis => anAnalysis.processType === 'SPRING');
-          if (analysis) {
-            analysisLocation = analysis._id;
-          }
-        }
-
-        const datasetName = this.props.dataset ? this.props.dataset.name : '';
-
-        return (
-          <SpringContainer
-            datasetLocation={`${datasetLocation}/analyses/${analysisLocation}/${datasetName}`}
-            datasetsURI={`${process.env.API_URL}/datasets`}
-            isFullPage={isFullPage}
-            springSrc={`${process.env.API_URL}/${viz.location}`}
-            iconSrc={iconSrc}
-          />
-        );
+        return this.renderSpringVisualization(viz, isFullPage, datasetLocation, iconSrc);
       case 'tfjs-tsne':
         if (this.props.dataset) {
           const tsneAnalysis = this.props.dataset.analyses.find(analysis => analysis.processType === 'TSNE');
@@ -201,20 +230,7 @@ export class UnconnectedDynamicsPage extends React.Component<IDynamicsPageProps,
 
         return <AnatomogramContainer species={species} iconSrc={iconSrc} />;
       case 'umap':
-        if (this.props.dataset) {
-          return (
-            <UMAPTranscriptionalContainer
-              categoricalAnnotations={this.state.scRNAseqCategoricalData}
-              dataMatrix={this.state.scRNAseqMatrix}
-              labelCategory={this.state.scRNAseqCategorySelected}
-              numIterationsBeforeReRender={1}
-              numSamplesToShow={5000}
-              sampleNames={undefined}
-            />
-          );
-        } else {
-          return null;
-        }
+        return this.renderUMAPVisualization();
 
       default:
         return <Message error={true}>{`Currently unsupported visualization '${viz}'`}</Message>;

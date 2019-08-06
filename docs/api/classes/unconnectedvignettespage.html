@@ -122,6 +122,8 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="unconnectedvignettespage.html#getsnapshotbeforeupdate" class="tsd-kind-icon">get<wbr>Snapshot<wbr>Before<wbr>Update</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="unconnectedvignettespage.html#render" class="tsd-kind-icon">render</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="unconnectedvignettespage.html#rendersinglevignette" class="tsd-kind-icon">render<wbr>Single<wbr>Vignette</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="unconnectedvignettespage.html#rendervignettelink" class="tsd-kind-icon">render<wbr>Vignette<wbr>Link</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="unconnectedvignettespage.html#rendervignettesummary" class="tsd-kind-icon">render<wbr>Vignette<wbr>Summary</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited"><a href="unconnectedvignettespage.html#setstate" class="tsd-kind-icon">set<wbr>State</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="unconnectedvignettespage.html#shouldcomponentupdate" class="tsd-kind-icon">should<wbr>Component<wbr>Update</a></li>
 							</ul>
@@ -148,7 +150,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides Component.__constructor</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/d89a476/src/page/VignettesPage.tsx#L16">src/page/VignettesPage.tsx:16</a></li>
+									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/ee707b8/src/page/VignettesPage.tsx#L16">src/page/VignettesPage.tsx:16</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -735,7 +737,7 @@ class Foo extends React.Component {
 							<aside class="tsd-sources">
 								<p>Overrides Component.render</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/d89a476/src/page/VignettesPage.tsx#L22">src/page/VignettesPage.tsx:22</a></li>
+									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/ee707b8/src/page/VignettesPage.tsx#L22">src/page/VignettesPage.tsx:22</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Element</span></h4>
@@ -752,7 +754,53 @@ class Foo extends React.Component {
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/d89a476/src/page/VignettesPage.tsx#L34">src/page/VignettesPage.tsx:34</a></li>
+									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/ee707b8/src/page/VignettesPage.tsx#L34">src/page/VignettesPage.tsx:34</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>vignette: <a href="../interfaces/ivignette.html" class="tsd-signature-type">IVignette</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Element</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<a name="rendervignettelink" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> render<wbr>Vignette<wbr>Link</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">render<wbr>Vignette<wbr>Link<span class="tsd-signature-symbol">(</span>vignette<span class="tsd-signature-symbol">: </span><a href="../interfaces/ivignette.html" class="tsd-signature-type">IVignette</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Element</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/ee707b8/src/page/VignettesPage.tsx#L50">src/page/VignettesPage.tsx:50</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>vignette: <a href="../interfaces/ivignette.html" class="tsd-signature-type">IVignette</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Element</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<a name="rendervignettesummary" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> render<wbr>Vignette<wbr>Summary</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">render<wbr>Vignette<wbr>Summary<span class="tsd-signature-symbol">(</span>vignette<span class="tsd-signature-symbol">: </span><a href="../interfaces/ivignette.html" class="tsd-signature-type">IVignette</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Element</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/ee707b8/src/page/VignettesPage.tsx#L62">src/page/VignettesPage.tsx:62</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -847,7 +895,7 @@ class Foo extends React.Component {
 					<div class="tsd-signature tsd-kind-icon">default<wbr>Props<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/d89a476/src/page/VignettesPage.tsx#L14">src/page/VignettesPage.tsx:14</a></li>
+							<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/ee707b8/src/page/VignettesPage.tsx#L14">src/page/VignettesPage.tsx:14</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -856,7 +904,7 @@ class Foo extends React.Component {
 						<div class="tsd-signature tsd-kind-icon">vignettes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">never</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/d89a476/src/page/VignettesPage.tsx#L15">src/page/VignettesPage.tsx:15</a></li>
+								<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/ee707b8/src/page/VignettesPage.tsx#L15">src/page/VignettesPage.tsx:15</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -937,6 +985,12 @@ class Foo extends React.Component {
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
 								<a href="unconnectedvignettespage.html#rendersinglevignette" class="tsd-kind-icon">render<wbr>Single<wbr>Vignette</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+								<a href="unconnectedvignettespage.html#rendervignettelink" class="tsd-kind-icon">render<wbr>Vignette<wbr>Link</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+								<a href="unconnectedvignettespage.html#rendervignettesummary" class="tsd-kind-icon">render<wbr>Vignette<wbr>Summary</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
 								<a href="unconnectedvignettespage.html#setstate" class="tsd-kind-icon">set<wbr>State</a>

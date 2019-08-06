@@ -5,7 +5,7 @@ import { RouteComponentProps } from 'react-router';
 import { Link } from 'react-router-dom';
 import { Accordion, Button, Container, Divider, Grid, Header, Icon, List } from 'semantic-ui-react';
 
-import { IVignette, IVisualization } from '~bioblocks-portal~/data';
+import { getFormattedAuthors, IVignette, IVisualization } from '~bioblocks-portal~/data';
 
 export interface IVizOverviewPageProps extends Partial<RouteComponentProps> {
   vignettes: IVignette[];
@@ -80,52 +80,16 @@ export class UnconnectedVizOverviewPage extends React.Component<IVizOverviewPage
     );
   }
 
-  protected renderOverview(viz: IVisualization) {
+  protected renderCitations(viz: IVisualization) {
     return (
-      <Grid centered={true} columns={2}>
-        <Grid.Column width={2}>
-          <img
-            alt={`icon for ${viz.name}`}
-            src={`${process.env.API_URL}${viz.icon}`}
-            style={{ height: '150px', padding: '20px' }}
-          />
-        </Grid.Column>
-        <Grid.Column textAlign={'left'}>
-          <Header as={'h1'}>
-            {viz.name}
-            <Header.Subheader>{viz.authors.join(', ')}</Header.Subheader>
-          </Header>
-          <>
-            <p>{viz.summary}</p>
-            <List>
-              <List.Item>compatible with: {viz.compatibleData.join(', ')}</List.Item>
-              <List.Item>
-                citation(s):{' '}
-                {viz.citations.map((citation, index) => (
-                  <React.Fragment key={`${viz.name.toLocaleLowerCase()}-citation-${index}`}>
-                    {citation.fullCitation} ({<a href={citation.link}>link</a>})
-                  </React.Fragment>
-                ))}
-              </List.Item>
-              <List.Item>
-                version: {viz.repo.version} (last updated {viz.repo.lastUpdate}),
-                {<a href={viz.repo.link}> github link</a>}
-              </List.Item>
-              <List.Item>
-                <Grid.Column floated={'right'}>
-                  <Button basic={true} icon={true} labelPosition={'right'}>
-                    <Link to={{ pathname: '/dynamics', search: `?id=${viz.exampleDataset}&viz=${viz._id}` }}>{`launch ${
-                      viz.name
-                    }`}</Link>
-                    {/* Power Gap */}
-                    <Icon name={'external alternate'} />
-                  </Button>
-                </Grid.Column>
-              </List.Item>
-            </List>
-          </>
-        </Grid.Column>
-      </Grid>
+      <>
+        citation(s):{' '}
+        {viz.citations.map((citation, index) => (
+          <React.Fragment key={`${viz.name.toLocaleLowerCase()}-citation-${index}`}>
+            {citation.fullCitation} ({<a href={citation.link}>link</a>})
+          </React.Fragment>
+        ))}
+      </>
     );
   }
 
@@ -184,6 +148,57 @@ export class UnconnectedVizOverviewPage extends React.Component<IVizOverviewPage
             <Icon name={'external alternate'} />
           </Button>
         </Grid.Column>
+      </>
+    );
+  }
+
+  protected renderLink(viz: IVisualization) {
+    return (
+      <Grid.Column floated={'right'}>
+        <Button basic={true} icon={true} labelPosition={'right'}>
+          <Link to={{ pathname: '/dynamics', search: `?id=${viz.exampleDataset}&viz=${viz._id}` }}>
+            {`launch ${viz.name}`}
+          </Link>
+          {/* Power Gap */}
+          <Icon name={'external alternate'} />
+        </Button>
+      </Grid.Column>
+    );
+  }
+  protected renderOverview(viz: IVisualization) {
+    return (
+      <Grid centered={true} columns={2}>
+        <Grid.Column width={2}>
+          <img
+            alt={`icon for ${viz.name}`}
+            src={`${process.env.API_URL}${viz.icon}`}
+            style={{ height: '150px', padding: '20px' }}
+          />
+        </Grid.Column>
+        <Grid.Column textAlign={'left'}>
+          <Header as={'h1'}>
+            {viz.name}
+            <Header.Subheader>{getFormattedAuthors(viz)}</Header.Subheader>
+          </Header>
+          {this.renderSummary(viz)}
+        </Grid.Column>
+      </Grid>
+    );
+  }
+
+  protected renderSummary(viz: IVisualization) {
+    return (
+      <>
+        <p>{viz.summary}</p>
+        <List>
+          <List.Item>compatible with: {viz.compatibleData.join(', ')}</List.Item>
+          <List.Item>{this.renderCitations(viz)}</List.Item>
+          <List.Item>
+            version: {viz.repo.version} (last updated {viz.repo.lastUpdate}),
+            {<a href={viz.repo.link}> github link</a>}
+          </List.Item>
+          <List.Item>{this.renderLink(viz)}</List.Item>
+        </List>
       </>
     );
   }

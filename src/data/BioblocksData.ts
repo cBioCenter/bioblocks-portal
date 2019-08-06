@@ -82,3 +82,13 @@ export interface IVisualization {
   summary: string;
   version: string;
 }
+
+/**
+ * Formats list of authors.
+ *
+ * - 1 Author shows up as 'Author 1'.
+ * - 2 Authors show up as 'Author 1 and Author 2'.
+ * - 3 Authors or more show up as 'Author 1, Author 2, Author 3, ..., Author 4'
+ */
+export const getFormattedAuthors = (entry: IVignette | IVisualization) =>
+  entry.authors.length === 2 ? `${entry.authors[0]} and ${entry.authors[1]}` : entry.authors.join(', ');

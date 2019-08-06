@@ -45,38 +45,11 @@ export class UnconnectedBioblocksPortalPage extends React.Component<IBioblocksPo
   public async componentDidMount() {
     const { dispatchDatasetsFetch, dispatchVignettesFetch, dispatchVisualizationsFetch } = this.props;
 
-    dispatchDatasetsFetch('datasets', async () => {
-      const datasetFetchResult = await fetch(`${process.env.API_URL}/dataset?embedded={"analyses": 1}`);
-      if (!datasetFetchResult.ok) {
-        return [];
-      } else {
-        const response = (await datasetFetchResult.json()) as IEveResponse<IDataset>;
+    dispatchDatasetsFetch('datasets', this.onDatasetFetch);
 
-        return response._items.sort((a, b) => a.name.localeCompare(b.name));
-      }
-    });
+    dispatchVignettesFetch('vignettes', this.onVignetteFetch);
 
-    dispatchVignettesFetch('vignettes', async () => {
-      const vignetteFetchResult = await fetch(`${process.env.API_URL}/vignette`);
-      if (!vignetteFetchResult.ok) {
-        return [];
-      } else {
-        const response = (await vignetteFetchResult.json()) as IEveResponse<IVignette>;
-
-        return response._items.sort((a, b) => a.name.localeCompare(b.name));
-      }
-    });
-
-    dispatchVisualizationsFetch('visualizations', async () => {
-      const visualizationFetchResult = await fetch(`${process.env.API_URL}/visualization`);
-      if (!visualizationFetchResult.ok) {
-        return [];
-      } else {
-        const response = (await visualizationFetchResult.json()) as IEveResponse<IVisualization>;
-
-        return response._items.sort((a, b) => a.name.localeCompare(b.name));
-      }
-    });
+    dispatchVisualizationsFetch('visualizations', this.onVisualizationFetch);
   }
 
   public render() {
@@ -97,6 +70,39 @@ export class UnconnectedBioblocksPortalPage extends React.Component<IBioblocksPo
       </ConnectedRouter>
     );
   }
+
+  protected onDatasetFetch = async () => {
+    const datasetFetchResult = await fetch(`${process.env.API_URL}/dataset?embedded={"analyses": 1}`);
+    if (!datasetFetchResult.ok) {
+      return [];
+    } else {
+      const response = (await datasetFetchResult.json()) as IEveResponse<IDataset>;
+
+      return response._items.sort((a, b) => a.name.localeCompare(b.name));
+    }
+  };
+
+  protected onVignetteFetch = async () => {
+    const vignetteFetchResult = await fetch(`${process.env.API_URL}/vignette`);
+    if (!vignetteFetchResult.ok) {
+      return [];
+    } else {
+      const response = (await vignetteFetchResult.json()) as IEveResponse<IVignette>;
+
+      return response._items.sort((a, b) => a.name.localeCompare(b.name));
+    }
+  };
+
+  protected onVisualizationFetch = async () => {
+    const visualizationFetchResult = await fetch(`${process.env.API_URL}/visualization`);
+    if (!visualizationFetchResult.ok) {
+      return [];
+    } else {
+      const response = (await visualizationFetchResult.json()) as IEveResponse<IVisualization>;
+
+      return response._items.sort((a, b) => a.name.localeCompare(b.name));
+    }
+  };
 
   protected renderDynamicsPage = () => {
     return <DynamicsPage />;

@@ -121,9 +121,12 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="unconnectedvizoverviewpage.html#forceupdate" class="tsd-kind-icon">force<wbr>Update</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="unconnectedvizoverviewpage.html#getsnapshotbeforeupdate" class="tsd-kind-icon">get<wbr>Snapshot<wbr>Before<wbr>Update</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="unconnectedvizoverviewpage.html#render" class="tsd-kind-icon">render</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="unconnectedvizoverviewpage.html#rendercitations" class="tsd-kind-icon">render<wbr>Citations</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="unconnectedvizoverviewpage.html#renderexampleentry" class="tsd-kind-icon">render<wbr>Example<wbr>Entry</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="unconnectedvizoverviewpage.html#renderexamples" class="tsd-kind-icon">render<wbr>Examples</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="unconnectedvizoverviewpage.html#renderlink" class="tsd-kind-icon">render<wbr>Link</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="unconnectedvizoverviewpage.html#renderoverview" class="tsd-kind-icon">render<wbr>Overview</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="unconnectedvizoverviewpage.html#rendersummary" class="tsd-kind-icon">render<wbr>Summary</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited"><a href="unconnectedvizoverviewpage.html#setstate" class="tsd-kind-icon">set<wbr>State</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="unconnectedvizoverviewpage.html#shouldcomponentupdate" class="tsd-kind-icon">should<wbr>Component<wbr>Update</a></li>
 							</ul>
@@ -150,7 +153,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides Component.__constructor</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/d89a476/src/page/VizOverviewPage.tsx#L23">src/page/VizOverviewPage.tsx:23</a></li>
+									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/ee707b8/src/page/VizOverviewPage.tsx#L23">src/page/VizOverviewPage.tsx:23</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -480,7 +483,7 @@ class Foo extends React.Component {
 							<aside class="tsd-sources">
 								<p>Overrides NewLifecycle.componentDidUpdate</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/d89a476/src/page/VizOverviewPage.tsx#L44">src/page/VizOverviewPage.tsx:44</a></li>
+									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/ee707b8/src/page/VizOverviewPage.tsx#L44">src/page/VizOverviewPage.tsx:44</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -507,7 +510,7 @@ class Foo extends React.Component {
 							<aside class="tsd-sources">
 								<p>Overrides DeprecatedLifecycle.componentWillMount</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/d89a476/src/page/VizOverviewPage.tsx#L32">src/page/VizOverviewPage.tsx:32</a></li>
+									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/ee707b8/src/page/VizOverviewPage.tsx#L32">src/page/VizOverviewPage.tsx:32</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -709,13 +712,36 @@ class Foo extends React.Component {
 							<aside class="tsd-sources">
 								<p>Overrides Component.render</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/d89a476/src/page/VizOverviewPage.tsx#L59">src/page/VizOverviewPage.tsx:59</a></li>
+									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/ee707b8/src/page/VizOverviewPage.tsx#L59">src/page/VizOverviewPage.tsx:59</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">null</span>
 								<span class="tsd-signature-symbol"> | </span>
 								<span class="tsd-signature-type">Element</span>
 							</h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<a name="rendercitations" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> render<wbr>Citations</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">render<wbr>Citations<span class="tsd-signature-symbol">(</span>viz<span class="tsd-signature-symbol">: </span><a href="../interfaces/ivisualization.html" class="tsd-signature-type">IVisualization</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Element</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/ee707b8/src/page/VizOverviewPage.tsx#L83">src/page/VizOverviewPage.tsx:83</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>viz: <a href="../interfaces/ivisualization.html" class="tsd-signature-type">IVisualization</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Element</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -729,7 +755,7 @@ class Foo extends React.Component {
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/d89a476/src/page/VizOverviewPage.tsx#L162">src/page/VizOverviewPage.tsx:162</a></li>
+									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/ee707b8/src/page/VizOverviewPage.tsx#L126">src/page/VizOverviewPage.tsx:126</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -752,13 +778,36 @@ class Foo extends React.Component {
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/d89a476/src/page/VizOverviewPage.tsx#L132">src/page/VizOverviewPage.tsx:132</a></li>
+									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/ee707b8/src/page/VizOverviewPage.tsx#L96">src/page/VizOverviewPage.tsx:96</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>examples: <a href="../interfaces/ivignette.html" class="tsd-signature-type">IVignette</a><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Element</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<a name="renderlink" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> render<wbr>Link</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">render<wbr>Link<span class="tsd-signature-symbol">(</span>viz<span class="tsd-signature-symbol">: </span><a href="../interfaces/ivisualization.html" class="tsd-signature-type">IVisualization</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Element</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/ee707b8/src/page/VizOverviewPage.tsx#L155">src/page/VizOverviewPage.tsx:155</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>viz: <a href="../interfaces/ivisualization.html" class="tsd-signature-type">IVisualization</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Element</span></h4>
@@ -775,7 +824,30 @@ class Foo extends React.Component {
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/d89a476/src/page/VizOverviewPage.tsx#L83">src/page/VizOverviewPage.tsx:83</a></li>
+									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/ee707b8/src/page/VizOverviewPage.tsx#L168">src/page/VizOverviewPage.tsx:168</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>viz: <a href="../interfaces/ivisualization.html" class="tsd-signature-type">IVisualization</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Element</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<a name="rendersummary" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> render<wbr>Summary</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">render<wbr>Summary<span class="tsd-signature-symbol">(</span>viz<span class="tsd-signature-symbol">: </span><a href="../interfaces/ivisualization.html" class="tsd-signature-type">IVisualization</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Element</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/ee707b8/src/page/VizOverviewPage.tsx#L189">src/page/VizOverviewPage.tsx:189</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -870,7 +942,7 @@ class Foo extends React.Component {
 					<div class="tsd-signature tsd-kind-icon">default<wbr>Props<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/d89a476/src/page/VizOverviewPage.tsx#L20">src/page/VizOverviewPage.tsx:20</a></li>
+							<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/ee707b8/src/page/VizOverviewPage.tsx#L20">src/page/VizOverviewPage.tsx:20</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -879,7 +951,7 @@ class Foo extends React.Component {
 						<div class="tsd-signature tsd-kind-icon">vignettes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">never</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/d89a476/src/page/VizOverviewPage.tsx#L21">src/page/VizOverviewPage.tsx:21</a></li>
+								<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/ee707b8/src/page/VizOverviewPage.tsx#L21">src/page/VizOverviewPage.tsx:21</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -889,7 +961,7 @@ class Foo extends React.Component {
 						<div class="tsd-signature tsd-kind-icon">visualizations<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">never</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/d89a476/src/page/VizOverviewPage.tsx#L22">src/page/VizOverviewPage.tsx:22</a></li>
+								<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/ee707b8/src/page/VizOverviewPage.tsx#L22">src/page/VizOverviewPage.tsx:22</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -969,13 +1041,22 @@ class Foo extends React.Component {
 								<a href="unconnectedvizoverviewpage.html#render" class="tsd-kind-icon">render</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+								<a href="unconnectedvizoverviewpage.html#rendercitations" class="tsd-kind-icon">render<wbr>Citations</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
 								<a href="unconnectedvizoverviewpage.html#renderexampleentry" class="tsd-kind-icon">render<wbr>Example<wbr>Entry</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
 								<a href="unconnectedvizoverviewpage.html#renderexamples" class="tsd-kind-icon">render<wbr>Examples</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+								<a href="unconnectedvizoverviewpage.html#renderlink" class="tsd-kind-icon">render<wbr>Link</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
 								<a href="unconnectedvizoverviewpage.html#renderoverview" class="tsd-kind-icon">render<wbr>Overview</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+								<a href="unconnectedvizoverviewpage.html#rendersummary" class="tsd-kind-icon">render<wbr>Summary</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
 								<a href="unconnectedvizoverviewpage.html#setstate" class="tsd-kind-icon">set<wbr>State</a>

@@ -121,6 +121,8 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="unconnecteddynamicspage.html#forceupdate" class="tsd-kind-icon">force<wbr>Update</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="unconnecteddynamicspage.html#getsnapshotbeforeupdate" class="tsd-kind-icon">get<wbr>Snapshot<wbr>Before<wbr>Update</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="unconnecteddynamicspage.html#render" class="tsd-kind-icon">render</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="unconnecteddynamicspage.html#renderspringvisualization" class="tsd-kind-icon">render<wbr>Spring<wbr>Visualization</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="unconnecteddynamicspage.html#renderumapvisualization" class="tsd-kind-icon">renderUMAPVisualization</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="unconnecteddynamicspage.html#rendervisualization" class="tsd-kind-icon">render<wbr>Visualization</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited"><a href="unconnecteddynamicspage.html#setstate" class="tsd-kind-icon">set<wbr>State</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="unconnecteddynamicspage.html#setupsearchparameters" class="tsd-kind-icon">setup<wbr>Search<wbr>Parameters</a></li>
@@ -149,7 +151,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides Component.__constructor</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/d89a476/src/page/DynamicsPage.tsx#L48">src/page/DynamicsPage.tsx:48</a></li>
+									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/ee707b8/src/page/DynamicsPage.tsx#L48">src/page/DynamicsPage.tsx:48</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -456,7 +458,7 @@ class Foo extends React.Component {
 							<aside class="tsd-sources">
 								<p>Overrides ComponentLifecycle.componentDidMount</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/d89a476/src/page/DynamicsPage.tsx#L61">src/page/DynamicsPage.tsx:61</a></li>
+									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/ee707b8/src/page/DynamicsPage.tsx#L61">src/page/DynamicsPage.tsx:61</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -474,7 +476,7 @@ class Foo extends React.Component {
 							<aside class="tsd-sources">
 								<p>Overrides NewLifecycle.componentDidUpdate</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/d89a476/src/page/DynamicsPage.tsx#L68">src/page/DynamicsPage.tsx:68</a></li>
+									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/ee707b8/src/page/DynamicsPage.tsx#L68">src/page/DynamicsPage.tsx:68</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -719,10 +721,62 @@ class Foo extends React.Component {
 							<aside class="tsd-sources">
 								<p>Overrides Component.render</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/d89a476/src/page/DynamicsPage.tsx#L79">src/page/DynamicsPage.tsx:79</a></li>
+									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/ee707b8/src/page/DynamicsPage.tsx#L79">src/page/DynamicsPage.tsx:79</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Element</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<a name="renderspringvisualization" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> render<wbr>Spring<wbr>Visualization</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">render<wbr>Spring<wbr>Visualization<span class="tsd-signature-symbol">(</span>viz<span class="tsd-signature-symbol">: </span><a href="../interfaces/ivisualization.html" class="tsd-signature-type">IVisualization</a>, isFullPage<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span>, datasetLocation<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, iconSrc<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Element</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/ee707b8/src/page/DynamicsPage.tsx#L160">src/page/DynamicsPage.tsx:160</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>viz: <a href="../interfaces/ivisualization.html" class="tsd-signature-type">IVisualization</a></h5>
+								</li>
+								<li>
+									<h5>isFullPage: <span class="tsd-signature-type">boolean</span></h5>
+								</li>
+								<li>
+									<h5>datasetLocation: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>iconSrc: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Element</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<a name="renderumapvisualization" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> renderUMAPVisualization</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">renderUMAPVisualization<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Element</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/ee707b8/src/page/DynamicsPage.tsx#L187">src/page/DynamicsPage.tsx:187</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">null</span>
+								<span class="tsd-signature-symbol"> | </span>
+								<span class="tsd-signature-type">Element</span>
+							</h4>
 						</li>
 					</ul>
 				</section>
@@ -736,7 +790,7 @@ class Foo extends React.Component {
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/d89a476/src/page/DynamicsPage.tsx#L160">src/page/DynamicsPage.tsx:160</a></li>
+									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/ee707b8/src/page/DynamicsPage.tsx#L206">src/page/DynamicsPage.tsx:206</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -798,7 +852,7 @@ class Foo extends React.Component {
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/d89a476/src/page/DynamicsPage.tsx#L100">src/page/DynamicsPage.tsx:100</a></li>
+									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/ee707b8/src/page/DynamicsPage.tsx#L100">src/page/DynamicsPage.tsx:100</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -860,7 +914,7 @@ class Foo extends React.Component {
 					<div class="tsd-signature tsd-kind-icon">default<wbr>Props<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/d89a476/src/page/DynamicsPage.tsx#L41">src/page/DynamicsPage.tsx:41</a></li>
+							<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/ee707b8/src/page/DynamicsPage.tsx#L41">src/page/DynamicsPage.tsx:41</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -869,7 +923,7 @@ class Foo extends React.Component {
 						<div class="tsd-signature tsd-kind-icon">dataset<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> =&nbsp;null</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/d89a476/src/page/DynamicsPage.tsx#L42">src/page/DynamicsPage.tsx:42</a></li>
+								<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/ee707b8/src/page/DynamicsPage.tsx#L42">src/page/DynamicsPage.tsx:42</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -879,7 +933,7 @@ class Foo extends React.Component {
 						<div class="tsd-signature tsd-kind-icon">dispatch<wbr>Dataset<wbr>Fetch<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span><span class="tsd-signature-symbol"> =&nbsp;EMPTY_FUNCTION</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/d89a476/src/page/DynamicsPage.tsx#L43">src/page/DynamicsPage.tsx:43</a></li>
+								<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/ee707b8/src/page/DynamicsPage.tsx#L43">src/page/DynamicsPage.tsx:43</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-type-declaration">
@@ -904,7 +958,7 @@ class Foo extends React.Component {
 						<div class="tsd-signature tsd-kind-icon">pathname<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/d89a476/src/page/DynamicsPage.tsx#L44">src/page/DynamicsPage.tsx:44</a></li>
+								<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/ee707b8/src/page/DynamicsPage.tsx#L44">src/page/DynamicsPage.tsx:44</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -914,7 +968,7 @@ class Foo extends React.Component {
 						<div class="tsd-signature tsd-kind-icon">search<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/d89a476/src/page/DynamicsPage.tsx#L45">src/page/DynamicsPage.tsx:45</a></li>
+								<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/ee707b8/src/page/DynamicsPage.tsx#L45">src/page/DynamicsPage.tsx:45</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -924,7 +978,7 @@ class Foo extends React.Component {
 						<div class="tsd-signature tsd-kind-icon">vignettes<span class="tsd-signature-symbol">:</span> <a href="../interfaces/ivignette.html" class="tsd-signature-type">IVignette</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;new Array&lt;IVignette&gt;()</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/d89a476/src/page/DynamicsPage.tsx#L46">src/page/DynamicsPage.tsx:46</a></li>
+								<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/ee707b8/src/page/DynamicsPage.tsx#L46">src/page/DynamicsPage.tsx:46</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -934,7 +988,7 @@ class Foo extends React.Component {
 						<div class="tsd-signature tsd-kind-icon">visualizations<span class="tsd-signature-symbol">:</span> <a href="../interfaces/ivisualization.html" class="tsd-signature-type">IVisualization</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;new Array&lt;IVisualization&gt;()</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/d89a476/src/page/DynamicsPage.tsx#L47">src/page/DynamicsPage.tsx:47</a></li>
+								<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/ee707b8/src/page/DynamicsPage.tsx#L47">src/page/DynamicsPage.tsx:47</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -1012,6 +1066,12 @@ class Foo extends React.Component {
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 								<a href="unconnecteddynamicspage.html#render" class="tsd-kind-icon">render</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+								<a href="unconnecteddynamicspage.html#renderspringvisualization" class="tsd-kind-icon">render<wbr>Spring<wbr>Visualization</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+								<a href="unconnecteddynamicspage.html#renderumapvisualization" class="tsd-kind-icon">renderUMAPVisualization</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
 								<a href="unconnecteddynamicspage.html#rendervisualization" class="tsd-kind-icon">render<wbr>Visualization</a>
