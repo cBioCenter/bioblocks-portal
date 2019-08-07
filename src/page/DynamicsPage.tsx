@@ -32,6 +32,7 @@ export interface IDynamicsPageProps {
 export interface IDynamicsPageState {
   datasetVisualizations: IVisualization[];
   datasetLocation: string;
+  isFetching: boolean;
   scRNAseqCategorySelected: string;
   scRNAseqCategoricalData: ICategoricalAnnotation;
   scRNAseqMatrix: number[][];
@@ -52,31 +53,31 @@ export class UnconnectedDynamicsPage extends React.Component<IDynamicsPageProps,
     this.state = {
       datasetLocation: 'hpc_sf2/full',
       datasetVisualizations: [],
+      isFetching: false,
       scRNAseqCategoricalData: {},
       scRNAseqCategorySelected: 'Sample',
       scRNAseqMatrix: new Array(new Array<number>()),
     };
   }
 
-  public async componentDidMount() {
-    const { search } = this.props;
-    if (search) {
-      await this.setupSearchParameters(search);
-    }
-  }
-
   public async componentDidUpdate(prevProps: IDynamicsPageProps) {
     const { search, vignettes, visualizations } = this.props;
+    const { isFetching } = this.state;
     if (
-      (search && search !== prevProps.search) ||
-      vignettes !== prevProps.vignettes ||
-      visualizations !== prevProps.visualizations
+      isFetching === false &&
+      ((search && search !== prevProps.search) ||
+        vignettes !== prevProps.vignettes ||
+        visualizations !== prevProps.visualizations)
     ) {
+      this.setState({
+        isFetching: true,
+      });
       await this.setupSearchParameters(search);
     }
   }
 
   public render() {
+    const { visualizations } = this.props;
     const { datasetVisualizations, datasetLocation } = this.state;
 
     return (
@@ -90,7 +91,7 @@ export class UnconnectedDynamicsPage extends React.Component<IDynamicsPageProps,
               </Grid.Column>
             ))
           ) : (
-            <Grid.Column>No visualizations!</Grid.Column>
+            <Grid.Column>{visualizations.length >= 1 ? 'Loading...' : 'No visualizations!'}</Grid.Column>
           )}
         </Grid>
       </div>
@@ -145,6 +146,7 @@ export class UnconnectedDynamicsPage extends React.Component<IDynamicsPageProps,
       this.setState({
         datasetLocation,
         datasetVisualizations,
+        isFetching: false,
         scRNAseqCategoricalData,
         scRNAseqCategorySelected,
         scRNAseqMatrix,
@@ -182,7 +184,8 @@ export class UnconnectedDynamicsPage extends React.Component<IDynamicsPageProps,
   protected renderUMAPVisualization() {
     const { scRNAseqCategoricalData, scRNAseqMatrix, scRNAseqCategorySelected } = this.state;
 
-    if (this.props.dataset) {
+    // umap.js throws an error when trying to create a tree without any data.
+    if (this.props.dataset && scRNAseqMatrix.length >= 1 && scRNAseqMatrix[0].length >= 1) {
       return (
         <UMAPTranscriptionalContainer
           categoricalAnnotations={scRNAseqCategoricalData}
