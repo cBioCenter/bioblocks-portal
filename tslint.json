@@ -9,7 +9,7 @@
     "tslint:latest",
     "tslint:recommended"
   ],
-  "jsRules": {},
+  "jsRules": true,
   "rules": {
     "arrow-parens": false,
     "completed-docs": false,
