@@ -40,7 +40,7 @@ export interface IDynamicsPageState {
 
 export class UnconnectedDynamicsPage extends React.Component<IDynamicsPageProps, IDynamicsPageState> {
   public static defaultProps = {
-    dataset: null,
+    dataset: null as IDataset | null,
     dispatchDatasetFetch: EMPTY_FUNCTION,
     pathname: '',
     search: '',
@@ -60,13 +60,22 @@ export class UnconnectedDynamicsPage extends React.Component<IDynamicsPageProps,
     };
   }
 
+  public async componentDidMount() {
+    const { search } = this.props;
+    if (search.localeCompare('') !== 0) {
+      await this.setupSearchParameters(search);
+    }
+  }
+
   public async componentDidUpdate(prevProps: IDynamicsPageProps) {
-    const { search, vignettes, visualizations } = this.props;
+    const { dataset, search, vignettes, visualizations } = this.props;
     const { isFetching } = this.state;
+
     if (
       isFetching === false &&
       ((search && search !== prevProps.search) ||
         vignettes !== prevProps.vignettes ||
+        (dataset && dataset !== prevProps.dataset) ||
         visualizations !== prevProps.visualizations)
     ) {
       this.setState({
@@ -77,13 +86,14 @@ export class UnconnectedDynamicsPage extends React.Component<IDynamicsPageProps,
   }
 
   public render() {
-    const { visualizations } = this.props;
-    const { datasetVisualizations, datasetLocation } = this.state;
+    const { datasetVisualizations, datasetLocation, isFetching } = this.state;
 
     return (
       <div style={{ padding: '20px' }}>
         <Grid centered={true} stackable={true} stretched={false} padded={true} columns={2}>
-          {datasetVisualizations.length >= 1 ? (
+          {isFetching ? (
+            <Grid.Column>{'Loading...'}</Grid.Column>
+          ) : datasetVisualizations.length >= 1 ? (
             datasetLocation.length >= 1 &&
             datasetVisualizations.map((visualization, index) => (
               <Grid.Column key={`dataset-visualization-${index}`} style={{ width: 'auto' }}>
@@ -91,7 +101,7 @@ export class UnconnectedDynamicsPage extends React.Component<IDynamicsPageProps,
               </Grid.Column>
             ))
           ) : (
-            <Grid.Column>{visualizations.length >= 1 ? 'Loading...' : 'No visualizations!'}</Grid.Column>
+            <Grid.Column>{'No visualizations!'}</Grid.Column>
           )}
         </Grid>
       </div>
@@ -110,6 +120,7 @@ export class UnconnectedDynamicsPage extends React.Component<IDynamicsPageProps,
 
       datasetLocation = datasetId ? datasetId : datasetLocation;
       const vizIds = vignetteParams.getAll('viz');
+
       vizIds.forEach(vizId => {
         const viz = visualizations.find(aViz => vizId === aViz._id);
         if (viz) {
@@ -150,6 +161,10 @@ export class UnconnectedDynamicsPage extends React.Component<IDynamicsPageProps,
         scRNAseqCategoricalData,
         scRNAseqCategorySelected,
         scRNAseqMatrix,
+      });
+    } else {
+      this.setState({
+        isFetching: false,
       });
     }
   }
