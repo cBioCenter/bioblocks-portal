@@ -121,7 +121,11 @@ exports[`DynamicsPage Should match existing snapshot for initial visualization '
           "width": "auto",
         }
       }
-    />
+    >
+      <GridColumn>
+        Loading...
+      </GridColumn>
+    </GridColumn>
   </Grid>
 </div>
 `;

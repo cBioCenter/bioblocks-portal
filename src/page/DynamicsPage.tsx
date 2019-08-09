@@ -60,28 +60,35 @@ export class UnconnectedDynamicsPage extends React.Component<IDynamicsPageProps,
     };
   }
 
-  public async componentDidMount() {
+  public componentDidMount() {
     const { search } = this.props;
     if (search.localeCompare('') !== 0) {
-      await this.setupSearchParameters(search);
+      this.setupSearchParameters(search);
     }
   }
 
-  public async componentDidUpdate(prevProps: IDynamicsPageProps) {
+  public async componentDidUpdate(prevProps: IDynamicsPageProps, prevState: IDynamicsPageState) {
     const { dataset, search, vignettes, visualizations } = this.props;
-    const { isFetching } = this.state;
+    const { datasetLocation, isFetching } = this.state;
 
+    const isNewDataset =
+      dataset !== null && JSON.stringify(dataset).localeCompare(JSON.stringify(prevProps.dataset)) !== 0;
     if (
-      isFetching === false &&
-      ((search && search !== prevProps.search) ||
+      !isFetching &&
+      ((search && search.localeCompare(prevProps.search) !== 0) ||
+        prevState.isFetching === true ||
+        isNewDataset ||
         vignettes !== prevProps.vignettes ||
-        (dataset && dataset !== prevProps.dataset) ||
         visualizations !== prevProps.visualizations)
     ) {
-      this.setState({
-        isFetching: true,
-      });
-      await this.setupSearchParameters(search);
+      this.setupSearchParameters(search);
+      if (dataset && datasetLocation !== prevState.datasetLocation) {
+        await this.fetchUMapData(dataset);
+      }
+    }
+
+    if (!isFetching && dataset && isNewDataset) {
+      await this.fetchUMapData(dataset);
     }
   }
 
@@ -108,7 +115,35 @@ export class UnconnectedDynamicsPage extends React.Component<IDynamicsPageProps,
     );
   }
 
-  protected async setupSearchParameters(query: string) {
+  protected fetchUMapData = async (dataset: IDataset) => {
+    this.setState({
+      isFetching: true,
+    });
+    const { datasetLocation } = this.state;
+    let { scRNAseqCategoricalData, scRNAseqMatrix, scRNAseqCategorySelected } = this.state;
+
+    const springAnalysis = dataset.analyses.find(anAnalysis => anAnalysis.processType === 'SPRING');
+    if (springAnalysis) {
+      const springLocation = `${process.env.API_URL}/datasets/${datasetLocation}/analyses/${springAnalysis._id}`;
+      scRNAseqCategoricalData = (await fetchJSONFile(
+        `${springLocation}/${dataset.name}/categorical_coloring_data.json`,
+      )) as ICategoricalAnnotation;
+      scRNAseqMatrix = await fetchMatrixData(`${springLocation}/pca.csv`);
+      scRNAseqCategorySelected =
+        Object.keys(scRNAseqCategoricalData).length >= 1
+          ? Object.keys(scRNAseqCategoricalData)[0]
+          : scRNAseqCategorySelected;
+    }
+
+    this.setState({
+      isFetching: false,
+      scRNAseqCategoricalData,
+      scRNAseqCategorySelected,
+      scRNAseqMatrix,
+    });
+  };
+
+  protected setupSearchParameters(query: string) {
     const { dispatchDatasetFetch, vignettes, visualizations } = this.props;
 
     let datasetLocation = this.state.datasetLocation;
@@ -127,44 +162,19 @@ export class UnconnectedDynamicsPage extends React.Component<IDynamicsPageProps,
           datasetVisualizations.push(viz);
         }
       });
-      dispatchDatasetFetch('dataset', async () => {
-        const datasetFetchResult = await fetch(`${process.env.API_URL}/dataset/${datasetId}?embedded={"analyses":1}`);
-        if (!datasetFetchResult.ok) {
-          return null;
-        } else {
-          return (await datasetFetchResult.json()) as IDataset;
-        }
-      });
-
-      let scRNAseqCategoricalData = this.state.scRNAseqCategoricalData;
-      let scRNAseqMatrix = this.state.scRNAseqMatrix;
-      let scRNAseqCategorySelected = this.state.scRNAseqCategorySelected;
-      if (this.props.dataset) {
-        const springAnalysis = this.props.dataset.analyses.find(anAnalysis => anAnalysis.processType === 'SPRING');
-        if (springAnalysis) {
-          const springLocation = `${process.env.API_URL}/datasets/${datasetLocation}/analyses/${springAnalysis._id}`;
-          scRNAseqCategoricalData = (await fetchJSONFile(
-            `${springLocation}/${this.props.dataset.name}/categorical_coloring_data.json`,
-          )) as ICategoricalAnnotation;
-          scRNAseqMatrix = await fetchMatrixData(`${springLocation}/pca.csv`);
-          scRNAseqCategorySelected =
-            Object.keys(scRNAseqCategoricalData).length >= 1
-              ? Object.keys(scRNAseqCategoricalData)[0]
-              : scRNAseqCategorySelected;
-        }
-      }
 
       this.setState({
         datasetLocation,
         datasetVisualizations,
-        isFetching: false,
-        scRNAseqCategoricalData,
-        scRNAseqCategorySelected,
-        scRNAseqMatrix,
       });
-    } else {
-      this.setState({
-        isFetching: false,
+
+      dispatchDatasetFetch('dataset', async () => {
+        const datasetFetchResult = await fetch(`${process.env.API_URL}/dataset/${datasetId}?embedded={"analyses":1}`);
+        if (datasetFetchResult.ok) {
+          return (await datasetFetchResult.json()) as IDataset;
+        } else {
+          return null;
+        }
       });
     }
   }
@@ -212,7 +222,7 @@ export class UnconnectedDynamicsPage extends React.Component<IDynamicsPageProps,
         />
       );
     } else {
-      return null;
+      return <Grid.Column>{'Loading...'}</Grid.Column>;
     }
   }
 
