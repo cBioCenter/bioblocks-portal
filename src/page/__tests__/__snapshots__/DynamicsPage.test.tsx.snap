@@ -1,10 +1,134 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DynamicsPage Should match existing snapshot for initial visualizations. 1`] = `null`;
+exports[`DynamicsPage Should match existing snapshot for initial visualization 'anatomogram' 1`] = `
+<div
+  style={
+    Object {
+      "padding": "20px",
+    }
+  }
+>
+  <Grid
+    centered={true}
+    columns={2}
+    padded={true}
+    stackable={true}
+    stretched={false}
+  >
+    <GridColumn
+      key="dataset-visualization-0"
+      style={
+        Object {
+          "width": "auto",
+        }
+      }
+    >
+      <Connect(Anatomogram)
+        iconSrc="undefinedundefined"
+        species="homo_sapiens"
+      />
+    </GridColumn>
+  </Grid>
+</div>
+`;
 
-exports[`DynamicsPage Should match existing snapshot for initial visualizations. 2`] = `null`;
+exports[`DynamicsPage Should match existing snapshot for initial visualization 'spring' 1`] = `
+<div
+  style={
+    Object {
+      "padding": "20px",
+    }
+  }
+>
+  <Grid
+    centered={true}
+    columns={2}
+    padded={true}
+    stackable={true}
+    stretched={false}
+  >
+    <GridColumn
+      key="dataset-visualization-0"
+      style={
+        Object {
+          "width": "auto",
+        }
+      }
+    >
+      <Connect(SPRING)
+        datasetLocation="hpc_sf2/full/analyses//sample-dataset"
+        datasetsURI="undefined/datasets"
+        iconSrc="undefinedundefined"
+        isFullPage={true}
+        springSrc="undefined/undefined"
+      />
+    </GridColumn>
+  </Grid>
+</div>
+`;
 
-exports[`DynamicsPage Should match existing snapshot for initial visualizations. 3`] = `null`;
+exports[`DynamicsPage Should match existing snapshot for initial visualization 'tfjs-tsne' 1`] = `
+<div
+  style={
+    Object {
+      "padding": "20px",
+    }
+  }
+>
+  <Grid
+    centered={true}
+    columns={2}
+    padded={true}
+    stackable={true}
+    stretched={false}
+  >
+    <GridColumn
+      key="dataset-visualization-0"
+      style={
+        Object {
+          "width": "auto",
+        }
+      }
+    >
+      <Connect(tSNE - TensorFlow)
+        datasetLocation="undefined/datasets/hpc_sf2/full/analyses/"
+        iconSrc="undefinedundefined"
+      />
+    </GridColumn>
+  </Grid>
+</div>
+`;
+
+exports[`DynamicsPage Should match existing snapshot for initial visualization 'umap' 1`] = `
+<div
+  style={
+    Object {
+      "padding": "20px",
+    }
+  }
+>
+  <Grid
+    centered={true}
+    columns={2}
+    padded={true}
+    stackable={true}
+    stretched={false}
+  >
+    <GridColumn
+      key="dataset-visualization-0"
+      style={
+        Object {
+          "width": "auto",
+        }
+      }
+    >
+      <GridColumn>
+        Loading...
+      </GridColumn>
+    </GridColumn>
+  </Grid>
+</div>
+`;
 
 exports[`DynamicsPage Should match existing snapshot when hooked up to a Redux store. 1`] = `
 <Connect(UnconnectedDynamicsPage)
