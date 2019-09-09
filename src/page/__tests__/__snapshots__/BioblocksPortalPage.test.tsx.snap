@@ -703,22 +703,54 @@ exports[`BioblocksPortalPage Should match existing snapshot when hooked up to a 
                                             as="button"
                                             basic={true}
                                           >
-                                            <button
-                                              className="ui basic button"
-                                              onClick={[Function]}
+                                            <Ref
+                                              innerRef={
+                                                Object {
+                                                  "current": <button
+                                                    class="ui basic button"
+                                                  >
+                                                    <a
+                                                      href="#/dynamics?id=&viz=bbfacade-0000-0000-0001-a1234567890b"
+                                                    >
+                                                      launch
+                                                    </a>
+                                                  </button>,
+                                                }
+                                              }
                                             >
-                                              <Link
-                                                replace={false}
-                                                to="/dynamics?id=&viz=bbfacade-0000-0000-0001-a1234567890b"
+                                              <RefFindNode
+                                                innerRef={
+                                                  Object {
+                                                    "current": <button
+                                                      class="ui basic button"
+                                                    >
+                                                      <a
+                                                        href="#/dynamics?id=&viz=bbfacade-0000-0000-0001-a1234567890b"
+                                                      >
+                                                        launch
+                                                      </a>
+                                                    </button>,
+                                                  }
+                                                }
                                               >
-                                                <a
-                                                  href="#/dynamics?id=&viz=bbfacade-0000-0000-0001-a1234567890b"
+                                                <button
+                                                  className="ui basic button"
                                                   onClick={[Function]}
                                                 >
-                                                  launch
-                                                </a>
-                                              </Link>
-                                            </button>
+                                                  <Link
+                                                    replace={false}
+                                                    to="/dynamics?id=&viz=bbfacade-0000-0000-0001-a1234567890b"
+                                                  >
+                                                    <a
+                                                      href="#/dynamics?id=&viz=bbfacade-0000-0000-0001-a1234567890b"
+                                                      onClick={[Function]}
+                                                    >
+                                                      launch
+                                                    </a>
+                                                  </Link>
+                                                </button>
+                                              </RefFindNode>
+                                            </Ref>
                                           </Button>
                                         </div>
                                       </GridColumn>
