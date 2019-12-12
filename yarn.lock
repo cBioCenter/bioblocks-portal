@@ -2118,10 +2118,10 @@ binary-search-bounds@^2.0.3, binary-search-bounds@^2.0.4:
   resolved "https://registry.yarnpkg.com/binary-search-bounds/-/binary-search-bounds-2.0.4.tgz#eea0e4081da93baa851c7d851a7e636c3d51307f"
   integrity sha512-2hg5kgdKql5ClF2ErBcSx0U5bnl5hgS4v7wMnLFodyR47yMtj2w+UAZB+0CiqyHct2q543i7Bi4/aMIegorCCg==
 
-bioblocks-viz@^0.0.149:
-  version "0.0.149"
-  resolved "https://registry.yarnpkg.com/bioblocks-viz/-/bioblocks-viz-0.0.149.tgz#b4d56d0160b4f69c8bf85da49cf253cff9f86ea8"
-  integrity sha512-H+NZgYywzmLPkZKyJ3ERRaR4FE14RSURx3mTopWyF210F4edYOo2mVN8qCF2sB79KsVRmvl+H1MkHiO99neM/A==
+bioblocks-viz@^0.0.150:
+  version "0.0.150"
+  resolved "https://registry.yarnpkg.com/bioblocks-viz/-/bioblocks-viz-0.0.150.tgz#2bde8b109eb6f5b55683b093db6113f498c35061"
+  integrity sha512-FqST+c9dbJJmOU1diCBLr4t5k9yFtxZmJ/TSQcEV77uEToy6AXOwTE9/YvhYL63L9K9oYtyo79oijzIyi/FyRA==
   dependencies:
     "@tensorflow/tfjs" "^0.13.0"
     "@tensorflow/tfjs-core" "^0.13.0"
