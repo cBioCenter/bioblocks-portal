@@ -23,7 +23,7 @@ exports[`DynamicsPage Should match existing snapshot for initial visualization '
         }
       }
     >
-      <Connect(Anatomogram)
+      <Component
         iconSrc="undefinedundefined"
         species="homo_sapiens"
       />
@@ -55,8 +55,8 @@ exports[`DynamicsPage Should match existing snapshot for initial visualization '
         }
       }
     >
-      <Connect(SPRING)
-        datasetLocation="hpc_sf2/full/analyses//sample-dataset"
+      <Component
+        datasetLocation="datasets/hpc_sf2/full/analyses//sample-dataset"
         datasetsURI="undefined/datasets"
         iconSrc="undefinedundefined"
         isFullPage={true}
@@ -90,7 +90,7 @@ exports[`DynamicsPage Should match existing snapshot for initial visualization '
         }
       }
     >
-      <Connect(tSNE - TensorFlow)
+      <Component
         datasetLocation="undefined/datasets/hpc_sf2/full/analyses/"
         iconSrc="undefinedundefined"
       />

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
+import { Provider, ReactReduxContext } from 'react-redux';
 
 import { BioblocksPortalPage, configureStore } from '~bioblocks-portal~';
 
@@ -16,6 +16,7 @@ ReactDOM.render(
   document.getElementById('app-root'),
 );
 
+// Hot reloading
 if (module.hot) {
   module.hot.accept();
 }

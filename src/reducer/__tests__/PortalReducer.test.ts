@@ -12,6 +12,7 @@ describe('PortalReducer', () => {
         location: {
           hash: '',
           pathname: '/',
+          query: {},
           search: '',
           state: undefined,
         },
