@@ -36,7 +36,6 @@ exports[`LandingPage Should match existing snapshot when no props are provided. 
           width={12}
         >
           <Link
-            replace={false}
             style={
               Object {
                 "color": "blue",
@@ -72,7 +71,6 @@ exports[`LandingPage Should match existing snapshot when no props are provided. 
           width={12}
         >
           <Link
-            replace={false}
             style={
               Object {
                 "color": "blue",
@@ -248,7 +246,6 @@ exports[`LandingPage Should render featured vignettes correctly. 1`] = `
             basic={true}
           >
             <Link
-              replace={false}
               to="/dynamics?id=some-dataset&viz=some-viz"
             >
               launch
@@ -314,7 +311,6 @@ exports[`LandingPage Should render featured vignettes correctly. 1`] = `
             basic={true}
           >
             <Link
-              replace={false}
               to="/dynamics?id=some-dataset-2&viz=some-viz-2"
             >
               launch
@@ -329,7 +325,6 @@ exports[`LandingPage Should render featured vignettes correctly. 1`] = `
           width={12}
         >
           <Link
-            replace={false}
             style={
               Object {
                 "color": "blue",
@@ -365,7 +360,6 @@ exports[`LandingPage Should render featured vignettes correctly. 1`] = `
           width={12}
         >
           <Link
-            replace={false}
             style={
               Object {
                 "color": "blue",
@@ -490,7 +484,6 @@ exports[`LandingPage Should render featured visualizations correctly. 1`] = `
           width={12}
         >
           <Link
-            replace={false}
             style={
               Object {
                 "color": "blue",
@@ -568,7 +561,6 @@ exports[`LandingPage Should render featured visualizations correctly. 1`] = `
               basic={true}
             >
               <Link
-                replace={false}
                 to={
                   Object {
                     "pathname": "/visualizations/",
@@ -586,7 +578,6 @@ exports[`LandingPage Should render featured visualizations correctly. 1`] = `
               basic={true}
             >
               <Link
-                replace={false}
                 to={
                   Object {
                     "pathname": "/dynamics",
@@ -649,7 +640,6 @@ exports[`LandingPage Should render featured visualizations correctly. 1`] = `
               basic={true}
             >
               <Link
-                replace={false}
                 to={
                   Object {
                     "pathname": "/visualizations/",
@@ -667,7 +657,6 @@ exports[`LandingPage Should render featured visualizations correctly. 1`] = `
               basic={true}
             >
               <Link
-                replace={false}
                 to={
                   Object {
                     "pathname": "/dynamics",
@@ -688,7 +677,6 @@ exports[`LandingPage Should render featured visualizations correctly. 1`] = `
           width={12}
         >
           <Link
-            replace={false}
             style={
               Object {
                 "color": "blue",

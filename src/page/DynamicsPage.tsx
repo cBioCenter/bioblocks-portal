@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { connect } from 'react-redux';
+import { connect, Provider } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 import { Grid, Message } from 'semantic-ui-react';
 
@@ -197,7 +197,7 @@ export class UnconnectedDynamicsPage extends React.Component<IDynamicsPageProps,
 
     return (
       <SpringContainer
-        datasetLocation={`${datasetLocation}/analyses/${analysisLocation}/${datasetName}`}
+        datasetLocation={`datasets/${datasetLocation}/analyses/${analysisLocation}/${datasetName}`}
         datasetsURI={`${process.env.API_URL}/datasets`}
         isFullPage={isFullPage}
         springSrc={`${process.env.API_URL}/${viz.location}`}
@@ -272,12 +272,9 @@ const mapStateToProps = (state: IPortalReducerState) => ({
 const mapDispatchToProps = (dispatch: Dispatch) =>
   bindActionCreators(
     {
-      dispatchDatasetFetch: fetchDataset as ((dataset: string, fetchFn: () => Promise<IDataset | null>) => void),
+      dispatchDatasetFetch: fetchDataset as (dataset: string, fetchFn: () => Promise<IDataset | null>) => void,
     },
     dispatch,
   );
 
-export const DynamicsPage = connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(UnconnectedDynamicsPage);
+export const DynamicsPage = connect(mapStateToProps, mapDispatchToProps)(UnconnectedDynamicsPage);

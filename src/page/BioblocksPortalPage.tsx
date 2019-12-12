@@ -1,11 +1,11 @@
 import { EMPTY_FUNCTION, fetchDataset } from 'bioblocks-viz';
+import { ConnectedRouter } from 'connected-react-router';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { Route, RouteComponentProps, Switch } from 'react-router-dom';
 import { bindActionCreators, Dispatch } from 'redux';
 import { Container } from 'semantic-ui-react';
 
-import { ConnectedRouter } from 'connected-react-router';
 import { SiteHeader } from '~bioblocks-portal~/container';
 import { IDataset, IEveResponse, IVignette, IVisualization } from '~bioblocks-portal~/data';
 import {
@@ -57,7 +57,6 @@ export class UnconnectedBioblocksPortalPage extends React.Component<IBioblocksPo
       <ConnectedRouter history={history}>
         <Container id={'BioblocksPortalPage'} fluid={true}>
           <SiteHeader {...this.props} />
-
           <Switch>
             <Route exact={true} strict={true} path={'/datasets'} render={this.renderDatasetsPage} />
             <Route exact={true} strict={true} path={'/visualizations'} render={this.renderVisualizationsPage} />
@@ -183,7 +182,4 @@ const mapDispatchToProps = (dispatch: Dispatch) =>
     dispatch,
   );
 
-export const BioblocksPortalPage = connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(UnconnectedBioblocksPortalPage);
+export const BioblocksPortalPage = connect(mapStateToProps, mapDispatchToProps)(UnconnectedBioblocksPortalPage);
