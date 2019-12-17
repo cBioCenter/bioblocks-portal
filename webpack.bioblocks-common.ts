@@ -42,7 +42,10 @@ module.exports = {
         test: /\.js$/,
       },
       {
-        include: [/\**anatomogram*/, /\**bioblocks-viz*/],
+        include: [
+          path.resolve(__dirname, 'node_modules/anatomogram'),
+          path.resolve(__dirname, 'node_modules/bioblocks-viz'),
+        ],
         test: /\.(woff(2)?|ttf|png|eot)(\?v=\d+\.\d+\.\d+)?$/,
         use: [
           {
@@ -71,7 +74,10 @@ module.exports = {
         ],
       },
       {
-        include: [/\**anatomogram*/, /\**bioblocks-viz*/],
+        include: [
+          path.resolve(__dirname, 'node_modules/anatomogram'),
+          path.resolve(__dirname, 'node_modules/bioblocks-viz'),
+        ],
         test: /\.(svg)$/i,
         use: [
           {
