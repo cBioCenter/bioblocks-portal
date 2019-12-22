@@ -1,5 +1,4 @@
-// tslint:disable-next-line: match-default-export-name
-import pako from 'pako';
+import * as pako from 'pako';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
