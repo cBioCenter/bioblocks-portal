@@ -41,8 +41,11 @@ export class UnconnectedDatasetsPage extends React.Component<IDatasetsPageProps,
     for (const analysis of analyses) {
       if (analysis.processType === 'SPRING') {
         result += '&viz=bbfacade-0000-0000-0001-a1234567890b';
+        result += '&viz=bbfacade-0000-0000-0004-a1234567890b';
       } else if (analysis.processType === 'TSNE') {
-        result += '&viz=bbfacade-0000-0000-0003-a1234567890b';
+        // result += '&viz=bbfacade-0000-0000-0003-a1234567890b';
+      } else if (analysis.processType === 'UMAP') {
+        result += '&viz=bbfacade-0000-0000-0004-a1234567890b';
       } else {
         console.log(`Process ${analysis._id} has unhandled process of type '${analysis.processType}'.`);
       }
@@ -79,7 +82,16 @@ export class UnconnectedDatasetsPage extends React.Component<IDatasetsPageProps,
         <p>
           <span style={{ fontWeight: 'bold' }}>{`Analyses: ${dataset.analyses.length}`}</span>
         </p>
-        <p>
+        {dataset.matrixInfo && (
+          <p>
+            <span style={{ fontWeight: 'bold' }}>
+              {`Matrix Rows: ${dataset.matrixInfo.rowCount}`}
+              <br />
+              {`Matrix Columns: ${dataset.matrixInfo.colCount}`}
+            </span>
+          </p>
+        )}
+        {/*<p>
           <span style={{ fontWeight: 'bold' }}>
             {'Derived from: '}
             {dataset.derivedFrom.length >= 1 ? (
@@ -88,7 +100,7 @@ export class UnconnectedDatasetsPage extends React.Component<IDatasetsPageProps,
               'Nothing'
             )}
           </span>
-        </p>
+            </p>*/}
         <br />
       </Grid.Column>
     );

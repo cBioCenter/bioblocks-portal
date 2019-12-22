@@ -9,11 +9,17 @@ export interface IAnalysis {
   processType: BIOBLOCKS_PROCESS_TYPE;
 }
 
+export interface IMatrixInfo {
+  colCount: number;
+  rowCount: number;
+}
+
 export interface IDataset {
   _id: string;
   analyses: IAnalysis[];
   authors: string[];
   derivedFrom: IDataset[];
+  matrixInfo?: IMatrixInfo;
   matrixLocation: string;
   name: string;
   species?: SPECIES_TYPE;
