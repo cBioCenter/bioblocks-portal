@@ -24,18 +24,6 @@ exports[`DatasetsPage Should match existing snapshot when given a dataset. 1`] =
           Analyses: 0
         </span>
       </p>
-      <p>
-        <span
-          style={
-            Object {
-              "fontWeight": "bold",
-            }
-          }
-        >
-          Derived from: 
-          Nothing
-        </span>
-      </p>
       <br />
     </GridColumn>
     <GridColumn />
@@ -95,18 +83,6 @@ exports[`DatasetsPage Should render dynamics links correctly. 1`] = `
           Analyses: 2
         </span>
       </p>
-      <p>
-        <span
-          style={
-            Object {
-              "fontWeight": "bold",
-            }
-          }
-        >
-          Derived from: 
-          Nothing
-        </span>
-      </p>
       <br />
     </GridColumn>
     <GridColumn>
@@ -115,7 +91,7 @@ exports[`DatasetsPage Should render dynamics links correctly. 1`] = `
         basic={true}
       >
         <Link
-          to="/dynamics?id=some-kind-of-musical-reference&viz=bbfacade-0000-0000-0001-a1234567890b&viz=bbfacade-0000-0000-0003-a1234567890b"
+          to="/dynamics?id=some-kind-of-musical-reference&viz=bbfacade-0000-0000-0001-a1234567890b&viz=bbfacade-0000-0000-0004-a1234567890b"
         >
           launch
         </Link>
