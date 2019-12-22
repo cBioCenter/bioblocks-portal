@@ -1,4 +1,4 @@
-import { default as pako } from 'pako';
+import * as pako from 'pako';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
@@ -9,7 +9,6 @@ import {
   EMPTY_FUNCTION,
   fetchDataset,
   fetchJSONFile,
-  fetchMatrixData,
   ICategoricalAnnotation,
   SPECIES_TYPE,
   SpringContainer,
