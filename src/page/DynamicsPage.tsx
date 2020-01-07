@@ -9,6 +9,7 @@ import {
   EMPTY_FUNCTION,
   fetchDataset,
   fetchJSONFile,
+  fetchMatrixData,
   ICategoricalAnnotation,
   SPECIES_TYPE,
   SpringContainer,
@@ -129,28 +130,8 @@ export class UnconnectedDynamicsPage extends React.Component<IDynamicsPageProps,
         `${springLocation}/${dataset.name}/categorical_coloring_data.json`,
       )) as ICategoricalAnnotation;
 
-      const gzippedPCA = (await fetch(`${springLocation}/${dataset.name}/pca.csv.gz`)).body;
+      scRNAseqMatrix = await fetchMatrixData(`${springLocation}/${dataset.name}/pca.csv`);
 
-      if (gzippedPCA) {
-        const reader = gzippedPCA.getReader();
-        let readerResult = await reader.read();
-        const unzipper = new pako.Inflate({ to: 'string' });
-        while (readerResult.done === false) {
-          unzipper.push(readerResult.value, false);
-          readerResult = await reader.read();
-        }
-        unzipper.push(readerResult.value, true);
-        const result: number[][] = [];
-        (unzipper.result as string).split('\n').forEach(entry => {
-          if (entry.length > 0) {
-            const items = entry.split(',').map(Number.parseFloat);
-            result.push(items);
-          }
-        });
-        scRNAseqMatrix = result;
-      } else {
-        console.log(`Unable to parse file ${springLocation}/${dataset.name}/pca.csv.gz`);
-      }
       scRNAseqCategorySelected =
         Object.keys(scRNAseqCategoricalData).length >= 1
           ? Object.keys(scRNAseqCategoricalData)[0]
