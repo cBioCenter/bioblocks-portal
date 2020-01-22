@@ -1,6 +1,7 @@
 import { ConnectedRouter } from 'connected-react-router';
 import { mount, shallow } from 'enzyme';
 import { createMemoryHistory } from 'history';
+import { FetchMock } from 'jest-fetch-mock';
 import * as React from 'react';
 import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router';
@@ -59,6 +60,22 @@ describe('BioblocksPortalPage', () => {
   it('Should update the page when navigating to a page', () => {
     [['/datasets'], ['/visualizations'], ['/visualizations/'], ['/dynamics'], ['/vignettes'], ['/']].forEach(
       ([page]) => {
+        (fetch as FetchMock).mockResponse(() =>
+          Promise.resolve().then(res => ({
+            body: JSON.stringify({
+              _items: [
+                {
+                  _id: 'some-kind-of-musical-reference',
+                  analyses: [],
+                  authors: [],
+                  derivedFrom: [],
+                  matrixLocation: '',
+                  name: '',
+                },
+              ],
+            }),
+          })),
+        );
         const store = configureStore();
         const history = createMemoryHistory();
         const wrapper = mount(

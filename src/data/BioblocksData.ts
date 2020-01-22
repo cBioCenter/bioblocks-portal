@@ -5,6 +5,7 @@ export type BIOBLOCKS_PROCESS_TYPE = 'SPRING' | 'TSNE';
 
 export interface IAnalysis {
   _id: string;
+  name: string;
   parameters?: object;
   processType: BIOBLOCKS_PROCESS_TYPE;
 }
