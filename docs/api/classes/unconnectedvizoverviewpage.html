@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>UnconnectedVizOverviewPage | bioblocks-portal</title>
+	<title>UnconnectedVizOverviewPage | bioblocks-portal - v0.0.1</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title">bioblocks-portal</a>
+					<a href="../index.html" class="title">bioblocks-portal - v0.0.1</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -153,7 +153,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides Component.__constructor</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/8b2a309/src/page/VizOverviewPage.tsx#L23">src/page/VizOverviewPage.tsx:23</a></li>
+									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/7eda265/src/page/VizOverviewPage.tsx#L23">src/page/VizOverviewPage.tsx:23</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -176,22 +176,23 @@
 					<aside class="tsd-sources">
 						<p>Inherited from Component.context</p>
 						<ul>
-							<li>Defined in node_modules/@types/react/index.d.ts:426</li>
+							<li>Defined in node_modules/@types/react/index.d.ts:447</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>If using the new style context, re-declare this in your class to be the
-							<code>React.ContextType</code> of your <code>static contextType</code>.</p>
+								<code>React.ContextType</code> of your <code>static contextType</code>.
+							Should be used with type annotation or static contextType.</p>
 						</div>
 						<pre><code class="language-ts"><span class="hljs-keyword">static</span> contextType = MyContext
-context!: React.ContextType&lt;<span class="hljs-keyword">typeof</span> MyContext&gt;</code></pre>
+<span class="hljs-comment">// For TS pre-3.7:</span>
+context!: React.ContextType&lt;<span class="hljs-keyword">typeof</span> MyContext&gt;
+<span class="hljs-comment">// For TS 3.7 and above:</span>
+<span class="hljs-keyword">declare</span> context: React.ContextType&lt;<span class="hljs-keyword">typeof</span> MyContext&gt;</code></pre>
 						<dl class="tsd-comment-tags">
-							<dt>deprecated</dt>
-							<dd><p>if used without a type annotation, or without static contextType</p>
-							</dd>
 							<dt>see</dt>
-							<dd><p><a href="https://reactjs.org/docs/legacy-context.html">https://reactjs.org/docs/legacy-context.html</a></p>
+							<dd><p><a href="https://reactjs.org/docs/context.html">https://reactjs.org/docs/context.html</a></p>
 							</dd>
 						</dl>
 					</div>
@@ -203,7 +204,7 @@ context!: React.ContextType&lt;<span class="hljs-keyword">typeof</span> MyContex
 					<aside class="tsd-sources">
 						<p>Inherited from Component.props</p>
 						<ul>
-							<li>Defined in node_modules/@types/react/index.d.ts:451</li>
+							<li>Defined in node_modules/@types/react/index.d.ts:472</li>
 						</ul>
 					</aside>
 				</section>
@@ -214,7 +215,7 @@ context!: React.ContextType&lt;<span class="hljs-keyword">typeof</span> MyContex
 					<aside class="tsd-sources">
 						<p>Inherited from Component.refs</p>
 						<ul>
-							<li>Defined in node_modules/@types/react/index.d.ts:457</li>
+							<li>Defined in node_modules/@types/react/index.d.ts:478</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -240,7 +241,7 @@ context!: React.ContextType&lt;<span class="hljs-keyword">typeof</span> MyContex
 					<aside class="tsd-sources">
 						<p>Inherited from Component.state</p>
 						<ul>
-							<li>Defined in node_modules/@types/react/index.d.ts:452</li>
+							<li>Defined in node_modules/@types/react/index.d.ts:473</li>
 						</ul>
 					</aside>
 				</section>
@@ -251,7 +252,7 @@ context!: React.ContextType&lt;<span class="hljs-keyword">typeof</span> MyContex
 					<aside class="tsd-sources">
 						<p>Inherited from Component.contextType</p>
 						<ul>
-							<li>Defined in node_modules/@types/react/index.d.ts:411</li>
+							<li>Defined in node_modules/@types/react/index.d.ts:429</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -290,7 +291,7 @@ class Foo extends React.Component {
 							<aside class="tsd-sources">
 								<p>Inherited from DeprecatedLifecycle.UNSAFE_componentWillMount</p>
 								<ul>
-									<li>Defined in node_modules/@types/react/index.d.ts:639</li>
+									<li>Defined in node_modules/@types/react/index.d.ts:660</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -328,7 +329,7 @@ class Foo extends React.Component {
 							<aside class="tsd-sources">
 								<p>Inherited from DeprecatedLifecycle.UNSAFE_componentWillReceiveProps</p>
 								<ul>
-									<li>Defined in node_modules/@types/react/index.d.ts:671</li>
+									<li>Defined in node_modules/@types/react/index.d.ts:692</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -377,7 +378,7 @@ class Foo extends React.Component {
 							<aside class="tsd-sources">
 								<p>Inherited from DeprecatedLifecycle.UNSAFE_componentWillUpdate</p>
 								<ul>
-									<li>Defined in node_modules/@types/react/index.d.ts:699</li>
+									<li>Defined in node_modules/@types/react/index.d.ts:720</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -427,7 +428,7 @@ class Foo extends React.Component {
 							<aside class="tsd-sources">
 								<p>Inherited from ComponentLifecycle.componentDidCatch</p>
 								<ul>
-									<li>Defined in node_modules/@types/react/index.d.ts:568</li>
+									<li>Defined in node_modules/@types/react/index.d.ts:589</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -460,7 +461,7 @@ class Foo extends React.Component {
 							<aside class="tsd-sources">
 								<p>Inherited from ComponentLifecycle.componentDidMount</p>
 								<ul>
-									<li>Defined in node_modules/@types/react/index.d.ts:547</li>
+									<li>Defined in node_modules/@types/react/index.d.ts:568</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -483,7 +484,7 @@ class Foo extends React.Component {
 							<aside class="tsd-sources">
 								<p>Overrides NewLifecycle.componentDidUpdate</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/8b2a309/src/page/VizOverviewPage.tsx#L44">src/page/VizOverviewPage.tsx:44</a></li>
+									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/7eda265/src/page/VizOverviewPage.tsx#L44">src/page/VizOverviewPage.tsx:44</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -510,7 +511,7 @@ class Foo extends React.Component {
 							<aside class="tsd-sources">
 								<p>Overrides DeprecatedLifecycle.componentWillMount</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/8b2a309/src/page/VizOverviewPage.tsx#L32">src/page/VizOverviewPage.tsx:32</a></li>
+									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/7eda265/src/page/VizOverviewPage.tsx#L32">src/page/VizOverviewPage.tsx:32</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -528,7 +529,7 @@ class Foo extends React.Component {
 							<aside class="tsd-sources">
 								<p>Inherited from DeprecatedLifecycle.componentWillReceiveProps</p>
 								<ul>
-									<li>Defined in node_modules/@types/react/index.d.ts:654</li>
+									<li>Defined in node_modules/@types/react/index.d.ts:675</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -576,7 +577,7 @@ class Foo extends React.Component {
 							<aside class="tsd-sources">
 								<p>Inherited from ComponentLifecycle.componentWillUnmount</p>
 								<ul>
-									<li>Defined in node_modules/@types/react/index.d.ts:563</li>
+									<li>Defined in node_modules/@types/react/index.d.ts:584</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -600,7 +601,7 @@ class Foo extends React.Component {
 							<aside class="tsd-sources">
 								<p>Inherited from DeprecatedLifecycle.componentWillUpdate</p>
 								<ul>
-									<li>Defined in node_modules/@types/react/index.d.ts:684</li>
+									<li>Defined in node_modules/@types/react/index.d.ts:705</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -642,20 +643,20 @@ class Foo extends React.Component {
 					<a name="forceupdate" class="tsd-anchor"></a>
 					<h3>force<wbr>Update</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">force<wbr>Update<span class="tsd-signature-symbol">(</span>callBack<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">force<wbr>Update<span class="tsd-signature-symbol">(</span>callback<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from Component.forceUpdate</p>
 								<ul>
-									<li>Defined in node_modules/@types/react/index.d.ts:443</li>
+									<li>Defined in node_modules/@types/react/index.d.ts:464</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> callBack: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">function</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> callback: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">function</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -673,7 +674,7 @@ class Foo extends React.Component {
 							<aside class="tsd-sources">
 								<p>Inherited from NewLifecycle.getSnapshotBeforeUpdate</p>
 								<ul>
-									<li>Defined in node_modules/@types/react/index.d.ts:604</li>
+									<li>Defined in node_modules/@types/react/index.d.ts:625</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -712,7 +713,7 @@ class Foo extends React.Component {
 							<aside class="tsd-sources">
 								<p>Overrides Component.render</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/8b2a309/src/page/VizOverviewPage.tsx#L59">src/page/VizOverviewPage.tsx:59</a></li>
+									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/7eda265/src/page/VizOverviewPage.tsx#L59">src/page/VizOverviewPage.tsx:59</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">null</span>
@@ -732,7 +733,7 @@ class Foo extends React.Component {
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/8b2a309/src/page/VizOverviewPage.tsx#L83">src/page/VizOverviewPage.tsx:83</a></li>
+									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/7eda265/src/page/VizOverviewPage.tsx#L83">src/page/VizOverviewPage.tsx:83</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -755,7 +756,7 @@ class Foo extends React.Component {
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/8b2a309/src/page/VizOverviewPage.tsx#L126">src/page/VizOverviewPage.tsx:126</a></li>
+									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/7eda265/src/page/VizOverviewPage.tsx#L126">src/page/VizOverviewPage.tsx:126</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -778,7 +779,7 @@ class Foo extends React.Component {
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/8b2a309/src/page/VizOverviewPage.tsx#L96">src/page/VizOverviewPage.tsx:96</a></li>
+									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/7eda265/src/page/VizOverviewPage.tsx#L96">src/page/VizOverviewPage.tsx:96</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -801,7 +802,7 @@ class Foo extends React.Component {
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/8b2a309/src/page/VizOverviewPage.tsx#L155">src/page/VizOverviewPage.tsx:155</a></li>
+									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/7eda265/src/page/VizOverviewPage.tsx#L155">src/page/VizOverviewPage.tsx:155</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -824,7 +825,7 @@ class Foo extends React.Component {
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/8b2a309/src/page/VizOverviewPage.tsx#L168">src/page/VizOverviewPage.tsx:168</a></li>
+									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/7eda265/src/page/VizOverviewPage.tsx#L168">src/page/VizOverviewPage.tsx:168</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -847,7 +848,7 @@ class Foo extends React.Component {
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/8b2a309/src/page/VizOverviewPage.tsx#L189">src/page/VizOverviewPage.tsx:189</a></li>
+									<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/7eda265/src/page/VizOverviewPage.tsx#L189">src/page/VizOverviewPage.tsx:189</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -871,7 +872,7 @@ class Foo extends React.Component {
 							<aside class="tsd-sources">
 								<p>Inherited from Component.setState</p>
 								<ul>
-									<li>Defined in node_modules/@types/react/index.d.ts:438</li>
+									<li>Defined in node_modules/@types/react/index.d.ts:459</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -904,7 +905,7 @@ class Foo extends React.Component {
 							<aside class="tsd-sources">
 								<p>Inherited from ComponentLifecycle.shouldComponentUpdate</p>
 								<ul>
-									<li>Defined in node_modules/@types/react/index.d.ts:558</li>
+									<li>Defined in node_modules/@types/react/index.d.ts:579</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -942,7 +943,7 @@ class Foo extends React.Component {
 					<div class="tsd-signature tsd-kind-icon">default<wbr>Props<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/8b2a309/src/page/VizOverviewPage.tsx#L20">src/page/VizOverviewPage.tsx:20</a></li>
+							<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/7eda265/src/page/VizOverviewPage.tsx#L20">src/page/VizOverviewPage.tsx:20</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -951,7 +952,7 @@ class Foo extends React.Component {
 						<div class="tsd-signature tsd-kind-icon">vignettes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">never</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/8b2a309/src/page/VizOverviewPage.tsx#L21">src/page/VizOverviewPage.tsx:21</a></li>
+								<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/7eda265/src/page/VizOverviewPage.tsx#L21">src/page/VizOverviewPage.tsx:21</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -961,7 +962,7 @@ class Foo extends React.Component {
 						<div class="tsd-signature tsd-kind-icon">visualizations<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">never</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/8b2a309/src/page/VizOverviewPage.tsx#L22">src/page/VizOverviewPage.tsx:22</a></li>
+								<li>Defined in <a href="https://github.com/cBioCenter/bioblocks-portal/blob/7eda265/src/page/VizOverviewPage.tsx#L22">src/page/VizOverviewPage.tsx:22</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -1088,6 +1089,7 @@ class Foo extends React.Component {
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
 				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
@@ -1136,7 +1138,7 @@ class Foo extends React.Component {
 	</div>
 </footer>
 <div class="container tsd-generator">
-	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>
