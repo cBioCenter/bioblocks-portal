@@ -37,10 +37,12 @@ describe('DatasetsPage', () => {
         analyses: [
           {
             _id: 'down-the-road...',
+            name: 'Eyes Wide',
             processType: 'SPRING',
           },
           {
             _id: 'and-back-again...',
+            name: 'Tongue Tied',
             processType: 'TSNE',
           },
         ],
@@ -69,10 +71,12 @@ describe('DatasetsPage', () => {
         analyses: [
           {
             _id: 'yes',
+            name: 'will_it_blend_0',
             processType: 'SPRING',
           },
           {
             _id: 'no',
+            name: 'will_it_blend_1',
             processType: 'SPRING',
           },
         ],
@@ -86,6 +90,7 @@ describe('DatasetsPage', () => {
         analyses: [
           {
             _id: 'maybe',
+            name: 'will_it_blend_2',
             processType: 'SPRING',
           },
         ],

@@ -31,6 +31,7 @@ export interface IDynamicsPageProps {
 }
 
 export interface IDynamicsPageState {
+  analysisId: string;
   datasetVisualizations: IVisualization[];
   datasetLocation: string;
   isFetching: boolean;
@@ -52,6 +53,7 @@ export class UnconnectedDynamicsPage extends React.Component<IDynamicsPageProps,
   constructor(props: IDynamicsPageProps) {
     super(props);
     this.state = {
+      analysisId: '',
       datasetLocation: 'hpc_sf2/full',
       datasetVisualizations: [],
       isFetching: false,
@@ -120,12 +122,12 @@ export class UnconnectedDynamicsPage extends React.Component<IDynamicsPageProps,
     this.setState({
       isFetching: true,
     });
-    const { datasetLocation } = this.state;
+    const { analysisId, datasetLocation } = this.state;
     let { scRNAseqCategoricalData, scRNAseqMatrix, scRNAseqCategorySelected } = this.state;
 
     const springAnalysis = dataset.analyses.find(anAnalysis => anAnalysis.processType === 'SPRING');
     if (springAnalysis) {
-      const springLocation = `${process.env.API_URL}/datasets/${datasetLocation}/analyses/${springAnalysis._id}`;
+      const springLocation = `${process.env.API_URL}/datasets/${datasetLocation}/analyses/${analysisId}`;
       scRNAseqCategoricalData = (await fetchJSONFile(
         `${springLocation}/${dataset.name}/categorical_coloring_data.json`,
       )) as ICategoricalAnnotation;
@@ -166,7 +168,11 @@ export class UnconnectedDynamicsPage extends React.Component<IDynamicsPageProps,
         }
       });
 
+      // tslint:disable-next-line:no-backbone-get-set-outside-model
+      const analysisId = vignetteParams.get('analysis');
+
       this.setState({
+        analysisId: analysisId ? analysisId : '',
         datasetLocation,
         datasetVisualizations,
       });
@@ -188,19 +194,12 @@ export class UnconnectedDynamicsPage extends React.Component<IDynamicsPageProps,
     datasetLocation: string,
     iconSrc: string,
   ) {
-    let analysisLocation = '';
-    if (this.props.dataset) {
-      const analysis = this.props.dataset.analyses.find(anAnalysis => anAnalysis.processType === 'SPRING');
-      if (analysis) {
-        analysisLocation = analysis._id;
-      }
-    }
-
+    const { analysisId } = this.state;
     const datasetName = this.props.dataset ? this.props.dataset.name : '';
 
     return (
       <SpringContainer
-        datasetLocation={`datasets/${datasetLocation}/analyses/${analysisLocation}/${datasetName}`}
+        datasetLocation={`datasets/${datasetLocation}/analyses/${analysisId}/${datasetName}`}
         datasetsURI={`${process.env.API_URL}/datasets`}
         isFullPage={isFullPage}
         springSrc={`${process.env.API_URL}/${viz.location}`}
@@ -232,21 +231,15 @@ export class UnconnectedDynamicsPage extends React.Component<IDynamicsPageProps,
   protected renderVisualization(viz: IVisualization, datasetLocation: string) {
     const isFullPage = this.state.datasetVisualizations.length === 1;
     const iconSrc = `${process.env.API_URL}${viz.icon}`;
-    let analysisLocation = '';
+    const { analysisId } = this.state;
+
     switch (viz.name.toLocaleLowerCase()) {
       case 'spring':
         return this.renderSpringVisualization(viz, isFullPage, datasetLocation, iconSrc);
       case 'tfjs-tsne':
-        if (this.props.dataset) {
-          const tsneAnalysis = this.props.dataset.analyses.find(analysis => analysis.processType === 'TSNE');
-          if (tsneAnalysis) {
-            analysisLocation = tsneAnalysis._id;
-          }
-        }
-
         return (
           <TensorTContainer
-            datasetLocation={`${process.env.API_URL}/datasets/${datasetLocation}/analyses/${analysisLocation}`}
+            datasetLocation={`${process.env.API_URL}/datasets/${datasetLocation}/analyses/${analysisId}`}
             iconSrc={iconSrc}
           />
         );

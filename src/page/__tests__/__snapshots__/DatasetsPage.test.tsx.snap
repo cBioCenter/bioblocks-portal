@@ -13,21 +13,12 @@ exports[`DatasetsPage Should match existing snapshot when given a dataset. 1`] =
       textAlign="left"
     >
       <Header />
-      <p>
-        <span
-          style={
-            Object {
-              "fontWeight": "bold",
-            }
-          }
-        >
-          Analyses: 0
-        </span>
-      </p>
-      <br />
+      <GridRow />
     </GridColumn>
-    <GridColumn />
   </GridRow>
+  <Divider
+    section={true}
+  />
 </Grid>
 `;
 
@@ -72,31 +63,34 @@ exports[`DatasetsPage Should render dynamics links correctly. 1`] = `
       textAlign="left"
     >
       <Header />
-      <p>
-        <span
-          style={
-            Object {
-              "fontWeight": "bold",
-            }
-          }
+      <GridRow>
+        <Button
+          as="button"
+          basic={true}
+          key="launch-button-for-down-the-road..."
         >
-          Analyses: 2
-        </span>
-      </p>
-      <br />
-    </GridColumn>
-    <GridColumn>
-      <Button
-        as="button"
-        basic={true}
-      >
-        <Link
-          to="/dynamics?id=some-kind-of-musical-reference&viz=bbfacade-0000-0000-0001-a1234567890b&viz=bbfacade-0000-0000-0004-a1234567890b"
+          <Link
+            to="/dynamics?id=some-kind-of-musical-reference&analysis=down-the-road...&viz=bbfacade-0000-0000-0001-a1234567890b&viz=bbfacade-0000-0000-0004-a1234567890b"
+          >
+            Launch 'Eyes Wide'
+          </Link>
+        </Button>
+        <Button
+          as="button"
+          basic={true}
+          key="launch-button-for-and-back-again..."
         >
-          launch
-        </Link>
-      </Button>
+          <Link
+            to="/dynamics?id=some-kind-of-musical-reference&analysis=and-back-again..."
+          >
+            Launch 'Tongue Tied'
+          </Link>
+        </Button>
+      </GridRow>
     </GridColumn>
   </GridRow>
+  <Divider
+    section={true}
+  />
 </Grid>
 `;

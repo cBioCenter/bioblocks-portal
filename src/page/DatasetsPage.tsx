@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
-import { Button, Grid, Header } from 'semantic-ui-react';
+import { Button, Divider, Grid, Header } from 'semantic-ui-react';
 
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -56,22 +56,20 @@ export class UnconnectedDatasetsPage extends React.Component<IDatasetsPageProps,
 
   protected renderSingleDatasetEntry(dataset: IDataset) {
     return (
-      <Grid.Row columns={3}>
-        {this.renderSingleDatasetEntryHeader(dataset)}
-        {this.renderSingleDatasetEntryContent(dataset)}
-      </Grid.Row>
+      <>
+        <Grid.Row columns={3}>{this.renderSingleDatasetEntryHeader(dataset)}</Grid.Row>
+        <Divider section={true} />
+      </>
     );
   }
 
-  protected renderSingleDatasetEntryContent(dataset: IDataset) {
+  protected renderDatasetAnalysisLink(analysis: IAnalysis, datasetId: string) {
+    const linkTo = `/dynamics?id=${datasetId}&analysis=${analysis._id}${this.getValidVizIds([analysis])}`;
+
     return (
-      <Grid.Column>
-        {dataset.analyses.length >= 1 && (
-          <Button basic={true}>
-            <Link to={`/dynamics?id=${dataset._id}${this.getValidVizIds(dataset.analyses)}`}>launch</Link>
-          </Button>
-        )}
-      </Grid.Column>
+      <Button basic={true} key={`launch-button-for-${analysis._id}`}>
+        <Link to={linkTo}>{`Launch '${analysis.name}'`}</Link>
+      </Button>
     );
   }
 
@@ -79,29 +77,8 @@ export class UnconnectedDatasetsPage extends React.Component<IDatasetsPageProps,
     return (
       <Grid.Column textAlign={'left'}>
         <Header>{dataset.name}</Header>
-        <p>
-          <span style={{ fontWeight: 'bold' }}>{`Analyses: ${dataset.analyses.length}`}</span>
-        </p>
-        {dataset.matrixInfo && (
-          <p>
-            <span style={{ fontWeight: 'bold' }}>
-              {`Matrix Rows: ${dataset.matrixInfo.rowCount}`}
-              <br />
-              {`Matrix Columns: ${dataset.matrixInfo.colCount}`}
-            </span>
-          </p>
-        )}
-        {/*<p>
-          <span style={{ fontWeight: 'bold' }}>
-            {'Derived from: '}
-            {dataset.derivedFrom.length >= 1 ? (
-              <Link to={`/dynamics?id=${dataset.derivedFrom[0]}`}>{dataset.derivedFrom[0]}</Link>
-            ) : (
-              'Nothing'
-            )}
-          </span>
-            </p>*/}
-        <br />
+
+        <Grid.Row>{dataset.analyses.map(analysis => this.renderDatasetAnalysisLink(analysis, dataset._id))}</Grid.Row>
       </Grid.Column>
     );
   }
