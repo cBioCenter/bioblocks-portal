@@ -114,7 +114,7 @@ exports[`AppsPage Should match existing snapshot when given sample visualization
         />
         <List>
           <ListItem>
-            original: Eminem
+            Eminem
           </ListItem>
           <ListItem />
           <ListItem>

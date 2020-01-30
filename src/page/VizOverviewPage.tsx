@@ -165,6 +165,7 @@ export class UnconnectedVizOverviewPage extends React.Component<IVizOverviewPage
       </Grid.Column>
     );
   }
+
   protected renderOverview(viz: IVisualization) {
     return (
       <Grid centered={true} columns={2}>

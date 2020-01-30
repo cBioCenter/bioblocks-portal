@@ -111,29 +111,26 @@ export class UnconnectedBioblocksPortalPage extends React.Component<IBioblocksPo
     const { vignettes, visualizations } = this.props;
 
     const featuredVignettes = new Array<IVignette>();
-    if (vignettes) {
-      const tabulaVignette = vignettes.find(vignette => vignette._id === 'bbdecade-0000-0000-0001-a1234567890b');
-      const springVignette = vignettes.find(vignette => vignette._id === 'bbdecade-0000-0000-0002-a1234567890b');
 
-      if (springVignette) {
-        featuredVignettes.push(springVignette);
-      }
-      if (tabulaVignette) {
-        featuredVignettes.push(tabulaVignette);
-      }
+    const tabulaVignette = vignettes.find(vignette => vignette._id === 'bbdecade-0000-0000-0001-a1234567890b');
+    const springVignette = vignettes.find(vignette => vignette._id === 'bbdecade-0000-0000-0002-a1234567890b');
+
+    if (springVignette) {
+      featuredVignettes.push(springVignette);
+    }
+    if (tabulaVignette) {
+      featuredVignettes.push(tabulaVignette);
     }
 
     const featuredVisualizations = new Array<IVisualization>();
-    if (visualizations) {
-      const springViz = visualizations.find(viz => viz.name === 'SPRING');
-      const umapViz = visualizations.find(viz => viz.name === 'UMAP');
+    const springViz = visualizations.find(viz => viz.name === 'SPRING');
+    const umapViz = visualizations.find(viz => viz.name === 'UMAP');
 
-      if (springViz) {
-        featuredVisualizations.push(springViz);
-      }
-      if (umapViz) {
-        featuredVisualizations.push(umapViz);
-      }
+    if (springViz) {
+      featuredVisualizations.push(springViz);
+    }
+    if (umapViz) {
+      featuredVisualizations.push(umapViz);
     }
 
     return (

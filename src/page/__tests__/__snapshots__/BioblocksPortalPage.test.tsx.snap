@@ -39,7 +39,12 @@ exports[`BioblocksPortalPage Should match existing snapshot when hooked up to a 
           "authors": Array [
             "Franz Ferdinand",
           ],
-          "citations": Array [],
+          "citations": Array [
+            Object {
+              "fullCitation": "A full citation",
+              "link": "A link",
+            },
+          ],
           "compatibleData": Array [],
           "exampleDataset": "bbdeeded-0000-0000-0001-a1234567890b",
           "isOriginal": true,
@@ -58,10 +63,15 @@ exports[`BioblocksPortalPage Should match existing snapshot when hooked up to a 
           "authors": Array [
             "Eminem",
           ],
-          "citations": Array [],
+          "citations": Array [
+            Object {
+              "fullCitation": "A full citation",
+              "link": "A link",
+            },
+          ],
           "compatibleData": Array [],
           "exampleDataset": "bbdeeded-0000-0000-0002-a1234567890b",
-          "isOriginal": true,
+          "isOriginal": false,
           "labels": Array [],
           "name": "",
           "repo": Object {
@@ -209,7 +219,12 @@ exports[`BioblocksPortalPage Should match existing snapshot when hooked up to a 
                         "authors": Array [
                           "Franz Ferdinand",
                         ],
-                        "citations": Array [],
+                        "citations": Array [
+                          Object {
+                            "fullCitation": "A full citation",
+                            "link": "A link",
+                          },
+                        ],
                         "compatibleData": Array [],
                         "exampleDataset": "bbdeeded-0000-0000-0001-a1234567890b",
                         "isOriginal": true,
@@ -228,10 +243,15 @@ exports[`BioblocksPortalPage Should match existing snapshot when hooked up to a 
                         "authors": Array [
                           "Eminem",
                         ],
-                        "citations": Array [],
+                        "citations": Array [
+                          Object {
+                            "fullCitation": "A full citation",
+                            "link": "A link",
+                          },
+                        ],
                         "compatibleData": Array [],
                         "exampleDataset": "bbdeeded-0000-0000-0002-a1234567890b",
-                        "isOriginal": true,
+                        "isOriginal": false,
                         "labels": Array [],
                         "name": "",
                         "repo": Object {
@@ -1196,10 +1216,15 @@ exports[`BioblocksPortalPage Should match existing snapshot when vignettes and v
             "authors": Array [
               "Eminem",
             ],
-            "citations": Array [],
+            "citations": Array [
+              Object {
+                "fullCitation": "A full citation",
+                "link": "A link",
+              },
+            ],
             "compatibleData": Array [],
             "exampleDataset": "bbdeeded-0000-0000-0002-a1234567890b",
-            "isOriginal": true,
+            "isOriginal": false,
             "labels": Array [],
             "name": "",
             "repo": Object {

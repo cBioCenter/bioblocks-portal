@@ -149,43 +149,41 @@ export class UnconnectedDynamicsPage extends React.Component<IDynamicsPageProps,
   };
 
   protected setupSearchParameters(query: string) {
-    const { dispatchDatasetFetch, vignettes, visualizations } = this.props;
+    const { dispatchDatasetFetch, visualizations } = this.props;
 
     let datasetLocation = this.state.datasetLocation;
     const datasetVisualizations = new Array<IVisualization>();
-    if (vignettes) {
-      const vignetteParams = new URLSearchParams(query);
-      // tslint:disable-next-line:no-backbone-get-set-outside-model
-      const datasetId = vignetteParams.get('id');
+    const vignetteParams = new URLSearchParams(query);
+    // tslint:disable-next-line:no-backbone-get-set-outside-model
+    const datasetId = vignetteParams.get('id');
 
-      datasetLocation = datasetId ? datasetId : datasetLocation;
-      const vizIds = vignetteParams.getAll('viz');
+    datasetLocation = datasetId ? datasetId : datasetLocation;
+    const vizIds = vignetteParams.getAll('viz');
 
-      vizIds.forEach(vizId => {
-        const viz = visualizations.find(aViz => vizId === aViz._id);
-        if (viz) {
-          datasetVisualizations.push(viz);
-        }
-      });
+    vizIds.forEach(vizId => {
+      const viz = visualizations.find(aViz => vizId === aViz._id);
+      if (viz) {
+        datasetVisualizations.push(viz);
+      }
+    });
 
-      // tslint:disable-next-line:no-backbone-get-set-outside-model
-      const analysisId = vignetteParams.get('analysis');
+    // tslint:disable-next-line:no-backbone-get-set-outside-model
+    const analysisId = vignetteParams.get('analysis');
 
-      this.setState({
-        analysisId: analysisId ? analysisId : '',
-        datasetLocation,
-        datasetVisualizations,
-      });
+    this.setState({
+      analysisId: analysisId ? analysisId : '',
+      datasetLocation,
+      datasetVisualizations,
+    });
 
-      dispatchDatasetFetch('dataset', async () => {
-        const datasetFetchResult = await fetch(`${process.env.API_URL}/dataset/${datasetId}?embedded={"analyses":1}`);
-        if (datasetFetchResult.ok) {
-          return (await datasetFetchResult.json()) as IDataset;
-        } else {
-          return null;
-        }
-      });
-    }
+    dispatchDatasetFetch('dataset', async () => {
+      const datasetFetchResult = await fetch(`${process.env.API_URL}/dataset/${datasetId}?embedded={"analyses":1}`);
+      if (datasetFetchResult.ok) {
+        return (await datasetFetchResult.json()) as IDataset;
+      } else {
+        return null;
+      }
+    });
   }
 
   protected renderSpringVisualization(
@@ -244,8 +242,9 @@ export class UnconnectedDynamicsPage extends React.Component<IDynamicsPageProps,
           />
         );
       case 'anatomogram':
+        console.log(this.props.dataset);
         const species: SPECIES_TYPE =
-          this.props.dataset && this.props.dataset.species === 'mus_musculus' ? 'mus_musculus' : 'homo_sapiens';
+          this.props.dataset && this.props.dataset.species ? this.props.dataset.species : 'homo_sapiens';
 
         return <AnatomogramContainer species={species} iconSrc={iconSrc} />;
       case 'umap':

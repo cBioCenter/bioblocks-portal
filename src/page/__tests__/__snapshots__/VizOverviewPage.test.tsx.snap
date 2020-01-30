@@ -1,8 +1,354 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`VizOverviewPage Should match existing snapshot when chenging the visualization via routing 1`] = `""`;
+exports[`VizOverviewPage Should match existing snapshot when changing the visualization via routing 1`] = `
+<Container>
+  <Grid
+    centered={true}
+    columns={2}
+  >
+    <GridColumn
+      width={2}
+    >
+      <img
+        alt="icon for "
+        src="undefinedundefined"
+        style={
+          Object {
+            "height": "150px",
+            "padding": "20px",
+          }
+        }
+      />
+    </GridColumn>
+    <GridColumn
+      textAlign="left"
+    >
+      <Header
+        as="h1"
+      >
+        <HeaderSubheader>
+          Eminem
+        </HeaderSubheader>
+      </Header>
+      <p />
+      <List>
+        <ListItem>
+          compatible with: 
+        </ListItem>
+        <ListItem>
+          citation(s):
+           
+          A full citation
+           (
+          <a
+            href="A link"
+          >
+            link
+          </a>
+          )
+        </ListItem>
+        <ListItem>
+          version: 
+           (last updated 
+          03/13/19
+          ),
+          <a
+            href="The Ringer"
+          >
+             github link
+          </a>
+        </ListItem>
+        <ListItem>
+          <GridColumn
+            floated="right"
+          >
+            <Button
+              as="button"
+              basic={true}
+              icon={true}
+              labelPosition="right"
+            >
+              <Link
+                to={
+                  Object {
+                    "pathname": "/dynamics",
+                    "search": "?id=bbdeeded-0000-0000-0002-a1234567890b&viz=bbfacade-0000-0000-0002-a1234567890b",
+                  }
+                }
+              >
+                launch 
+              </Link>
+              <Icon
+                as="i"
+                name="external alternate"
+              />
+            </Button>
+          </GridColumn>
+        </ListItem>
+      </List>
+    </GridColumn>
+  </Grid>
+  <Accordion
+    defaultActiveIndex={0}
+    panels={
+      Array [
+        Object {
+          "content": Object {
+            "content": <React.Fragment>
+              <Divider />
+              <Grid
+                centered={true}
+                columns={1}
+                container={true}
+                divided="vertically"
+                style={
+                  Object {
+                    "padding": "10px 0",
+                  }
+                }
+              >
+                <GridRow
+                  columns={2}
+                >
+                  <React.Fragment>
+                    <GridColumn
+                      width={2}
+                    >
+                      <img
+                        alt=" icon"
+                        src="undefined"
+                        style={
+                          Object {
+                            "height": "75px",
+                            "width": "75px",
+                          }
+                        }
+                      />
+                    </GridColumn>
+                    <GridColumn
+                      textAlign="left"
+                      width={8}
+                    >
+                      <Header>
+                        
+                      </Header>
+                      <p>
+                        Rise Against Viz
+                      </p>
+                    </GridColumn>
+                    <GridColumn
+                      floated="right"
+                    >
+                      <Button
+                        as="button"
+                        basic={true}
+                        icon={true}
+                        labelPosition="right"
+                      >
+                        <ForwardRef
+                          to="/dynamics?id=&viz=bbfacade-0000-0000-0001-a1234567890b"
+                        >
+                          launch example
+                        </ForwardRef>
+                        <Icon
+                          as="i"
+                          name="external alternate"
+                        />
+                      </Button>
+                    </GridColumn>
+                  </React.Fragment>
+                </GridRow>
+              </Grid>
+            </React.Fragment>,
+          },
+          "key": "examples",
+          "title": "example vignettes",
+        },
+        Object {
+          "content": "Coming soon!",
+          "key": "learn",
+          "title": "learn",
+        },
+      ]
+    }
+  />
+</Container>
+`;
 
-exports[`VizOverviewPage Should match existing snapshot when chenging the visualization via routing 2`] = `""`;
+exports[`VizOverviewPage Should match existing snapshot when changing the visualization via routing 2`] = `
+<Container>
+  <Grid
+    centered={true}
+    columns={2}
+  >
+    <GridColumn
+      width={2}
+    >
+      <img
+        alt="icon for "
+        src="undefinedundefined"
+        style={
+          Object {
+            "height": "150px",
+            "padding": "20px",
+          }
+        }
+      />
+    </GridColumn>
+    <GridColumn
+      textAlign="left"
+    >
+      <Header
+        as="h1"
+      >
+        <HeaderSubheader>
+          Franz Ferdinand
+        </HeaderSubheader>
+      </Header>
+      <p />
+      <List>
+        <ListItem>
+          compatible with: 
+        </ListItem>
+        <ListItem>
+          citation(s):
+           
+          A full citation
+           (
+          <a
+            href="A link"
+          >
+            link
+          </a>
+          )
+        </ListItem>
+        <ListItem>
+          version: 
+           (last updated 
+          03/13/19
+          ),
+          <a
+            href="the-dark-of-the-matinée"
+          >
+             github link
+          </a>
+        </ListItem>
+        <ListItem>
+          <GridColumn
+            floated="right"
+          >
+            <Button
+              as="button"
+              basic={true}
+              icon={true}
+              labelPosition="right"
+            >
+              <Link
+                to={
+                  Object {
+                    "pathname": "/dynamics",
+                    "search": "?id=bbdeeded-0000-0000-0001-a1234567890b&viz=bbfacade-0000-0000-0001-a1234567890b",
+                  }
+                }
+              >
+                launch 
+              </Link>
+              <Icon
+                as="i"
+                name="external alternate"
+              />
+            </Button>
+          </GridColumn>
+        </ListItem>
+      </List>
+    </GridColumn>
+  </Grid>
+  <Accordion
+    defaultActiveIndex={0}
+    panels={
+      Array [
+        Object {
+          "content": Object {
+            "content": <React.Fragment>
+              <Divider />
+              <Grid
+                centered={true}
+                columns={1}
+                container={true}
+                divided="vertically"
+                style={
+                  Object {
+                    "padding": "10px 0",
+                  }
+                }
+              >
+                <GridRow
+                  columns={2}
+                >
+                  <React.Fragment>
+                    <GridColumn
+                      width={2}
+                    >
+                      <img
+                        alt=" icon"
+                        src="undefined"
+                        style={
+                          Object {
+                            "height": "75px",
+                            "width": "75px",
+                          }
+                        }
+                      />
+                    </GridColumn>
+                    <GridColumn
+                      textAlign="left"
+                      width={8}
+                    >
+                      <Header>
+                        
+                      </Header>
+                      <p>
+                        Rise Against Viz
+                      </p>
+                    </GridColumn>
+                    <GridColumn
+                      floated="right"
+                    >
+                      <Button
+                        as="button"
+                        basic={true}
+                        icon={true}
+                        labelPosition="right"
+                      >
+                        <ForwardRef
+                          to="/dynamics?id=&viz=bbfacade-0000-0000-0001-a1234567890b"
+                        >
+                          launch example
+                        </ForwardRef>
+                        <Icon
+                          as="i"
+                          name="external alternate"
+                        />
+                      </Button>
+                    </GridColumn>
+                  </React.Fragment>
+                </GridRow>
+              </Grid>
+            </React.Fragment>,
+          },
+          "key": "examples",
+          "title": "example vignettes",
+        },
+        Object {
+          "content": "Coming soon!",
+          "key": "learn",
+          "title": "learn",
+        },
+      ]
+    }
+  />
+</Container>
+`;
 
 exports[`VizOverviewPage Should match existing snapshot when given no vignettes or visualizations. 1`] = `""`;
 

@@ -17,17 +17,17 @@ describe('VizOverviewPage', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('Should match existing snapshot when chenging the visualization via routing', () => {
+  it('Should match existing snapshot when changing the visualization via routing', () => {
     const wrapper = shallow(
       <UnconnectedVizOverviewPage
-        location={{ search: 'id=eminem-viz-id', pathname: '', hash: '', state: '' }}
+        location={{ search: 'id=bbfacade-0000-0000-0002-a1234567890b', pathname: '', hash: '', state: '' }}
         vignettes={testVignettes}
         visualizations={testVisualizations}
       />,
     );
     expect(wrapper).toMatchSnapshot();
     wrapper.setProps({
-      location: { search: 'id=franz-ferdinand-viz-id', pathname: '', hash: '', state: '' },
+      location: { search: 'id=bbfacade-0000-0000-0001-a1234567890b', pathname: '', hash: '', state: '' },
     });
     wrapper.update();
     expect(wrapper).toMatchSnapshot();
