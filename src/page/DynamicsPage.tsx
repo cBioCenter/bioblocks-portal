@@ -217,7 +217,7 @@ export class UnconnectedDynamicsPage extends React.Component<IDynamicsPageProps,
           dataMatrix={scRNAseqMatrix}
           labelCategory={scRNAseqCategorySelected}
           numIterationsBeforeReRender={1}
-          numSamplesToShow={5000}
+          numSamplesToShow={scRNAseqMatrix.length}
           sampleNames={undefined}
         />
       );
