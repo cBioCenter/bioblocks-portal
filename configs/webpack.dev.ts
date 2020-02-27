@@ -4,6 +4,8 @@ import * as merge from 'webpack-merge';
 // tslint:disable-next-line:no-relative-imports
 import * as common from '../webpack.bioblocks-common';
 
+console.log(process.env.API_URL);
+
 const devConfig: webpack.Configuration = {
   devServer: {
     contentBase: './dist',
@@ -16,8 +18,8 @@ const devConfig: webpack.Configuration = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
-        API_URL: JSON.stringify('https://bioblocks.org'),
-        NODE_ENV: JSON.stringify('development'),
+        API_URL: process.env.API_URL ? JSON.stringify(process.env.API_URL) : JSON.stringify('https://bioblocks.org'),
+        NODE_ENV: process.env.NODE_ENV ? JSON.stringify(process.env.NODE_ENV) : JSON.stringify('development'),
       },
     }),
   ],
