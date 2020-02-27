@@ -1,3 +1,8 @@
+// ~bioblocks-portal~
+// Dynamics Page
+// Page responsible for rendering one or more visualizations.
+// ~bioblocks-portal~
+
 import * as pako from 'pako';
 import * as React from 'react';
 import { connect } from 'react-redux';

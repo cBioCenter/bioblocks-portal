@@ -1,3 +1,8 @@
+// ~bioblocks-portal~
+// Datasets Page
+// Page for displaying datasets available on bioblocks-server.
+// ~bioblocks-portal~
+
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
 import { Button, Divider, Grid, Header } from 'semantic-ui-react';

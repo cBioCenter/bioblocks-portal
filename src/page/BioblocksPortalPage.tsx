@@ -1,3 +1,8 @@
+// ~bioblocks-portal~
+// Bioblocks Portal Page
+// Home page for bioblocks portal.
+// ~bioblocks-portal~
+
 import { EMPTY_FUNCTION, fetchDataset } from 'bioblocks-viz';
 import { ConnectedRouter } from 'connected-react-router';
 import * as React from 'react';

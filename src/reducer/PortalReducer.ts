@@ -1,3 +1,8 @@
+// ~bioblocks-portal~
+// Portal Reducer
+// Reducer for bioblocks-portal, for handling routing and data returned from bioblocks-server.
+// ~bioblocks-portal~
+
 import { DataReducer } from 'bioblocks-viz';
 import { connectRouter, RouterState } from 'connected-react-router';
 import { History } from 'history';

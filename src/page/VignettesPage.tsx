@@ -1,3 +1,8 @@
+// ~bioblocks-portal~
+// Vignettes Page
+// Page to display information about vignettes from bioblocks-server.
+// ~bioblocks-portal~
+
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
 import { Link } from 'react-router-dom';

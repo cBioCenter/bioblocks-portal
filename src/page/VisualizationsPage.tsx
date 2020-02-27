@@ -1,3 +1,8 @@
+// ~bioblocks-portal~
+// VisualizationsPage
+// Page to display detailed information about visualizations available from bioblocks-server.
+// ~bioblocks-portal~
+
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
 import { Link } from 'react-router-dom';

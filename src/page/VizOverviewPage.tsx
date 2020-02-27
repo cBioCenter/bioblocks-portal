@@ -1,3 +1,8 @@
+// ~bioblocks-portal~
+// Viz Overview Page
+// Page to display detailed information about a single visualization.
+// ~bioblocks-portal~
+
 import { RouterState } from 'connected-react-router';
 import * as React from 'react';
 import { connect } from 'react-redux';
