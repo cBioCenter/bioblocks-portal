@@ -65,11 +65,26 @@
 				<a href="#a-hrefhttpscbiocentergithubiobioblocks-portalbioblocks-portala" id="a-hrefhttpscbiocentergithubiobioblocks-portalbioblocks-portala" style="color: inherit; text-decoration: none;">
 					<h1><a href="https://cbiocenter.github.io/bioblocks-portal/">Bioblocks Portal</a></h1>
 				</a>
+				<p>Bioblocks Portal is the frontend site for displaying data from the <a href="https://github.com/cBioCenter/bioblocks-server">Bioblocks Server</a>.</p>
 				<p><a href="https://circleci.com/gh/cBioCenter/bioblocks-portal"><img src="https://circleci.com/gh/cBioCenter/bioblocks-portal.svg?style=shield" alt="CircleCI"></a><a href="https://github.com/cBioCenter/bioblocks-portal/blob/master/LICENSE"><img src="https://img.shields.io/github/license/cBioCenter/bioblocks-portal.svg?style=flat" alt="GitHub license"></a><a href="https://github.com/prettier/prettier"><img src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat" alt="code style: prettier"></a><a href="https://codecov.io/gh/cBioCenter/bioblocks-portal/branch/master"><img src="https://img.shields.io/codecov/c/github/cBioCenter/bioblocks-portal/master.svg" alt="Coverage Status"></a></p>
-				<a href="#intro" id="intro" style="color: inherit; text-decoration: none;">
-					<h2>Intro</h2>
+				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+					<h2>Installation</h2>
 				</a>
-				<p>More details coming soon - be sure to check out our <a href="https://cbiocenter.github.io/bioblocks-portal">live examples</a>!</p>
+				<pre><code class="language-sh">git <span class="hljs-built_in">clone</span> git@github.com:cBioCenter/bioblocks-portal.git
+<span class="hljs-built_in">cd</span> bioblocks-portal
+yarn install</code></pre>
+				<a href="#running-locally" id="running-locally" style="color: inherit; text-decoration: none;">
+					<h2>Running Locally</h2>
+				</a>
+				<p>To start a local server that talks to <a href="https://bioblocks.org">Bioblocks.org</a>, simply run:</p>
+				<pre><code class="language-sh">yarn start:hot</code></pre>
+				<a href="#changing-the-api" id="changing-the-api" style="color: inherit; text-decoration: none;">
+					<h2>Changing the API</h2>
+				</a>
+				<p>The API endpoint that bioblocks-portal uses is determined by the environment argument <code>API_URL</code>, so if you want to test out a local bioblocks server instance you can run the frontend like so:</p>
+				<pre><code class="language-sh"><span class="hljs-built_in">cd</span> bioblocks-portal
+API_URL=your.local.bioblocks.server yarn run start:hot</code></pre>
+				<p>This default is set in webpack.dev.ts and webpack.prod.ts for development and production, respectively.</p>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
