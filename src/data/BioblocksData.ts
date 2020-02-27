@@ -1,3 +1,8 @@
+// ~bioblocks-portal~
+// Bioblocks Data
+// Types, Interfaces, and helper functions for interacting with data returned from bioblocks-server.
+// ~bioblocks-portal~
+
 import { SPECIES_TYPE } from 'bioblocks-viz';
 
 export type BIOBLOCKS_JOB_STATUS_TYPE = 'IN_PROGRESS' | 'ERROR' | 'COMPLETE';

@@ -1,3 +1,8 @@
+// ~bioblocks-portal~
+// Store
+// Store for bioblocks-portal, registers reducers using the bioblocks-viz ReducerRegistry as an example of its usage.
+// ~bioblocks-portal~
+
 import { BBStore, BioblocksMiddleware, DataReducer, ReducerRegistry } from 'bioblocks-viz';
 import { connectRouter, routerMiddleware } from 'connected-react-router';
 import { createHashHistory } from 'history';

@@ -1,3 +1,8 @@
+// ~bioblocks-portal~
+// Site Header
+// Nice little component to hold the header for the site.
+// ~bioblocks-portal~
+
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
